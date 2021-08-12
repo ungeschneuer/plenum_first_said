@@ -2,4 +2,6 @@ parser/__pycache__/*
 **/.DS_Store
 .DS_Store
 parser/test_db.py
+parser/build_database.py
 .env
+profil_context.pxd/
