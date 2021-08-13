@@ -123,6 +123,16 @@ def process_woerter (current_xml, sitzung, url):
                 possible_hyphenation = True
                 continue
 
+            # Zusammefassung oder binäre Ansprache
+            if '/' in word:
+                splitted = word.split('/')
+                word = splitted[0]
+
+                if check_word(splitted[1], sitzung, url):
+                    wordnum += 1
+
+
+
             
             if check_word(word, sitzung, url):
                 wordnum += 1
