@@ -38,7 +38,7 @@ def tweet_queue():
             sitzung = r.hget(key, "sitzung").decode("utf-8") 
             url = r.hget(key, "url").decode("utf-8") 
 
-            expireTime = 60*round(random.randrange(0,30))
+            expireTime = 60*round(random.randrange(0,20))
 
             if tweet_word(word, sitzung, url):
                 capture_message("Tweet wurde gesendet.")
