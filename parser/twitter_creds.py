@@ -47,11 +47,9 @@ def tweet_word(word, sitzung, url):
             return False
         
     except UnicodeDecodeError as e:
-        print(e)
         capture_exception(e)
         return False
     except twitter.TwitterError as e:
-        print(e)
         capture_exception(e)
         return False
 

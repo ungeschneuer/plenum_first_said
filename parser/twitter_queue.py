@@ -20,8 +20,6 @@ def is_time_between(begin_time, end_time):
 
 def add_to_queue(word, sitzung, url):
 
-    print(word)
-
     r.hset(word, "word", word)
     r.hset(word, "sitzung", sitzung)
     r.hset(word, "url", url)
@@ -42,6 +40,7 @@ def tweet_queue():
         expireTime = 60*round(random.randrange(0,30))
 
         if tweet_word(word, sitzung, url):
+            capture_message("Tweet wurde gesendet.")
             r.set('meta:tweetstop', 1 , ex=expireTime)
             r.delete(key)
 

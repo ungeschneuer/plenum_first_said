@@ -48,7 +48,6 @@ def add_word(word):
     wkey = "word:" + word
     if not r.get(wkey):
         r.set(wkey, '1')
-        print(word)
         return True
     return False
 
