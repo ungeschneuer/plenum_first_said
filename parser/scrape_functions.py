@@ -40,15 +40,30 @@ def check_word(word, sitzung, url):
 def ok_word(s):
     if s.endswith('.') or s.endswith('’'):  # trim trailing
         s = s[:-1]
+
+    if s.endswith('ts'):
+        return False
+
     return (not any(i.isdigit() or i in '(.@/#-_§ ' for i in s))
 
 
-# Wort zur Datenbank hinzufügen
+# Wort abgleichen und zur Datenbank hinzufügen
 def add_word(word):
+
     wkey = "word:" + word
+
     if not r.get(wkey):
+
+        # Checken ob einfach Plural vom existierenden
+        if word.endswith('s'):
+            wkeysingular = "word:" + word[:-1]
+            if r.get(wkeysingular):
+                return False
+        
         r.set(wkey, '1')
         return True
+
+
     return False
 
 # Filtert aus XML Datei die tatsächlichen Wortbeiträge
