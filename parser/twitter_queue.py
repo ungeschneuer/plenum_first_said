@@ -33,18 +33,19 @@ def tweet_queue():
 
     if tweetstop is None:
         key = r.randomkey()
-        word = r.hget(key, "word").decode("utf-8") 
-        sitzung = r.hget(key, "sitzung").decode("utf-8") 
-        url = r.hget(key, "url").decode("utf-8") 
+        if key:
+            word = r.hget(key, "word").decode("utf-8") 
+            sitzung = r.hget(key, "sitzung").decode("utf-8") 
+            url = r.hget(key, "url").decode("utf-8") 
 
-        expireTime = 60*round(random.randrange(0,30))
+            expireTime = 60*round(random.randrange(0,30))
 
-        if tweet_word(word, sitzung, url):
-            capture_message("Tweet wurde gesendet.")
-            r.set('meta:tweetstop', 1 , ex=expireTime)
-            r.delete(key)
+            if tweet_word(word, sitzung, url):
+                capture_message("Tweet wurde gesendet.")
+                r.set('meta:tweetstop', 1 , ex=expireTime)
+                r.delete(key)
 
-            return True
+                return True
 
 
 
