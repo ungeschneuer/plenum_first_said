@@ -3,7 +3,24 @@ from twitter_creds import tweet_word
 import random
 from datetime import datetime, time
 import pytz
-from sentry_sdk import capture_message
+import sentry_sdk
+from dotenv import load_dotenv
+import os 
+
+
+load_dotenv()
+
+sentry_sdk.init(
+    os.environ.get('SENTRY_AUTH'),
+    integrations=[RedisIntegration()],
+
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    # We recommend adjusting this value in production.
+    traces_sample_rate=0.5,
+    release="plenarbot@1.0",
+    environment="production"
+)
 
 
 
@@ -38,10 +55,10 @@ def tweet_queue():
             sitzung = r.hget(key, "sitzung").decode("utf-8") 
             url = r.hget(key, "url").decode("utf-8") 
 
-            expireTime = 60*round(random.randrange(0,20))
+            expireTime = 60*round(random.randrange(1,20))
 
             if tweet_word(word, sitzung, url):
-                capture_message("Tweet wurde gesendet.")
+                sentry_sdk.capture_message("Tweet wurde gesendet.")
                 r.set('meta:tweetstop', 1 , ex=expireTime)
                 r.delete(key)
 
