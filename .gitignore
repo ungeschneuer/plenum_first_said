@@ -6,3 +6,4 @@ parser/build_database.py
 .env
 profil_context.pxd/
 *.png
+parser/archive/*

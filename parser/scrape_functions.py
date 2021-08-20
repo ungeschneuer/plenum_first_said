@@ -8,11 +8,16 @@ from twitter_queue import add_to_queue
 
 # Normalisierungfunktion von nyt_first_said
 def normalize(raw_word):
+
+
+
     # Ausfiltern von weiteren Zeichen im Testlauf
     regexexp = re.compile('-{2,}')
 
     # Entfernen von Zeichen (Wie schwer kann das sein??!!)
-    stripped_word = re.sub(r'[^\P{P}-]+', '', raw_word)
+    punctuation = r"""!"#$%&'()*+,‚./:;<=>?@[\]^_`{|}~“„"""
+    stripped_word = raw_word.translate(str.maketrans('', '', punctuation))
+
 
 
     # Check ob Spiegelstrich einen Silbentrennung ist oder tatsächlich ganzes Wort
@@ -36,9 +41,9 @@ def check_word(word, sitzung, url):
     return False
 
 
-# Check ob ein valides Wort 
+# Check ob ein valides Wort und weitere Korrigierung
 def ok_word(s):
-    if s.endswith('.') or s.endswith('’'):  # trim trailing
+    while s.endswith('.') or s.endswith('’'):  # trim trailing
         s = s[:-1]
 
     if s.endswith('ts'):
@@ -50,17 +55,21 @@ def ok_word(s):
 # Wort abgleichen und zur Datenbank hinzufügen
 def add_word(word):
 
-    wkey = "word:" + word
+    pipe = r.pipeline()
+    
+    # Checken ob Kleinschreibung, Großschreibung oder Plural schon existieren
+    pipe.get("word:" + word)
+    pipe.get("word:" + word.lower())
+    pipe.get("word:" + word.capitalize())
 
-    if not r.get(wkey):
+    if word.endswith('s'):
+        pipe.get("word:" + word[:-1])
 
-        # Checken ob einfach Plural vom existierenden
-        if word.endswith('s'):
-            wkeysingular = "word:" + word[:-1]
-            if r.get(wkeysingular):
-                return False
-        
-        r.set(wkey, '1')
+
+    if not any(pipe.execute()):
+
+        print(word)
+        r.set("word:" + word, '1')
         return True
 
 
@@ -87,7 +96,11 @@ def process_woerter (current_xml, sitzung, url):
     words = []
     first_half = ""
     possible_hyphenation = False
-    regexp = re.compile('([A-Z])|([a-z])\w+')
+    
+    # Wort hat Buchstaben
+    regchar = re.compile('([A-Z])|([a-z])\w+')
+    # Wort hat nicht gleiche Zeichen hintereinander
+    regmul = re.compile('([A-z])\1{3,}')
 
     raw_results = get_wortbeitraege(current_xml)
 
@@ -95,7 +108,7 @@ def process_woerter (current_xml, sitzung, url):
         words += sentence.split()
 
     for word in words:
-        if len(word) > 3 and regexp.search(word) and not ('http' in word):
+        if len(word) > 5 and regchar.search(word) and not regmul.search(word) and not ('http' in word):
 
 # Checkt ob Silbentrennung Wörter getrennt hat
             if possible_hyphenation:
@@ -122,6 +135,11 @@ def process_woerter (current_xml, sitzung, url):
                 first_half = word
                 possible_hyphenation = True
                 continue
+
+            # Wortaufzählung entfernen
+            if word.startswith('-') or word.startswith('‑'):
+                continue
+
 
             # Zusammefassung oder binäre Ansprache
             if '/' in word:

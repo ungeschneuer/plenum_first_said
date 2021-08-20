@@ -6,6 +6,8 @@ import pytz
 import sentry_sdk
 from dotenv import load_dotenv
 import os 
+from sentry_sdk.integrations.redis import RedisIntegration
+
 
 
 load_dotenv()
@@ -55,7 +57,7 @@ def tweet_queue():
             sitzung = r.hget(key, "sitzung").decode("utf-8") 
             url = r.hget(key, "url").decode("utf-8") 
 
-            expireTime = 60*round(random.randrange(1,20))
+            expireTime = 60*round(random.randrange(1,15))
 
             if tweet_word(word, sitzung, url):
                 sentry_sdk.capture_message("Tweet wurde gesendet.")

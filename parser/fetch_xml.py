@@ -1,16 +1,17 @@
 from bs4 import BeautifulSoup
 import httplib2
 import requests
-import regex as re
 from sentry_sdk import capture_message
-from datetime import datetime
-import pytz
+import regex as re
+import os
 
-#Timezone
-tz = pytz.timezone('Europe/Berlin')
-
-
+# TODO Automatische Anpassung an neue Links
 archive_link = 'https://www.bundestag.de/ajax/filterlist/de/services/opendata/543410-543410'
+
+
+# Directory für XML Speichern und Abrufen anpassen
+script_dir = os.path.dirname(os.path.realpath(__file__))
+os.chdir(script_dir)
 
 
 
@@ -43,6 +44,7 @@ def get_current_xml(sitzung):
 
 # Speichert XML ab nach Download
 def save_xml(sitzung, current_xml):
+
     with open ( "archive/" + sitzung + ".xml", 'wb') as file:
         file.write(current_xml.content)
         return True
