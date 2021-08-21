@@ -57,7 +57,7 @@ def tweet_queue():
             sitzung = r.hget(key, "sitzung").decode("utf-8") 
             url = r.hget(key, "url").decode("utf-8") 
 
-            expireTime = 60*round(random.randrange(1,15))
+            expireTime = 60*round(random.randrange(3,20))
 
             if tweet_word(word, sitzung, url):
                 sentry_sdk.capture_message("Tweet wurde gesendet.")
