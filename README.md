@@ -3,7 +3,7 @@
 
 Plenum First Said ist ein Twitterbot, der neue Wörter twittert, die zum ersten Mal während einer Bundestagsdebatte gesagt wurden. Das Projekt ist noch im Aufbau und es wird in keiner Weise eine Korrektheit garantiert. 
 
-Das Projekt wurde durch den Twitter-Account [@NYT_first_said](https://twitter.com/NYT_first_said) von Max Bittker inspiriert und dessen [Code](https://github.com/MaxBittker/nyt-first-said) als Startpunkt genutzt, jedoch zu großen Teil verändert. 
+Das Projekt wurde durch den Twitter-Account [@NYT_first_said](https://twitter.com/NYT_first_said) von Max Bittker inspiriert und dessen [Code](https://github.com/MaxBittker/nyt-first-said) als Startpunkt genutzt, jedoch zum großen Teil verändert. 
 
 Das Projekt ensteht im Rahmen des Stipendiums von [Bayern-Innovativ](https://www.bayern-innovativ.de/) zur Förderung von künstlerischen Projekten. 
 
@@ -27,6 +27,9 @@ Unregelmäßigkeiten entstehen durch Silbentrennungen, die nicht gut von Wortver
 
 Die Webseite Sentry.io sorgt für schnelle Benachrichtigungen und die Dokumentation von Fehlern. 
 
+## Was ist "neu"?
+
+Aus Gründen der Unterhaltung werden einige Worte aussortiert, die zwar tatsächlich zum ersten Mal so gesagt werden, aber nur bedingt an sich einen Informationswert haben, in welchem Kontext der Bundestag sich gerade bewegt. Zum Beispiel filtere ich gegenderte Formen raus, da es zwar eine schöne Weiterentwicklung ist, aber auch innerhalb des Projekts schnell langweilig wird, wenn jetzt auch mal Pilotin gesagt wurde. Auch wird versucht so etwas wie Genitive oder Verkürzungrn (kommt's rauszunehmen). 
 
 ## TODOs
 [ ] Autorin im Kontext mit erwähnen  
