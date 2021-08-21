@@ -65,10 +65,10 @@ def add_word(word):
     if word.endswith('s'):
         pipe.get("word:" + word[:-1])
 
+    if word.endswith('’s') or word.endswith('in'):
+        pipe.get("word:" + word[:-2])
 
     if not any(pipe.execute()):
-
-        print(word)
         r.set("word:" + word, '1')
         return True
 

@@ -65,6 +65,7 @@ def tweet_queue():
                 r.delete(key)
 
                 return True
+    quit()
 
 
 
