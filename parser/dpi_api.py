@@ -19,7 +19,6 @@ api_key = os.environ.get('BUNDESTAG_API_KEY')
 
 def find_new_doc(id):
 
-
     parameters = ['dokumentnummer', 'fundstelle', 'id', 'wahlperiode', 'datum', 'titel' ]
     new_id = ""
 
