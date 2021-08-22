@@ -1,3 +1,4 @@
+# sourcery skip: merge-duplicate-blocks
 import os
 from progressbar import printProgressBar
 import xml_parse
