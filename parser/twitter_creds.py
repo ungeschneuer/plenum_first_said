@@ -35,12 +35,10 @@ def tweet_word(word, id):
     
     key = r.hgetall(redis_id)
 
-    
-
 
     try:
         status = twitterAPI.PostUpdate(word)
-        context_status = contextAPI .PostUpdate(
+        context_status = contextAPI.PostUpdate(
             "@{} \"{}\" tauchte zum ersten Mal im {} auf. Das Protokoll findet man unter {}".format(
                 status.user.screen_name,
                 word,
@@ -50,7 +48,7 @@ def tweet_word(word, id):
             verify_status_length=False)
         
         if context_status:
-            return True
+            return status.id
         else:
             return False
         
@@ -60,6 +58,3 @@ def tweet_word(word, id):
     except twitter.TwitterError as e:
         capture_exception(e)
         return False
-
-    return True
-
