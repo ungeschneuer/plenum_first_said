@@ -1,5 +1,5 @@
 from string import punctuation
-import regex as re
+import re
 from sentry_sdk import capture_message
 from database import r
 from string import punctuation
@@ -29,13 +29,13 @@ def normalize(raw_word):
     return stripped_word
 
 
-# Noramlisiert das Wort, überprüft ob es schon im Speicher ist und fügt es der Queue hinzu
-def check_word(word, sitzung, url):
+# Normalisiert das Wort, überprüft ob es schon im Speicher ist und fügt es der Queue hinzu
+def check_word(word, id):
     norm_word = normalize(word)
 
-    if ok_word(norm_word):
-        if add_word(norm_word):
-            add_to_queue(norm_word,sitzung,url)
+    if len(word) > 5 and ok_word(norm_word):
+        if add_word(norm_word, id):
+            add_to_queue(norm_word, id)
             return True
     
     return False
@@ -53,23 +53,26 @@ def ok_word(s):
 
 
 # Wort abgleichen und zur Datenbank hinzufügen
-def add_word(word):
-
+def add_word(word, id):
     pipe = r.pipeline()
     
     # Checken ob Kleinschreibung, Großschreibung oder Plural schon existieren
-    pipe.get("word:" + word)
-    pipe.get("word:" + word.lower())
-    pipe.get("word:" + word.capitalize())
+    pipe.type("word:" + word)
+    pipe.type("word:" + word.lower())
+    pipe.type("word:" + word.capitalize())
 
     if word.endswith('s'):
-        pipe.get("word:" + word[:-1])
+        pipe.type("word:" + word[:-1])
 
     if word.endswith('’s') or word.endswith('in'):
-        pipe.get("word:" + word[:-2])
+        pipe.type("word:" + word[:-2])
 
-    if not any(pipe.execute()):
-        r.set("word:" + word, '1')
+    result = pipe.execute()
+
+    if all(x == b'none' for x in result):
+        r.hset("word:" + word, "word", word)
+        r.hset("word:" + word, "id", id)
+        print(word)
         return True
 
 
@@ -80,49 +83,62 @@ def get_wortbeitraege(current_xml):
     
     raw_results = []
     
-    results = current_xml.find_all("p", {'klasse' : ['J', '1','O', 'J_1', 'T']})
-
-    for result in results:
-        # Encoding funktioniert nicht komplett, darum sanitizing
-        sanitized = result.text.replace(u'\xa0', u' ')
-        raw_results.append(sanitized)
-
-    return raw_results
+    result = current_xml.text
 
 
-def process_woerter (current_xml, sitzung, url):
+    # Encoding funktioniert nicht komplett, darum sanitizing
+    sanitized = result.replace(u'\xa0', u' ')
+    sanitized = result.replace('\n', ' ')
+
+    return sanitized
+
+
+def process_woerter (current_xml, id):
 
     wordnum = 0
     words = []
     first_half = ""
+    skip = False
     possible_hyphenation = False
     
     # Wort hat Buchstaben
     regchar = re.compile('([A-Z])|([a-z])\w+')
     # Wort hat nicht gleiche Zeichen hintereinander
     regmul = re.compile('([A-z])\1{3,}')
-
     raw_results = get_wortbeitraege(current_xml)
 
-    for sentence in raw_results:
-        words += sentence.split()
+    
+    words += raw_results.split()
+    words = words[words.index('Beginn:')+1:]
+
 
     for word in words:
-        if len(word) > 5 and regchar.search(word) and not regmul.search(word) and not ('http' in word):
+        if skip:
+            continue
+        if regchar.search(word) and not regmul.search(word) and not ('http' in word):
 
 # Checkt ob Silbentrennung Wörter getrennt hat
             if possible_hyphenation:
 
                 # Wenn zweite Hälfte groß geschrieben ist, ist es ein neues Wort und beide werden einzelnd weiter geschickt.
                 if word[0].isupper() or word.startswith('-'):
-                    if check_word(first_half, sitzung, url):
+                    if check_word(first_half, id):
                         wordnum += 1
                     possible_hyphenation = False
+                    #Gleich aussortieren, wenn Wort mit Strich anfängt
                     if word.startswith('-'):
                         continue
+                # Aufzählung raus sortieren    
+                elif word == 'und':
+                    if check_word(first_half, id):
+                        wordnum += 1
+                    possible_hyphenation = False
+                    # Nächsten Teil der Aufzählung gleich mit entfernen
+                    skip = True
+                    continue
                 else:
                     # Wenn zweite Hälfte klein, dann kombinieren der beiden Wörter
-                    combined = first_half + word
+                    combined = first_half.strip('-') + word
                     possible_hyphenation = False
 
                     # TODO Check ob es ein tatsächliches Wort ist
@@ -146,13 +162,13 @@ def process_woerter (current_xml, sitzung, url):
                 splitted = word.split('/')
                 word = splitted[0]
 
-                if check_word(splitted[1], sitzung, url):
+                if check_word(splitted[1], id):
                     wordnum += 1
 
 
 
             
-            if check_word(word, sitzung, url):
+            if check_word(word, id):
                 wordnum += 1
     
     return wordnum

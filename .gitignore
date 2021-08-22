@@ -7,3 +7,5 @@ parser/build_database.py
 profil_context.pxd/
 *.png
 parser/archive/*
+.venv/*
+Protokolle/*

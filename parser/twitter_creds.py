@@ -6,6 +6,7 @@ import twitter
 from sentry_sdk import capture_exception
 from dotenv import load_dotenv
 import os
+from database import r
 
 load_dotenv()
 
@@ -29,15 +30,22 @@ contextAPI = ContextTwitterApi()
 
 
 
-def tweet_word(word, sitzung, url):
+def tweet_word(word, id):
+    redis_id = "protkoll:" + str(id)
+    
+    key = r.hgetall(redis_id)
+
+    
+
+
     try:
         status = twitterAPI.PostUpdate(word)
         context_status = contextAPI .PostUpdate(
-            "@{} \"{}\" tauchte zum ersten Mal in Sitzung {} auf. Das Protokoll findet man unter {}".format(
+            "@{} \"{}\" tauchte zum ersten Mal im {} auf. Das Protokoll findet man unter {}".format(
                 status.user.screen_name,
                 word,
-                sitzung,
-                url),
+                key['titel'],
+                key['pdf_url']),
             in_reply_to_status_id=status.id,
             verify_status_length=False)
         
