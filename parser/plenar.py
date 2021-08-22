@@ -58,5 +58,4 @@ if __name__ == "__main__":
 """
 TODO
 - Backend zur Wort Kontrolle
-- hset und set zusammen bekommen
 """
