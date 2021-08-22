@@ -1,4 +1,4 @@
-from fetch_xml import get_xml
+from dpi_api import find_new_doc
 from sentry_sdk import capture_message
 from database import r
 from scrape_functions import process_woerter
@@ -23,11 +23,11 @@ sentry_sdk.init(
 )
 
 
-def get_current_sitzung():
-    return int(r.get("meta:sitzung"))
+def get_current_id():
+    return int(r.get('meta:id'))
 
-def increase_current_sitzung():
-    r.incr("meta:sitzung")
+def increase_current_id(new_id):
+    r.set('meta:id', int(new_id) + 1)
     return True
 
 
@@ -36,16 +36,15 @@ def main():
 
     capture_message("Skript wird gestartet")
 
-    sitzung = str(get_current_sitzung())
+    old_id = get_current_id()
 
-    capture_message("Sitzung " + sitzung + " wird gesucht.")
-    current_xml, url = get_xml(sitzung)
-    #current_xml = get_xml(test=True)
+    capture_message("Sitzung mit der ID " + str(old_id) + " wird gesucht.")
+    xml_file, new_id = find_new_doc(old_id)
 
-    if current_xml:
+    if new_id:
         capture_message("Sitzung gefunden")
-        wordnum = process_woerter(current_xml, sitzung, url)        
-        increase_current_sitzung()
+        wordnum = process_woerter(xml_file, new_id)        
+        increase_current_id(new_id)
         capture_message("Es wurden " + str(wordnum) + " neue Wörter hinzugefügt.")
 
     
@@ -58,7 +57,7 @@ if __name__ == "__main__":
 
 """
 TODO
-- tägliches Abrufen
 - Backend zur Wort Kontrolle
-- Entfernung von Artikeln und Paragraphen
-- Twitter Anbindung"""
+- Wenn irgendwo in der Mitte ein Großbuchstabe dann trennen (Gefahr für Gesetzesabkürzungen)
+"""
+
