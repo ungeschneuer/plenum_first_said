@@ -13,7 +13,7 @@ parameters = ['dokumentnummer', 'fundstelle', 'id', 'wahlperiode', 'datum', 'tit
 
 
 
-for x in range(0,5500):
+for x in range(5500):
     url = adress + ressource + '/' + str(x) + '?apikey=' + api 
     response = requests.get(url)
     if response.status_code == 200:
