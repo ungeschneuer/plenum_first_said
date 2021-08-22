@@ -5,13 +5,13 @@ Plenum First Said ist ein Twitterbot, der neue Wörter twittert, die zum ersten 
 
 Das Projekt wurde durch den Twitter-Account [@NYT_first_said](https://twitter.com/NYT_first_said) von Max Bittker inspiriert und dessen [Code](https://github.com/MaxBittker/nyt-first-said) als Startpunkt genutzt, jedoch zum großen Teil verändert. 
 
-Das Projekt ensteht im Rahmen des Stipendiums von [Bayern-Innovativ](https://www.bayern-innovativ.de/) zur Förderung von künstlerischen Projekten. 
+Das Projekt ensteht im Rahmen des Stipendiums von [Bayern-Innovativ](https://www.bayern-innovativ.de/) zur Förderung von Künstlern (ich). 
 
 ## Funktionsweise
 
 Die Webseite des Bundestags wird täglich nach einem neuen Plenarprotokoll abgesucht. Wird es gefunden, wird jedes einzelne Wort mit einer Datenbank abgeglichen. Sollte es nicht in der Datenbank gefunden werden, wird dieses zu einer Warteschlange hinzugefügt und zu einem bestimmten Zeitpunkt getwittert, als auch besagter Datenbank hinzugefügt.
 
-Unregelmäßigkeiten entstehen durch Silbentrennungen, die nicht gut von Wortverbindungen getrennt werden können (siehe Know-how). 
+Unregelmäßigkeiten entstehen durch Silbentrennungen, die nicht gut von Wortverbindungen getrennt werden können (z.B. Know- (neue Zeile) how). 
 
 ## Architektur
 
@@ -29,10 +29,14 @@ Die Webseite Sentry.io sorgt für schnelle Benachrichtigungen und die Dokumentat
 
 ## Was ist "neu"?
 
-Aus Gründen der Unterhaltung werden einige Worte aussortiert, die zwar tatsächlich zum ersten Mal so gesagt werden, aber nur bedingt an sich einen Informationswert haben, in welchem Kontext der Bundestag sich gerade bewegt. Zum Beispiel filtere ich gegenderte Formen raus, da es zwar eine schöne Weiterentwicklung ist, aber auch innerhalb des Projekts schnell langweilig wird, wenn jetzt auch mal Pilotin gesagt wurde. Auch wird versucht so etwas wie Genitive oder Verkürzungrn (kommt's rauszunehmen). 
+Aus Gründen der Unterhaltung werden einige Worte aussortiert, die zwar tatsächlich zum ersten Mal so gesagt werden, aber nur bedingt an sich einen Informationswert haben. Folgendes wird z.B. herausgefiltert:
+- Plural
+- Genitiv
+- Gendern
+- Wöter unter 4 Buchstaben
 
 ## TODOs
-[ ] Autorin im Kontext mit erwähnen  
+[ ] Sprecherin im Kontext mit erwähnen  
 [ ] Weitere Verfeinerung der Wort-Normalisierung
 
 ## Lizenz
