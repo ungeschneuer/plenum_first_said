@@ -49,11 +49,24 @@ def getText(xml_file):
     text = []
     klassen = ['J', '1','O', 'J_1', 'T']
     
+    #Checken ob neues Format und Text rausziehen
     for p in xml_file.iter("p"):
-        if any(key in p.attrib for key in klassen):
+        if any(value in p.attrib.values() for value in klassen):
             text.append(p.text)
     
+    # Altes Format bekommen
     if not text: 
-        text.append(xml_file.find('text').text)
+        if xml_file.findall('text'):
+            text.append(xml_file.find('text').text)
+        if xml_file.findall('TEXT'):
+            text.append(xml_file.find('TEXT').text)
+
     
     return text
+
+
+if __name__ == "__main__":
+    file = '/Users/marcel/Documents/2021/plenum_first_said/parser/archive/5424.xml'
+    root = parse(file)
+    text = getText(root)
+    print(text)
