@@ -19,29 +19,31 @@ def normalize(raw_word):
 
 
     # Check ob Spiegelstrich einen Silbentrennung ist oder tatsächlich ganzes Wort
-    if '-' in stripped_word and not (stripped_word.endswith('-') or stripped_word.startswith('-')):
-        if regexexp.search(stripped_word):
-            replaced = re.sub(regexexp, '-', stripped_word)
-            return normalize(replaced)
+    if (
+        '-' in stripped_word
+        and not stripped_word.endswith('-')
+        and not stripped_word.startswith('-')
+        and regexexp.search(stripped_word)
+    ):
+        replaced = re.sub(regexexp, '-', stripped_word)
+        return normalize(replaced)
 
     return stripped_word
 
 
 # Check ob ein valides Wort und weitere Korrigierung
 def ok_word(s):
-    while s.endswith('.') or s.endswith('’'):  # trim trailing
-        s = s[:-1]
 
-    if s.endswith('ts'):
+    if s.endswith('ts') or len(s) < 4: 
         return False
 
     return (not any(i.isdigit() or i in '(.@/#-_§ ' for i in s))
 
 # Normalisiert das Wort, überprüft ob es schon im Speicher ist und fügt es der Queue hinzu
-def check_word(word, id):
+def check_word(word, id):  # sourcery skip: merge-nested-ifs
     norm_word = normalize(word)
 
-    if len(word) > 5 and ok_word(norm_word):
+    if ok_word(norm_word):
         if add_word(norm_word, id):
             add_to_queue(norm_word, id)
             return True
@@ -80,7 +82,7 @@ def wordsplitter(text):
     return words
 
 
-def wordsfilter(words, id):
+def wordsfilter(words, id):  # sourcery skip: de-morgan, hoist-statement-from-if
     wordnum = 0
     first_half = ""
     skip = False
