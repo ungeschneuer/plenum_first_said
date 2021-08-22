@@ -29,10 +29,14 @@ Die Webseite Sentry.io sorgt für schnelle Benachrichtigungen und die Dokumentat
 
 ## Was ist "neu"?
 
-Aus Gründen der Unterhaltung werden einige Worte aussortiert, die zwar tatsächlich zum ersten Mal so gesagt werden, aber nur bedingt an sich einen Informationswert haben, in welchem Kontext der Bundestag sich gerade bewegt. Zum Beispiel filtere ich gegenderte Formen raus, da es zwar eine schöne Weiterentwicklung ist, aber auch innerhalb des Projekts schnell langweilig wird, wenn jetzt auch mal Pilotin gesagt wurde. Auch wird versucht so etwas wie Genitive oder Verkürzungrn (kommt's rauszunehmen). 
+Aus Gründen der Unterhaltung werden einige Worte aussortiert, die zwar tatsächlich zum ersten Mal so gesagt werden, aber nur bedingt an sich einen Informationswert haben. Folgendes wird z.B. herausgefiltert:
+- Plural
+- Genitiv
+- Gendern
+- Wöter unter 4 Buchstaben
 
 ## TODOs
-[ ] Autorin im Kontext mit erwähnen  
+[ ] Sprecherin im Kontext mit erwähnen  
 [ ] Weitere Verfeinerung der Wort-Normalisierung
 
 ## Lizenz
