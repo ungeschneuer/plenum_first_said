@@ -2,6 +2,9 @@ import requests
 import xml.etree.ElementTree as ET
 from dotenv import load_dotenv
 import os
+from sentry_sdk.api import capture_exception
+from requests.adapters import HTTPAdapter
+from requests.packages.urllib3.util.retry import Retry
 
 
 
@@ -26,7 +29,14 @@ def get(id):
 
     url = 'https://search.dip.bundestag.de/api/v1/plenarprotokoll-text/' + str(id) + '?apikey=' + api_key + '&format=xml'
 
-    response = requests.get(url)
+    try:
+        s = requests.Session()
+        retries = Retry(total=5, backoff_factor=1, status_forcelist=[ 502, 503, 504, 54 ])
+        s.mount('https://', HTTPAdapter(max_retries=retries))
+        response = s.get(url)
+    except Exception as e:
+        capture_exception(e)
+        quit()
 
     if response.status_code == 200:
         filename = save(id, response)

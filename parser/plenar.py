@@ -58,4 +58,6 @@ if __name__ == "__main__":
 """
 TODO
 - Backend zur Wort Kontrolle
+- Wenn irgendwo in der Mitte ein Großbuchstabe dann trennen (Gefahr für Gesetzesabkürzungen)
 """
+

@@ -14,7 +14,7 @@ def normalize(raw_word):
     regexexp = re.compile('-{2,}')
 
     # Entfernen von Zeichen (Wie schwer kann das sein??!!)
-    punctuation = r"""!"#$%&'()*+,‚./:;<=>?@[\]^_`{|}~“„"""
+    punctuation = r"""#"!$%&'()*+,‚."/:;<=>?@[\]^_`{|}~“„"""
     stripped_word = raw_word.translate(str.maketrans('', '', punctuation))
 
 
@@ -69,8 +69,10 @@ def wordsplitter(text):
     try:
         for sentence in text:
             words += sentence.split()
-        if len(text) == 1:
+        if 'Beginn:' in words:
             words = words[words.index('Beginn:')+1:]
+        if 'Beginn' in words:
+            words = words[words.index('Beginn')+1:]
     except Exception as e:
         capture_exception(e)
         exit()
@@ -78,7 +80,7 @@ def wordsplitter(text):
     return words
 
 
-def wordsfilter(words):
+def wordsfilter(words, id):
     wordnum = 0
     first_half = ""
     skip = False
@@ -142,8 +144,6 @@ def wordsfilter(words):
                 if check_word(splitted[1], id):
                     wordnum += 1
 
-
-
             
             if check_word(word, id):
                 wordnum += 1
@@ -159,6 +159,4 @@ def process_woerter (xml_file, id):
         
     words = wordsplitter(raw_results)
 
-    return(wordsfilter(words))
-
-    
+    return(wordsfilter(words, id))
