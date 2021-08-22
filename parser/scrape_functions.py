@@ -1,16 +1,14 @@
-from string import punctuation
 import re
-from sentry_sdk import capture_message, capture_exception
-from database import r
 from string import punctuation
-from twitter_queue import add_to_queue
+
+from sentry_sdk import capture_exception
+
 import xml_parse
+from database import add_to_queue, add_word
 
 
 # Normalisierungfunktion von nyt_first_said
 def normalize(raw_word):
-
-
 
     # Ausfiltern von weiteren Zeichen im Testlauf
     regexexp = re.compile('-{2,}')
@@ -20,7 +18,6 @@ def normalize(raw_word):
     stripped_word = raw_word.translate(str.maketrans('', '', punctuation))
 
 
-
     # Check ob Spiegelstrich einen Silbentrennung ist oder tatsächlich ganzes Wort
     if '-' in stripped_word and not (stripped_word.endswith('-') or stripped_word.startswith('-')):
         if regexexp.search(stripped_word):
@@ -28,18 +25,6 @@ def normalize(raw_word):
             return normalize(replaced)
 
     return stripped_word
-
-
-# Normalisiert das Wort, überprüft ob es schon im Speicher ist und fügt es der Queue hinzu
-def check_word(word, id):
-    norm_word = normalize(word)
-
-    if len(word) > 5 and ok_word(norm_word):
-        if add_word(norm_word, id):
-            add_to_queue(norm_word, id)
-            return True
-    
-    return False
 
 
 # Check ob ein valides Wort und weitere Korrigierung
@@ -52,32 +37,17 @@ def ok_word(s):
 
     return (not any(i.isdigit() or i in '(.@/#-_§ ' for i in s))
 
+# Normalisiert das Wort, überprüft ob es schon im Speicher ist und fügt es der Queue hinzu
+def check_word(word, id):
+    norm_word = normalize(word)
 
-# Wort abgleichen und zur Datenbank hinzufügen
-def add_word(word, id):
-    pipe = r.pipeline()
+    if len(word) > 5 and ok_word(norm_word):
+        if add_word(norm_word, id):
+            add_to_queue(norm_word, id)
+            return True
     
-    # Checken ob Kleinschreibung, Großschreibung oder Plural schon existieren
-    pipe.type("word:" + word)
-    pipe.type("word:" + word.lower())
-    pipe.type("word:" + word.capitalize())
-
-    if word.endswith('s'):
-        pipe.type("word:" + word[:-1])
-
-    if word.endswith('’s') or word.endswith('in'):
-        pipe.type("word:" + word[:-2])
-
-    result = pipe.execute()
-
-    if all(x == b'none' for x in result):
-        r.hset("word:" + word, "word", word)
-        r.hset("word:" + word, "id", id)
-        print(word)
-        return True
-
-
     return False
+
 
 # Filtert aus XML Datei die tatsächlichen Wortbeiträge
 def get_wortbeitraege(xml_file):
@@ -93,11 +63,23 @@ def get_wortbeitraege(xml_file):
 
     return sanitized
 
-
-def process_woerter (xml_file, id):
-
-    wordnum = 0
+def wordsplitter(text):
     words = []
+
+    try:
+        for sentence in text:
+            words += sentence.split()
+        if len(text) == 1:
+            words = words[words.index('Beginn:')+1:]
+    except Exception as e:
+        capture_exception(e)
+        exit()
+    
+    return words
+
+
+def wordsfilter(words):
+    wordnum = 0
     first_half = ""
     skip = False
     possible_hyphenation = False
@@ -106,25 +88,13 @@ def process_woerter (xml_file, id):
     regchar = re.compile('([A-Z])|([a-z])\w+')
     # Wort hat nicht gleiche Zeichen hintereinander
     regmul = re.compile('([A-z])\1{3,}')
-    raw_results = get_wortbeitraege(xml_file)
-
-    try:
-        for sentence in raw_results:
-            words += sentence.split()
-        if len(raw_results) == 1:
-            words = words[words.index('Beginn:')+1:]
-    except Exception as e:
-        capture_exception(e)
-        exit()
-        
-
 
     for word in words:
         if skip:
             continue
         if regchar.search(word) and not regmul.search(word) and not ('http' in word):
 
-# Checkt ob Silbentrennung Wörter getrennt hat
+            # Checkt ob Silbentrennung Wörter getrennt hat
             if possible_hyphenation:
 
                 # Wenn zweite Hälfte groß geschrieben ist, ist es ein neues Wort und beide werden einzelnd weiter geschickt.
@@ -179,3 +149,16 @@ def process_woerter (xml_file, id):
                 wordnum += 1
     
     return wordnum
+
+
+
+
+def process_woerter (xml_file, id):
+
+    raw_results = get_wortbeitraege(xml_file)
+        
+    words = wordsplitter(raw_results)
+
+    return(wordsfilter(words))
+
+    

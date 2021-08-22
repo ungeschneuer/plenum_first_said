@@ -9,13 +9,35 @@ twittRedis = redis.StrictRedis(host='localhost', port=6379, db=1)
 # Datenbank mit getwitterten tweets
 pastRedis = redis.StrictRedis(host='localhost', port=6379, db=2)
 
-#Check Word Database
-def check_wdb(word):
-    wkey = "word:" + word
+# Wort abgleichen und zur Datenbank hinzufügen
+def add_word(word, id):
+    pipe = r.pipeline()
+    
+    # Checken ob Kleinschreibung, Großschreibung oder Plural schon existieren
+    pipe.type("word:" + word)
+    pipe.type("word:" + word.lower())
+    pipe.type("word:" + word.capitalize())
 
-    if not r.get(wkey):
-        r.set(wkey, '1')
+    if word.endswith('s'):
+        pipe.type("word:" + word[:-1])
+
+    if word.endswith('’s') or word.endswith('in'):
+        pipe.type("word:" + word[:-2])
+
+    result = pipe.execute()
+
+    if all(x == b'none' for x in result):
+        r.hset("word:" + word, "word", word)
+        r.hset("word:" + word, "id", id)
+        print(word)
         return True
-    else: 
-        return False
+
+
+    return False
+
+def add_to_queue(word, id):
+
+    twittRedis.hset(word, "word", word)
+    twittRedis.hset(word, "id", id)
+    return True
 

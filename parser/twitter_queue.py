@@ -24,13 +24,6 @@ sentry_sdk.init(
 
 
 
-def add_to_queue(word, id):
-
-    twittRedis.hset(word, "word", word)
-    twittRedis.hset(word, "id", id)
-    return True
-
-
 def tweet_queue():
     
     tweetstop = twittRedis.get('meta:tweetstop')
