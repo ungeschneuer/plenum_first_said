@@ -1,9 +1,10 @@
 from string import punctuation
 import re
-from sentry_sdk import capture_message
+from sentry_sdk import capture_message, capture_exception
 from database import r
 from string import punctuation
 from twitter_queue import add_to_queue
+import xml_parse
 
 
 # Normalisierungfunktion von nyt_first_said
@@ -79,21 +80,21 @@ def add_word(word, id):
     return False
 
 # Filtert aus XML Datei die tatsächlichen Wortbeiträge
-def get_wortbeitraege(current_xml):
+def get_wortbeitraege(xml_file):
     
-    raw_results = []
-    
-    result = current_xml.text
+    text = xml_parse.getText(xml_file)
+    sanitized = []
 
-
-    # Encoding funktioniert nicht komplett, darum sanitizing
-    sanitized = result.replace(u'\xa0', u' ')
-    sanitized = result.replace('\n', ' ')
+    for sentence in text:
+        # Encoding funktioniert nicht komplett, darum sanitizing
+        sentence = sentence.replace(u'\xa0', u' ')
+        sentence = sentence.replace('\n', ' ')
+        sanitized.append(sentence)
 
     return sanitized
 
 
-def process_woerter (current_xml, id):
+def process_woerter (xml_file, id):
 
     wordnum = 0
     words = []
@@ -105,11 +106,17 @@ def process_woerter (current_xml, id):
     regchar = re.compile('([A-Z])|([a-z])\w+')
     # Wort hat nicht gleiche Zeichen hintereinander
     regmul = re.compile('([A-z])\1{3,}')
-    raw_results = get_wortbeitraege(current_xml)
+    raw_results = get_wortbeitraege(xml_file)
 
-    
-    words += raw_results.split()
-    words = words[words.index('Beginn:')+1:]
+    try:
+        for sentence in raw_results:
+            words += sentence.split()
+        if len(raw_results) == 1:
+            words = words[words.index('Beginn:')+1:]
+    except Exception as e:
+        capture_exception(e)
+        exit()
+        
 
 
     for word in words:

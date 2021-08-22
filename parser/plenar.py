@@ -39,11 +39,11 @@ def main():
     old_id = get_current_id()
 
     capture_message("Sitzung mit der ID " + str(old_id) + " wird gesucht.")
-    current_xml, new_id = find_new_doc(old_id)
+    xml_file, new_id = find_new_doc(old_id)
 
-    if current_xml:
+    if new_id:
         capture_message("Sitzung gefunden")
-        wordnum = process_woerter(current_xml, new_id)        
+        wordnum = process_woerter(xml_file, new_id)        
         increase_current_id(new_id)
         capture_message("Es wurden " + str(wordnum) + " neue Wörter hinzugefügt.")
 
