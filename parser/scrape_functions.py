@@ -93,6 +93,7 @@ def wordsfilter(words, id):
 
     for word in words:
         if skip:
+            skip = False
             continue
         if regchar.search(word) and not regmul.search(word) and not ('http' in word):
 
