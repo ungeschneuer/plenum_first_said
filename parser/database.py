@@ -21,7 +21,7 @@ def add_word(word, id):
     if word.endswith('s'):
         pipe.hget("word:" + word[:-1], "word")
 
-    if word.endswith('’s') or word.endswith('in'):
+    if word.endswith('’s') or word.endswith('in') or word.endswith('es'):
         pipe.hget("word:" + word[:-2], "word")
         
 

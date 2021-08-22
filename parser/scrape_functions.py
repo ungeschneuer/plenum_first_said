@@ -14,7 +14,7 @@ def normalize(raw_word):
     regexexp = re.compile('-{2,}')
 
     # Entfernen von Zeichen (Wie schwer kann das sein??!!)
-    punctuation = r"""#"!$%&'()*+,‚."/:;<=>?@[\]^_`{|}~“„"""
+    punctuation = r"""#"!$%&'())*+,‚."/:;<=>?@[\]^_`{|}~“„"""
     stripped_word = raw_word.translate(str.maketrans('', '', punctuation))
 
 
@@ -34,13 +34,13 @@ def normalize(raw_word):
 # Check ob ein valides Wort und weitere Korrigierung
 def ok_word(s):
 
-    if s.endswith('ts') or len(s) < 4: 
+    if s.endswith('ts') or len(s) < 5: 
         return False
 
     return (not any(i.isdigit() or i in '(.@/#-_§ ' for i in s))
 
 # Normalisiert das Wort, überprüft ob es schon im Speicher ist und fügt es der Queue hinzu
-def check_word(word, id):  # sourcery skip: merge-nested-ifs
+def check_word(word, id):
     norm_word = normalize(word)
 
     if ok_word(norm_word):
