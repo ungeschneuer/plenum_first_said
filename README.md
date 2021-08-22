@@ -5,7 +5,7 @@ Plenum First Said ist ein Twitterbot, der neue Wörter twittert, die zum ersten 
 
 Das Projekt wurde durch den Twitter-Account [@NYT_first_said](https://twitter.com/NYT_first_said) von Max Bittker inspiriert und dessen [Code](https://github.com/MaxBittker/nyt-first-said) als Startpunkt genutzt, jedoch zum großen Teil verändert. 
 
-Das Projekt ensteht im Rahmen des Stipendiums von [Bayern-Innovativ](https://www.bayern-innovativ.de/) zur Förderung von künstlerischen Projekten. 
+Das Projekt ensteht im Rahmen des Stipendiums von [Bayern-Innovativ](https://www.bayern-innovativ.de/) zur Förderung von Künstlern (ich). 
 
 ## Funktionsweise
 
