@@ -8,7 +8,7 @@ import os
 
 load_dotenv()
 
-
+# Skript von https://gist.github.com/yanofsky/5436496#file-tweet_dumper-py
 
 #Twitter API credentials
 consumer_key=os.environ.get('FIRST_CONSUMER_KEY')
@@ -56,10 +56,9 @@ def get_all_tweets(screen_name):
     
     for tweet in alltweets:
         r.hset('word:' + tweet.text, 'word', tweet.text)
-        r.hset('word:' + tweet.text, 'id', tweet.id)
+        r.hset('word:' + tweet.text, 'tweet_id', tweet.id)
         pastRedis.hset('word:' + tweet.text, 'word', tweet.text)
-        pastRedis.hset('word:' + tweet.text, 'id', tweet.id)
-    pass
+        pastRedis.hset('word:' + tweet.text, 'tweet_id', tweet.id)
 
 
 if __name__ == '__main__':

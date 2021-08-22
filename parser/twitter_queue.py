@@ -46,9 +46,9 @@ def send_tweet(key):
         raise
     
     sentry_sdk.capture_message("Tweet wurde gesendet.")
-    return cleanup_db(key, status_id)
+    return cleanup_db(word, status_id)
 
-def cleanup_db(key, status_id):
+def cleanup_db(word, status_id):
 
     # Tweet Stopper eintstellen
     expireTime = 60*round(random.randrange(3,20))
@@ -56,8 +56,8 @@ def cleanup_db(key, status_id):
 
     # Ins Archiv bewegen
     try:
-        twittRedis.move(key['word'], pastRedis)
-        pastRedis.hset(key['word'], "tweet_id", status_id)
+        twittRedis.move(word, 2)
+        pastRedis.hset(word, "tweet_id", status_id)
         return True
     except Exception as e:
         capture_exception(e)
