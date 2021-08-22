@@ -11,7 +11,7 @@ Das Projekt ensteht im Rahmen des Stipendiums von [Bayern-Innovativ](https://www
 
 Die Webseite des Bundestags wird täglich nach einem neuen Plenarprotokoll abgesucht. Wird es gefunden, wird jedes einzelne Wort mit einer Datenbank abgeglichen. Sollte es nicht in der Datenbank gefunden werden, wird dieses zu einer Warteschlange hinzugefügt und zu einem bestimmten Zeitpunkt getwittert, als auch besagter Datenbank hinzugefügt.
 
-Unregelmäßigkeiten entstehen durch Silbentrennungen, die nicht gut von Wortverbindungen getrennt werden können (siehe Know-how). 
+Unregelmäßigkeiten entstehen durch Silbentrennungen, die nicht gut von Wortverbindungen getrennt werden können (z.B. Know- (neue Zeile) how). 
 
 ## Architektur
 
