@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 import tweepy
-from database import r
+from database import r, pastRedis
 from dotenv import load_dotenv
 import os
 
@@ -55,8 +55,10 @@ def get_all_tweets(screen_name):
     
     
     for tweet in alltweets:
-        r.set('word:'+ tweet.text, '1')
-    
+        r.hset('word:' + tweet.text, 'word', tweet.text)
+        r.hset('word:' + tweet.text, 'id', tweet.id)
+        pastRedis.hset('word:' + tweet.text, 'word', tweet.text)
+        pastRedis.hset('word:' + tweet.text, 'id', tweet.id)
     pass
 
 
