@@ -18,10 +18,10 @@ def add_word(word, id):
     pipe.hget("word:" + word.lower(), "word")
     pipe.hget("word:" + word.capitalize(), "word")
 
-    if word.endswith('s'):
+    if word.endswith('s') or word.endswith('rn'):
         pipe.hget("word:" + word[:-1], "word")
 
-    if word.endswith('’s') or word.endswith('in') or word.endswith('es'):
+    if word.endswith('’s') or word.endswith('in') or word.endswith('’n') or word.endswith('es'):
         pipe.hget("word:" + word[:-2], "word")
         
 

@@ -14,7 +14,7 @@ def normalize(raw_word):
     regexexp = re.compile('-{2,}')
 
     # Entfernen von Zeichen (Wie schwer kann das sein??!!)
-    punctuation = r"""#"!$%&'())*+,‚."/:;<=>?@[\]^_`{|}~“„"""
+    punctuation = r"""#"!$%&'())*+,‚."/:;<=>?@[\]^_`{|}~“”„"""
     stripped_word = raw_word.translate(str.maketrans('', '', punctuation))
 
 
@@ -27,6 +27,9 @@ def normalize(raw_word):
     ):
         replaced = re.sub(regexexp, '-', stripped_word)
         return normalize(replaced)
+
+    if stripped_word.endswith('ʼ'):
+        stripped_word = stripped_word.strip('ʼ')
 
     return stripped_word
 
