@@ -14,22 +14,20 @@ def add_word(word, id):
     pipe = r.pipeline()
     
     # Checken ob Kleinschreibung, Großschreibung oder Plural schon existieren
-    pipe.type("word:" + word)
-    pipe.type("word:" + word.lower())
-    pipe.type("word:" + word.capitalize())
+    pipe.hget("word:" + word, "word")
+    pipe.hget("word:" + word.lower(), "word")
+    pipe.hget("word:" + word.capitalize(), "word")
 
     if word.endswith('s'):
-        pipe.type("word:" + word[:-1])
+        pipe.hget("word:" + word[:-1], "word")
 
     if word.endswith('’s') or word.endswith('in'):
-        pipe.type("word:" + word[:-2])
+        pipe.hget("word:" + word[:-2], "word")
+        
 
-    result = pipe.execute()
-
-    if all(x == b'none' for x in result):
+    if all(v is None for v in pipe.execute()):
         r.hset("word:" + word, "word", word)
         r.hset("word:" + word, "id", id)
-        print(word)
         return True
 
 
