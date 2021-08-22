@@ -33,7 +33,7 @@ def normalize(raw_word):
 def check_word(word, sitzung, url):
     norm_word = normalize(word)
 
-    if ok_word(norm_word):
+    if len(word) > 5 and ok_word(norm_word):
         if add_word(norm_word):
             add_to_queue(norm_word,sitzung,url)
             return True
@@ -108,7 +108,7 @@ def process_woerter (current_xml, sitzung, url):
         words += sentence.split()
 
     for word in words:
-        if len(word) > 5 and regchar.search(word) and not regmul.search(word) and not ('http' in word):
+        if regchar.search(word) and not regmul.search(word) and not ('http' in word):
 
 # Checkt ob Silbentrennung Wörter getrennt hat
             if possible_hyphenation:
@@ -122,7 +122,7 @@ def process_woerter (current_xml, sitzung, url):
                         continue
                 else:
                     # Wenn zweite Hälfte klein, dann kombinieren der beiden Wörter
-                    combined = first_half + word
+                    combined = first_half.strip('-') + word
                     possible_hyphenation = False
 
                     # TODO Check ob es ein tatsächliches Wort ist
