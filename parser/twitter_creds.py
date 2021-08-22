@@ -31,7 +31,7 @@ contextAPI = ContextTwitterApi()
 
 
 def tweet_word(word, id):
-    redis_id = "protkoll:" + str(id)
+    redis_id = "protokoll:" + str(id)
     
     key = r.hgetall(redis_id)
 
@@ -42,8 +42,8 @@ def tweet_word(word, id):
             "@{} \"{}\" tauchte zum ersten Mal im {} auf. Das Protokoll findet man unter {}".format(
                 status.user.screen_name,
                 word,
-                key['titel'],
-                key['pdf_url']),
+                r.hget(redis_id, 'titel').decode('utf-8'),
+                r.hget(redis_id, 'pdf_url').decode('utf-8')),
             in_reply_to_status_id=status.id,
             verify_status_length=False)
         

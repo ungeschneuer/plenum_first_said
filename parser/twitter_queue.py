@@ -41,8 +41,8 @@ def tweet_queue():
             if status_id:
                 sentry_sdk.capture_message("Tweet wurde gesendet.")
                 twittRedis.set('meta:tweetstop', 1 , ex=expireTime)
-                twittRedis.move(key, pastRedis)
-                twittRedis.hset(key, "id", status_id)
+                twittRedis.move(key['word'], pastRedis)
+                pastRedis.hset(key['word'], "id", status_id)
 
                 return True
     quit()
