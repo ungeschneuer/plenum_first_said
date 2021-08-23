@@ -6,4 +6,4 @@ profil_context.pxd/
 *.png
 .venv/*
 .vscode/*
-
+parser/archive/*
