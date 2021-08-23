@@ -40,8 +40,7 @@ def get(id):
 
     if response.status_code == 200:
         filename = save(id, response)
-        xml = parse(filename)
-        return xml
+        return parse(filename)
     else:
         return False
 
@@ -50,8 +49,7 @@ def get(id):
 def parse(filename):
     
     tree = ET.parse(filename)
-    root = tree.getroot()
-    return root
+    return tree.getroot()
 
 
 def getText(xml_file):
