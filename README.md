@@ -17,7 +17,7 @@ Unregelmäßigkeiten entstehen z.B. durch Silbentrennungen, die nicht gut von Wo
 
 `twitter_queue.py` und `twitter_creds.py` packt neue Wörter in eine Warteliste und twittert diese in unterschiedlichen Zeitintervallen.
 
-`dpi_api.xml` ruft das aktuelle Protokoll von der Seite über die API. 
+`dpi_api.xml` verbindet den Bot mit den Servern des Bundestags und sucht nach neuen Protokollen über weiterlaufende IDs.
 
 `xml_parse.xml` verarbeitet das Protokoll, sodass eine Analyse möglich ist.
 
@@ -34,7 +34,7 @@ Die Webseite [Sentry.io](https://sentry.io) sorgt für schnelle Benachrichtigung
 Aus Gründen der Unterhaltung werden einige Worte aussortiert, die zwar tatsächlich zum ersten Mal so gesagt werden, aber nur bedingt an sich einen Informationswert haben. Folgendes wird z.B. herausgefiltert:
 - Plural
 - Genitiv
-- Gendern
+- gegenderte Formen
 - Wöter unter 4 Buchstaben
 - Gesetzesabkürzungen
 
