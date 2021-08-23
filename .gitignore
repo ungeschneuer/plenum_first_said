@@ -4,8 +4,6 @@ parser/__pycache__/*
 .env
 profil_context.pxd/
 *.png
-parser/archive/*
 .venv/*
-Protokolle/*
 .vscode/*
 
