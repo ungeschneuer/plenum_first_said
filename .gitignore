@@ -7,3 +7,4 @@ profil_context.pxd/
 .venv/*
 .vscode/*
 parser/archive/*
+.*

@@ -53,6 +53,6 @@ def tweet_word(word, id):
     except UnicodeDecodeError as e:
         capture_exception(e)
         return False
-    except twitter.TwitterError as e:
+    except tweepy.TweepError as e:
         capture_exception(e)
         return False
