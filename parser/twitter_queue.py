@@ -51,7 +51,7 @@ def send_tweet(key):
 def cleanup_db(word, status_id):
 
     # Tweet Stopper eintstellen
-    expireTime = 60*round(random.randrange(3,20))
+    expireTime = 60*round(random.randrange(6,35))
     twittRedis.set('meta:tweetstop', 1 , ex=expireTime)
 
     # Ins Archiv bewegen
