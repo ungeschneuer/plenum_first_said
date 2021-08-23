@@ -1,4 +1,4 @@
-from sentry_sdk.api import capture_exception
+from sentry_sdk.api import capture_exception, capture_message
 from database import twittRedis, pastRedis
 from twitter_creds import tweet_word
 import random
@@ -19,7 +19,7 @@ sentry_sdk.init(
     # of transactions for performance monitoring.
     # We recommend adjusting this value in production.
     traces_sample_rate=0.5,
-    release="plenarbot@1.0",
+    release="plenarbot@1.1",
     environment="production"
 )
 
@@ -32,7 +32,11 @@ def tweet_queue():
     if tweetstop is None:
         key = twittRedis.randomkey()
         if key:
-            return send_tweet(key)
+            if not send_tweet(key):
+                capture_message('Tweet konnte nicht gesendet werden.')
+            else:
+                capture_message("Tweet wurde gesendet.")
+
     quit()
 
 def send_tweet(key):
@@ -43,16 +47,13 @@ def send_tweet(key):
     status_id = tweet_word(word, id)
 
     if not status_id:
-        raise
+        return False
     
-    sentry_sdk.capture_message("Tweet wurde gesendet.")
     return cleanup_db(word, status_id)
 
 def cleanup_db(word, status_id):
 
-    # Tweet Stopper eintstellen
-    expireTime = 60*round(random.randrange(6,35))
-    twittRedis.set('meta:tweetstop', 1 , ex=expireTime)
+    set_tweet_stopper()
 
     # Ins Archiv bewegen
     try:
@@ -62,7 +63,19 @@ def cleanup_db(word, status_id):
     except Exception as e:
         capture_exception(e)
         return False
-  
+
+def set_tweet_stopper():
+
+    expireTime = 60*round(random.randrange(6,35))
+    twittRedis.set('meta:tweetstop', 1 , ex=expireTime)
+
+    return True
+
+def delete_from_queue(word):
+    twittRedis.hdel(word)
+    return True
+
+
 
 
 

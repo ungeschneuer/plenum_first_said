@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 import os
 from database import r
 import tweepy
+from twitter_queue import delete_from_queue
 
 load_dotenv()
 
@@ -55,4 +56,10 @@ def tweet_word(word, id):
         return False
     except tweepy.TweepError as e:
         capture_exception(e)
+        
+        if e.args[0][0]['code'] == 187:
+            delete_from_queue(word)
+            return False
+        
         return False
+

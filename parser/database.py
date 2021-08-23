@@ -14,7 +14,7 @@ def compare_words(word):
     
     # Wenn genau das Wort existiert, skippen
     if r.hget('word:' + word, 'word'):
-        return True
+        return [word]
     
     # Sonst Abfrage von verschiedenen Versionen
     pipe = r.pipeline()
