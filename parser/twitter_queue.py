@@ -66,14 +66,11 @@ def cleanup_db(word, status_id):
 
 def set_tweet_stopper():
 
-    expireTime = 60*round(random.randrange(6,35))
+    expireTime = 60*round(random.randrange(4,27))
     twittRedis.set('meta:tweetstop', 1 , ex=expireTime)
 
     return True
 
-def delete_from_queue(word):
-    twittRedis.hdel(word)
-    return True
 
 
 

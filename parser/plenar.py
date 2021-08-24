@@ -1,12 +1,13 @@
-from dpi_api import find_new_doc
-from sentry_sdk import capture_message
-from database import r
-from scrape_functions import process_woerter
-import sentry_sdk
-from sentry_sdk.integrations.redis import RedisIntegration
-from dotenv import load_dotenv
-import os 
+import os
 
+import sentry_sdk
+from dotenv import load_dotenv
+from sentry_sdk import capture_message
+from sentry_sdk.integrations.redis import RedisIntegration
+
+from database import r
+from dpi_api import find_new_doc
+from scrape_functions import process_woerter
 
 load_dotenv()
 

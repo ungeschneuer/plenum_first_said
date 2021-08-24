@@ -5,9 +5,8 @@
 from sentry_sdk import capture_exception
 from dotenv import load_dotenv
 import os
-from database import r
+from database import r, twittRedis
 import tweepy
-from twitter_queue import delete_from_queue
 
 load_dotenv()
 
@@ -27,6 +26,9 @@ def ContextTwitterApi():
 twitterAPI = TwitterApi()
 contextAPI = ContextTwitterApi()
 
+def delete_from_queue(word):
+    twittRedis.hdel(word)
+    return True
 
 
 def tweet_word(word, id):
@@ -62,4 +64,5 @@ def tweet_word(word, id):
             return False
         
         return False
+
 
