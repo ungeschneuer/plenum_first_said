@@ -11,10 +11,6 @@ from sentry_sdk import capture_exception
 load_dotenv()
 
 
-# Directory für XML Speichern und Abrufen anpassen
-script_dir = os.path.dirname(os.path.realpath(__file__))
-os.chdir(script_dir)
-
 # API Key aus dem Environment
 api_key = os.environ.get('BUNDESTAG_API_KEY')
 
