@@ -7,7 +7,7 @@ Das Projekt wurde durch den Twitter-Account [@NYT_first_said](https://twitter.co
 
 ## Funktionsweise
 
-Über eine vom Bundestag bereitgestellte [OpenData-API](https://dip.bundestag.de/%C3%BCber-dip/hilfe/api#content) wird täglich nach einem neuen Plenarprotokoll des Bundestags gesucht. Wird es gefunden, wird jedes einzelne Wort mit einer selbsterstellten Datenbank abgeglichen, die aus allen veröffentlichen Plenarprotokollen aufgebaut wurde. Sollte das Wort nicht in der Datenbank gefunden werden, wird dieses zu einer Warteschlange hinzugefügt und zu einem bestimmten Zeitpunkt getwittert und besagter Datenbank selber hinzugefügt. Der Account [@FSBT_Kontext](https://twitter.com/FSBT_Kontext) antwortet automatisiert auf jeden Tweet mit weiterem Kontext zum Wort.
+Über eine vom Bundestag bereitgestellte [OpenData-API](https://dip.bundestag.de/%C3%BCber-dip/hilfe/api#content) wird täglich nach einem neuen Plenarprotokoll des Bundestags gesucht. Wird es gefunden, wird jedes einzelne Wort mit einer selbsterstellten Datenbank abgeglichen, die aus allen veröffentlichten Plenarprotokollen aufgebaut wurde. Sollte das Wort nicht in der Datenbank gefunden werden, wird dieses zu einer Warteschlange hinzugefügt und zu einem bestimmten Zeitpunkt getwittert und besagter Datenbank selber hinzugefügt. Der Account [@FSBT_Kontext](https://twitter.com/FSBT_Kontext) antwortet automatisiert auf jeden Tweet mit weiterem Kontext zum Wort.
 
 Unregelmäßigkeiten entstehen z.B. durch Silbentrennungen, die nicht gut von Wortverbindungen getrennt werden können (z.B. Know- (neue Zeile) how). 
 
@@ -25,7 +25,7 @@ Unregelmäßigkeiten entstehen z.B. durch Silbentrennungen, die nicht gut von Wo
 
 Im Ordner utilities finden sich Skripte, die bei dem Aufbau der Datenbank geholfen haben. 
 
-Über das Paket [python-dotenv](https://github.com/theskumar/python-dotenv) werden API-Schlüssel durch Umgebungsvariablen bereitgestellt. Dazu muss eine `.env` Datei in der Basis des Projektes exisitieren. 
+Über das Paket [python-dotenv](https://github.com/theskumar/python-dotenv) werden API-Schlüssel durch Umgebungsvariablen bereitgestellt. Dazu muss eine `.env` Datei in der Basis des Projektes existieren. 
 
 Die Webseite [Sentry.io](https://sentry.io) sorgt für schnelle Benachrichtigungen und die Dokumentation von Fehlern. 
 
@@ -35,7 +35,7 @@ Aus Gründen der Unterhaltung werden einige Worte aussortiert, die zwar tatsäch
 - Plural
 - Genitiv
 - gegenderte Formen
-- Wöter unter 4 Buchstaben
+- Wörter unter 4 Buchstaben
 - Gesetzesabkürzungen
 
 ## TODOs
@@ -45,6 +45,7 @@ Aus Gründen der Unterhaltung werden einige Worte aussortiert, die zwar tatsäch
 ## Lizenz und Danksagung
 
 Das Projekt steht unter der [GNU General Public License 3](https://www.gnu.org/licenses/gpl-3.0.de.html).  
-Das Projekt ensteht im Rahmen eines Nachwuchs-Stipendiums von [Bayern-Innovativ](https://www.bayern-innovativ.de/) zur Förderung der künstlerischen Entfaltung. 
+Das Projekt entsteht im Rahmen eines Nachwuchs-Stipendiums von [Bayern-Innovativ](https://www.bayern-innovativ.de/) zur Förderung der künstlerischen Entfaltung. 
+
 
 
