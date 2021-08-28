@@ -17,7 +17,7 @@ api_key = os.environ.get('BUNDESTAG_API_KEY')
 # Speichert XML ab nach Download
 def save(id, current_xml):
 
-    filename = os.path.dirname(os.path.realpath(__file__)) + "archive/" + str(id) + ".xml"
+    filename = os.path.dirname(os.path.realpath(__file__)) + "/archive/" + str(id) + ".xml"
 
     with open (filename, 'wb') as file:
         file.write(current_xml.content)

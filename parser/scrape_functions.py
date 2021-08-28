@@ -37,7 +37,7 @@ def normalize(raw_word):
 # Check ob ein valides Wort und weitere Korrigierung
 def ok_word(s):
 
-    if s.endswith('ts') or len(s) < 5: 
+    if len(s) < 5 or s.endswith('ts') or s[-1].isupper(): 
         return False
 
     return (not any(i.isdigit() or i in '(.@/#-_§ ' for i in s))
@@ -76,7 +76,7 @@ def wordsplitter(text):
             words += sentence.split()
         if 'Beginn:' in words:
             words = words[words.index('Beginn:')+1:]
-        if 'Beginn' in words:
+        elif 'Beginn' in words:
             words = words[words.index('Beginn')+1:]
     except Exception as e:
         capture_exception(e)
