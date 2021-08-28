@@ -33,30 +33,21 @@ def increase_current_id(new_id):
 
 def main():
 
-    capture_message("Skript wird gestartet")
-
     old_id = get_current_id()
 
-    capture_message("Sitzung mit der ID " + str(old_id) + " wird gesucht.")
     xml_file, new_id = find_new_doc(old_id)
 
     if new_id:
-        capture_message("Sitzung gefunden")
+        capture_message('Sitzung mit der ID ' + str(old_id) +  ' gefunden')
         wordnum = process_woerter(xml_file, new_id)        
         increase_current_id(new_id)
         capture_message("Es wurden " + str(wordnum) + " neue Wörter hinzugefügt.")
 
     
-    capture_message("Skript wird beendet")
     exit
 
 
 if __name__ == "__main__":
     main()
 
-"""
-TODO
-- Backend zur Wort Kontrolle
-- Wenn irgendwo in der Mitte ein Großbuchstabe dann trennen (Gefahr für Gesetzesabkürzungen)
-"""
 

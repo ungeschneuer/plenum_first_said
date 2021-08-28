@@ -31,12 +31,8 @@ def tweet_queue():
 
     if tweetstop is None:
         key = twittRedis.randomkey()
-        if key:
-            if not send_tweet(key):
-                capture_message('Tweet konnte nicht gesendet werden.')
-            else:
-                capture_message("Tweet wurde gesendet.")
-
+        if key and not send_tweet(key):
+            capture_message('Tweet konnte nicht gesendet werden.')
     quit()
 
 def send_tweet(key):

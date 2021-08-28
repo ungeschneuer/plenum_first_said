@@ -59,11 +59,13 @@ def get_wortbeitraege(xml_file):
     
     text = xml_parse.getText(xml_file)
     sanitized = []
+    regex_url = '(http|ftp|https)://([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?'
 
     for sentence in text:
         # Encoding funktioniert nicht komplett, darum sanitizing
         sentence = sentence.replace(u'\xa0', u' ')
         sentence = sentence.replace('\n', ' ')
+        sentence = re.sub(regex_url, '', sentence)
         sanitized.append(sentence)
 
     return sanitized
