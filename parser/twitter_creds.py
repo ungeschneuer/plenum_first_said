@@ -40,7 +40,7 @@ def tweet_word(word, id):
     try:
         status = twitterAPI.update_status(word)
         context_status = contextAPI.update_status(
-            "@{} \"{}\" tauchte zum ersten Mal im {} am {} auf. Das Protokoll findet man unter {}".format(
+            "@{} #{} tauchte zum ersten Mal im {} am {} auf. Das Protokoll findet man unter {}".format(
                 status.user.screen_name,
                 word,
                 r.hget(redis_id, 'titel').decode('utf-8'),
