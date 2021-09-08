@@ -45,7 +45,7 @@ Aus Gründen der Unterhaltung werden einige Worte aussortiert, die zwar tatsäch
 ## Lizenz und Danksagung
 
 Das Projekt steht unter der [GNU General Public License 3](https://www.gnu.org/licenses/gpl-3.0.de.html).  
-Das Projekt entsteht im Rahmen eines Nachwuchs-Stipendiums von [Bayern-Innovativ](https://www.bayern-innovativ.de/) zur Förderung der künstlerischen Entfaltung. 
+Das Projekt entsteht im Rahmen eines Nachwuchs-Stipendiums des [Bayerische Staatministeriums für Wissenschaft und Kunst](https://www.stmwk.bayern.de/) zur Förderung der künstlerischen Entfaltung. 
 
 
 
