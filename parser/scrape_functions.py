@@ -116,7 +116,7 @@ def wordsfilter(words, id):  # sourcery skip: de-morgan, hoist-statement-from-if
                     if word.startswith('-'):
                         continue
                 # Aufzählung raus sortieren    
-                elif word == 'und':
+                elif word == 'und' or word == 'oder' or word == 'bzw':
                     if check_word(first_half, id):
                         wordnum += 1
                     possible_hyphenation = False
