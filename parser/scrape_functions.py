@@ -58,6 +58,9 @@ def check_word(word, id):
 def get_wortbeitraege(xml_file):
     
     text = xml_parse.getText(xml_file)
+    if not text:
+        return False
+
     sanitized = []
     regex_url = '(http|ftp|https)://([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?'
 
@@ -164,6 +167,9 @@ def wordsfilter(words, id):  # sourcery skip: de-morgan, hoist-statement-from-if
 def process_woerter (xml_file, id):
 
     raw_results = get_wortbeitraege(xml_file)
+
+    if not raw_results:
+        return 0
         
     words = wordsplitter(raw_results)
 

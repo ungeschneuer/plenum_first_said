@@ -69,8 +69,10 @@ def getText(xml_file):
         if xml_file.findall('TEXT'):
             text.append(xml_file.find('TEXT').text)
 
-    
-    return text
+    if not text:
+        return False
+    else:        
+        return text
 
 
 if __name__ == "__main__":

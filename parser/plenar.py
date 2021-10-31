@@ -6,6 +6,8 @@ import sentry_sdk
 from sentry_sdk.integrations.redis import RedisIntegration
 from dotenv import load_dotenv
 import os 
+import json
+import requests
 
 load_dotenv()
 
@@ -29,7 +31,15 @@ def increase_current_id(new_id):
     r.set('meta:id', int(new_id) + 1)
     return True
 
+def send_push(wordnum):
+    webhook_URL=  os.environ.get('WEBHOOK_URL')
+    message = {'value1': 'Es wurden ein neues Protokoll mit ' + str(wordnum) + ' Wörtern hinzugefügt.'}
 
+    response = requests.post(
+    webhook_URL, data=json.dumps(message),
+    headers={'Content-Type': 'application/json'}
+)
+    print(response)
 
 def main():
 
@@ -39,8 +49,12 @@ def main():
 
     if new_id:
         capture_message('Sitzung mit der ID ' + str(old_id) +  ' gefunden')
-        wordnum = process_woerter(xml_file, new_id)        
+        wordnum = process_woerter(xml_file, new_id)
+        if wordnum == 0:
+            exit   
         increase_current_id(new_id)
+        
+        send_push(wordnum)
         capture_message("Es wurden " + str(wordnum) + " neue Wörter hinzugefügt.")
 
     
