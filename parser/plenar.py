@@ -1,3 +1,7 @@
+
+# -*- coding: utf-8 -*-
+
+
 from dpi_api import find_new_doc
 from sentry_sdk import capture_message
 from database import r
@@ -33,13 +37,13 @@ def increase_current_id(new_id):
 
 def send_push(wordnum):
     webhook_URL=  os.environ.get('WEBHOOK_URL')
-    message = {'value1': 'Es wurden ein neues Protokoll mit ' + str(wordnum) + ' Wörtern hinzugefügt.'}
+    message = {'value1': 'Es wurden ein neues Protokoll mit ' + str(wordnum) + ' Woertern hinzugefügt.'}
 
     response = requests.post(
     webhook_URL, data=json.dumps(message),
-    headers={'Content-Type': 'application/json'}
-)
-    print(response)
+    headers={'Content-Type': 'application/json'})
+
+    print(wordnum)
 
 def main():
 
