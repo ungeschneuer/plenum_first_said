@@ -35,16 +35,6 @@ def increase_current_id(new_id):
     r.set('meta:id', int(new_id) + 1)
     return True
 
-def send_push(wordnum):
-    webhook_URL=  os.environ.get('WEBHOOK_URL')
-    message = {'value1': 'Es wurden ein neues Protokoll mit ' + str(wordnum) + ' Woertern hinzugefügt.'}
-
-    response = requests.post(
-    webhook_URL, data=json.dumps(message),
-    headers={'Content-Type': 'application/json'})
-
-    print(wordnum)
-
 def main():
 
     old_id = get_current_id()
@@ -58,7 +48,6 @@ def main():
             exit   
         increase_current_id(new_id)
         
-        send_push(wordnum)
         capture_message("Es wurden " + str(wordnum) + " neue Wörter hinzugefügt.")
 
     
