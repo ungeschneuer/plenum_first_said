@@ -15,7 +15,7 @@ Unregelmäßigkeiten entstehen z.B. durch Silbentrennungen, die nicht gut von Wo
 
 `plenar.py` ist die Hauptfunktion, die den Rest orchestriert. Sie wird stündlich aufgerufen. `database.py` erlaubt eine Verbindung zur lokalen Redis Datenbank. 
 
-`twitter_queue.py` und `twitter_creds.py` packt neue Wörter in eine Warteliste und twittert diese in unterschiedlichen Zeitintervallen.
+`twitter_queue.py` und `twitter_creds.py` packt neue Wörter in eine Warteliste und twittert diese in unterschiedlichen Zeitintervallen. Über eine weitere Funktion wird auch Mastodon benutzt.
 
 `dpi_api.xml` verbindet den Bot mit den Servern des Bundestags und sucht nach neuen Protokollen über weiterlaufende IDs.
 
@@ -25,7 +25,12 @@ Unregelmäßigkeiten entstehen z.B. durch Silbentrennungen, die nicht gut von Wo
 
 Im Ordner utilities finden sich Skripte, die bei dem Aufbau der Datenbank geholfen haben. 
 
-Über das Paket [python-dotenv](https://github.com/theskumar/python-dotenv) werden API-Schlüssel durch Umgebungsvariablen bereitgestellt. Dazu muss eine `.env` Datei in der Basis des Projektes existieren. 
+Über das Paket [python-dotenv](https://github.com/theskumar/python-dotenv) werden API-Schlüssel durch Umgebungsvariablen bereitgestellt. Dazu muss eine `.env` Datei in der Basis des Projektes existieren. In dem Repo liegt die Datei `example.env`, die alle Variabeln aufzählt und den momentan öffentlichen API Key des Bundestags beinhaltet. 
+
+## Mastodon und Twitter
+Für den Zugang zu Twitter benutze ich die Library [Tweepy](https://www.tweepy.org/) und für Mastodon benutze ich [Mastodon.py.](https://github.com/halcy/Mastodon.py) Dort gibt es auch eine Dokumentation, wie man die Keys richtig erstellt. 
+
+Die Mastodon Account findet man je unter <a rel="me" href="https://mastodon.social/@BT_First_Said">@BT_First_Said@mastodon.social</a> und <a rel="me" href="https://mastodon.social/@FSBT_Kontext">@FSBT_Kontext@mastodon.social</a>.
 
 
 ## Was bedeutet "neues Wort"?
@@ -38,7 +43,7 @@ Aus Gründen der Unterhaltung werden einige Worte aussortiert, die zwar tatsäch
 - Gesetzesabkürzungen
 
 ## TODOs
-- [ ] Sprecherin im Kontext mit erwähnen  
+- [ ] Sprecher:in im Kontext mit erwähnen  
 - [ ] Weitere Verfeinerung der Wort-Normalisierung
 
 ## Lizenz und Danksagung

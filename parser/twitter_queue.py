@@ -66,7 +66,7 @@ def set_tweet_stopper():
 
 
 if __name__ == "__main__":
-    logging.basicConfig(filename='tweet.log', level=logging.DEBUG)
+    logging.basicConfig(filename='tweet.log', format='%(asctime)s %(levelname)-8s %(message)s', level=logging.INFO, datefmt='%Y-%m-%d %H:%M:%S')
     logging.info('Tweet_Skript wird gestartet')
     tweet_queue()
     logging.info('Tweet_Skript wird beendet')

@@ -1,7 +1,6 @@
 parser/__pycache__/*
 **/.DS_Store
 .DS_Store
-.env
 profil_context.pxd/
 *.png
 .venv/*
@@ -9,3 +8,4 @@ profil_context.pxd/
 parser/archive/*
 .*
 parser/utilities/mastodon_starter.py
+.env

@@ -26,8 +26,8 @@ def ContextTwitterApi():
 
 twitterAPI = TwitterApi()
 contextAPI = ContextTwitterApi()
-MastodonAPI = Mastodon(os.environ.get('MASTODON_FIRST_CLIENT_ID'), os.environ.get('MASTODON_FIRST_CLIENT_SECRET'), os.environ.get('MASTODON_FIRST_ACCESSTOKEN'),  api_base_url="https://mastodon.social")
-MastodonKontextAPI = Mastodon(os.environ.get('MASTODON_KONTEXT_CLIENT_ID'), os.environ.get('MASTODON_KONTEXT_CLIENT_SECRET'), os.environ.get('MASTODON_KONTEXT_ACCESSTOKEN'),  api_base_url="https://mastodon.social")
+MastodonAPI = Mastodon(access_token = os.environ.get('MASTODON_FIRST_ACCESSTOKEN'),  api_base_url="https://mastodon.social")
+MastodonKontextAPI = Mastodon(access_token = os.environ.get('MASTODON_KONTEXT_ACCESSTOKEN'),  api_base_url="https://mastodon.social")
 
 
 def delete_from_queue(word):
@@ -76,8 +76,7 @@ def toot_word(word, keys):
     try: 
         toot_status = MastodonAPI.toot(word)
 
-        context_status = MastodonKontextAPI.status_post("@{} #{} tauchte zum ersten Mal im {} am {} auf. Das Protokoll findet man unter {}".format(
-                    toot_status.username,
+        context_status = MastodonKontextAPI.status_post("#{} tauchte zum ersten Mal im {} am {} auf. Das Protokoll findet man unter {}".format(
                     word,
                     keys[b'titel'].decode('UTF-8'),
                     keys[b'datum'].decode('UTF-8'),
