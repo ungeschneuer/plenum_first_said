@@ -5,10 +5,8 @@ import requests
 import json
 from database import r
 import datetime
-import xml_parse
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
-from scrape_functions import get_url_content
 
 
 load_dotenv()
@@ -16,6 +14,19 @@ load_dotenv()
 
 # API Key aus dem Environment
 api_key = os.environ.get('BUNDESTAG_API_KEY')
+
+
+def get_url_content(url):
+    try:
+        s = requests.Session()
+        retries = Retry(total=5, backoff_factor=1, status_forcelist=[ 502, 503, 504, 54 ])
+        s.mount('https://', HTTPAdapter(max_retries=retries))
+        response = s.get(url)
+        return response
+    except Exception as e:
+        logging.exception(e)
+        return False
+
 
 def add_protokoll(response):
 
@@ -73,10 +84,10 @@ def find_new_doc(id):
         if response and response.status_code == 200:
             if add_protokoll(response):
                 logging.info('Neue Sitzung mit Text gefunden unter der URL ' + url)
-                return (xml_parse.get(x), x)
+                return x
         else:
-            logging.debug('Response war nicht gültig.')
+            logging.debug('Response für ID ' + str(x) + ' war nicht gültig.')
 
-    else:
-        logging.info('Keine neue Sitzung gefunden')
-        return (None, False) 
+    
+    logging.info('Keine neue Sitzung gefunden')
+    return False 

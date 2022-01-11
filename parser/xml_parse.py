@@ -2,8 +2,7 @@ import logging
 import xml.etree.ElementTree as ET
 from dotenv import load_dotenv
 import os
-import json
-from scrape_functions import get_url_content
+from dpi_api import get_url_content
 
 
 
@@ -69,9 +68,3 @@ def getText(xml_file):
     else:        
         return text
 
-
-if __name__ == "__main__":
-    file = '/Users/marcel/Documents/2021/plenum_first_said/parser/archive/5424.xml'
-    root = parse(file)
-    text = getText(root)
-    print(text)

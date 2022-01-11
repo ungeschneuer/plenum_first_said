@@ -3,9 +3,7 @@ import re
 from string import punctuation
 import xml_parse
 from database import add_to_queue, add_word
-import requests
-from requests.adapters import HTTPAdapter
-from requests.packages.urllib3.util.retry import Retry
+
 
 
 
@@ -92,7 +90,7 @@ def wordsplitter(text):
     return words
 
 
-def wordsfilter(words, id):  # sourcery skip: de-morgan, hoist-statement-from-if
+def wordsfilter(words, id):  
     wordnum = 0
     first_half = ""
     skip = False
@@ -177,14 +175,9 @@ def process_woerter (xml_file, id):
 
     return(wordsfilter(words, id))
 
-
-def get_url_content(url):
-    try:
-        s = requests.Session()
-        retries = Retry(total=5, backoff_factor=1, status_forcelist=[ 502, 503, 504, 54 ])
-        s.mount('https://', HTTPAdapter(max_retries=retries))
-        response = s.get(url)
-        return response
-    except Exception as e:
-        logging.exception(e)
-        return False
+if __name__ == "__main__":
+    file = '/Users/marcel/Documents/2021/plenum_first_said.nosync/parser/archive/5445.xml'
+    root = xml_parse.parse(file)
+    text = get_wortbeitraege(root)
+    words = wordsplitter(text)
+    print(words)

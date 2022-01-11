@@ -7,6 +7,7 @@ from dpi_api import find_new_doc
 from database import r
 from scrape_functions import process_woerter
 from dotenv import load_dotenv
+import xml_parse
 
 load_dotenv()
 
@@ -23,9 +24,16 @@ def main():
 
     logging.info('Starte suche nach Dokument mit ID ' + str(old_id))
 
-    xml_file, new_id = find_new_doc(old_id)
+    new_id = find_new_doc(old_id)
 
-    if new_id and xml_file:
+    if new_id:
+        xml_file = xml_parse.get(new_id)
+    else:
+        logging.info('Keine neue Sitzung gefunden.')
+        exit
+
+
+    if xml_file:
         logging.info('Sitzung mit der ID ' + str(new_id) +  ' gefunden')
         wordnum = process_woerter(xml_file, new_id)
         if wordnum == 0:
@@ -37,13 +45,13 @@ def main():
         logging.info("Es wurden " + str(wordnum) + " neue Wörter hinzugefügt.")
 
     else:
-        logging.info('Keine neue Sitzung gefunden')
+        logging.debug('Fehler im XML File.')
     
     exit
 
 
 if __name__ == "__main__":
-    logging.basicConfig(filename='plenarlog.log', encoding='utf-8', level=logging.DEBUG)
+    logging.basicConfig(filename='plenarlog.log', level=logging.DEBUG)
     logging.info('Starte Plenar-Parser')
     main()
     logging.info('Beende Plenar-Parser')
