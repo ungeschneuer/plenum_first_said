@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 import os
 from database import r, twittRedis
 import tweepy
+from mastodon import Mastodon
 
 load_dotenv()
 
@@ -25,6 +26,9 @@ def ContextTwitterApi():
 
 twitterAPI = TwitterApi()
 contextAPI = ContextTwitterApi()
+MastodonAPI = Mastodon(os.environ.get('MASTODON_FIRST_CLIENT_ID'), os.environ.get('MASTODON_FIRST_CLIENT_SECRET'), os.environ.get('MASTODON_FIRST_ACCESSTOKEN'),  api_base_url="https://mastodon.social")
+MastodonKontextAPI = Mastodon(os.environ.get('MASTODON_KONTEXT_CLIENT_ID'), os.environ.get('MASTODON_KONTEXT_CLIENT_SECRET'), os.environ.get('MASTODON_KONTEXT_ACCESSTOKEN'),  api_base_url="https://mastodon.social")
+
 
 def delete_from_queue(word):
     twittRedis.hdel(word)
@@ -34,8 +38,7 @@ def delete_from_queue(word):
 def tweet_word(word, id):
     redis_id = "protokoll:" + str(id)
     
-    key = r.hgetall(redis_id)
-
+    keys = r.hgetall(redis_id)
 
     try:
         status = twitterAPI.update_status(word)
@@ -43,13 +46,14 @@ def tweet_word(word, id):
             "@{} #{} tauchte zum ersten Mal im {} am {} auf. Das Protokoll findet man unter {}".format(
                 status.user.screen_name,
                 word,
-                r.hget(redis_id, 'titel').decode('utf-8'),
-                r.hget(redis_id, 'datum').decode('utf-8'),
-                r.hget(redis_id, 'pdf_url').decode('utf-8')),
+                keys[b'titel'].decode('UTF-8'),
+                keys[b'datum'].decode('UTF-8'),
+                keys[b'pdf_url'].decode('UTF-8')),
             in_reply_to_status_id=status.id)
         
         if context_status:
-            return status.id
+            logging.info('Tweet wurde gesendet.')
+            return toot_word(word, keys)
         else:
             return False
         
@@ -64,5 +68,24 @@ def tweet_word(word, id):
             return False
         
         return False
+    
 
 
+
+def toot_word(word, keys):
+    try: 
+        toot_status = MastodonAPI.toot(word)
+
+        context_status = MastodonKontextAPI.status_post("@{} #{} tauchte zum ersten Mal im {} am {} auf. Das Protokoll findet man unter {}".format(
+                    toot_status.username,
+                    word,
+                    keys[b'titel'].decode('UTF-8'),
+                    keys[b'datum'].decode('UTF-8'),
+                    keys[b'pdf_url'].decode('UTF-8')),
+                    in_reply_to_id = toot_status["id"])
+
+        logging.info('Toot wurde gesendet.')
+        return context_status
+    except Exception as e:
+        logging.exception(e)
+        return False

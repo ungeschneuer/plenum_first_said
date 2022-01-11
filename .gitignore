@@ -8,3 +8,4 @@ profil_context.pxd/
 .vscode/*
 parser/archive/*
 .*
+parser/utilities/mastodon_starter.py

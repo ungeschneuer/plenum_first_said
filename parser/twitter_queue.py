@@ -1,6 +1,6 @@
 import logging
 from database import twittRedis, pastRedis
-from twitter_creds import tweet_word
+from twitter_creds import tweet_word, toot_word
 import random
 from dotenv import load_dotenv    
 
@@ -29,7 +29,6 @@ def send_tweet(key):
         logging.debug('Tweet konnte nicht gesendet werden.')
         return False
     
-    logging.info('Tweet wurde gesendet.')
     return cleanup_db(word, status_id)
 
 def cleanup_db(word, status_id):
@@ -40,6 +39,7 @@ def cleanup_db(word, status_id):
     try:
         twittRedis.move(word, 2)
         pastRedis.hset(word, "tweet_id", status_id)
+        logging.info('Tweet wurde ins Archiv verschoben.')
         return True
     except Exception as e:
         logging.exception(e)
@@ -66,7 +66,7 @@ def set_tweet_stopper():
 
 
 if __name__ == "__main__":
-    logging.basicConfig(filename='example.log', encoding='utf-8', level=logging.DEBUG)
+    logging.basicConfig(filename='tweet.log', level=logging.DEBUG)
     logging.info('Tweet_Skript wird gestartet')
     tweet_queue()
     logging.info('Tweet_Skript wird beendet')
