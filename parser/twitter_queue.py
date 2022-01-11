@@ -1,29 +1,10 @@
-from sentry_sdk.api import capture_exception, capture_message
+import logging
 from database import twittRedis, pastRedis
 from twitter_creds import tweet_word
 import random
-import sentry_sdk
-from dotenv import load_dotenv
-import os 
-from sentry_sdk.integrations.redis import RedisIntegration
-
-
+from dotenv import load_dotenv    
 
 load_dotenv()
-
-sentry_sdk.init(
-    os.environ.get('SENTRY_AUTH'),
-    integrations=[RedisIntegration()],
-
-    # Set traces_sample_rate to 1.0 to capture 100%
-    # of transactions for performance monitoring.
-    # We recommend adjusting this value in production.
-    traces_sample_rate=0.5,
-    release="plenarbot@1.1",
-    environment="production"
-)
-
-
 
 def tweet_queue():
     
@@ -32,8 +13,10 @@ def tweet_queue():
     if tweetstop is None:
         key = twittRedis.randomkey()
         if key and not send_tweet(key):
-            capture_message('Tweet konnte nicht gesendet werden.')
-    quit()
+            logging.debug('Tweet konnte nicht gesendet werden.')
+            return False
+        return True    
+    return False
 
 def send_tweet(key):
     word = twittRedis.hget(key, "word").decode("utf-8")
@@ -43,8 +26,10 @@ def send_tweet(key):
     status_id = tweet_word(word, id)
 
     if not status_id:
+        logging.debug('Tweet konnte nicht gesendet werden.')
         return False
     
+    logging.info('Tweet wurde gesendet.')
     return cleanup_db(word, status_id)
 
 def cleanup_db(word, status_id):
@@ -57,13 +42,14 @@ def cleanup_db(word, status_id):
         pastRedis.hset(word, "tweet_id", status_id)
         return True
     except Exception as e:
-        capture_exception(e)
+        logging.exception(e)
         return False
 
 def set_tweet_stopper():
 
     expireTime = 60*round(random.randrange(55,120))
     twittRedis.set('meta:tweetstop', 1 , ex=expireTime)
+    logging.info('Tweet stopper wurde gesetzt.')
 
     return True
 
@@ -80,4 +66,7 @@ def set_tweet_stopper():
 
 
 if __name__ == "__main__":
+    logging.basicConfig(filename='example.log', encoding='utf-8', level=logging.DEBUG)
+    logging.info('Tweet_Skript wird gestartet')
     tweet_queue()
+    logging.info('Tweet_Skript wird beendet')

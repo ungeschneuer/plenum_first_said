@@ -27,7 +27,6 @@ Im Ordner utilities finden sich Skripte, die bei dem Aufbau der Datenbank geholf
 
 Über das Paket [python-dotenv](https://github.com/theskumar/python-dotenv) werden API-Schlüssel durch Umgebungsvariablen bereitgestellt. Dazu muss eine `.env` Datei in der Basis des Projektes existieren. 
 
-Die Webseite [Sentry.io](https://sentry.io) sorgt für schnelle Benachrichtigungen und die Dokumentation von Fehlern. 
 
 ## Was bedeutet "neues Wort"?
 

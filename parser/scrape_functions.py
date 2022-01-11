@@ -1,10 +1,12 @@
+import logging
 import re
 from string import punctuation
-
-from sentry_sdk import capture_exception
-
 import xml_parse
 from database import add_to_queue, add_word
+import requests
+from requests.adapters import HTTPAdapter
+from requests.packages.urllib3.util.retry import Retry
+
 
 
 # Normalisierungfunktion von nyt_first_said
@@ -84,7 +86,7 @@ def wordsplitter(text):
         elif 'Beginn' in words:
             words = words[words.index('Beginn')+1:]
     except Exception as e:
-        capture_exception(e)
+        logging.exception(e)
         exit()
     
     return words
@@ -174,3 +176,15 @@ def process_woerter (xml_file, id):
     words = wordsplitter(raw_results)
 
     return(wordsfilter(words, id))
+
+
+def get_url_content(url):
+    try:
+        s = requests.Session()
+        retries = Retry(total=5, backoff_factor=1, status_forcelist=[ 502, 503, 504, 54 ])
+        s.mount('https://', HTTPAdapter(max_retries=retries))
+        response = s.get(url)
+        return response
+    except Exception as e:
+        logging.exception(e)
+        return False

@@ -2,7 +2,7 @@
 #!/usr/bin/python
 """
 """
-from sentry_sdk import capture_exception
+import logging
 from dotenv import load_dotenv
 import os
 from database import r, twittRedis
@@ -54,10 +54,10 @@ def tweet_word(word, id):
             return False
         
     except UnicodeDecodeError as e:
-        capture_exception(e)
+        logging.exception(e)
         return False
     except tweepy.TweepError as e:
-        capture_exception(e)
+        logging.exception(e)
         
         if e.args[0][0]['code'] == 187:
             delete_from_queue(word)

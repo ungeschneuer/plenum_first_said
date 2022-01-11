@@ -2,31 +2,13 @@
 # -*- coding: utf-8 -*-
 
 
+import logging
 from dpi_api import find_new_doc
-from sentry_sdk import capture_message
 from database import r
 from scrape_functions import process_woerter
-import sentry_sdk
-from sentry_sdk.integrations.redis import RedisIntegration
 from dotenv import load_dotenv
-import os 
-import json
-import requests
 
 load_dotenv()
-
-sentry_sdk.init(
-    os.environ.get('SENTRY_AUTH'),
-    integrations=[RedisIntegration()],
-
-    # Set traces_sample_rate to 1.0 to capture 100%
-    # of transactions for performance monitoring.
-    # We recommend adjusting this value in production.
-    traces_sample_rate=0.5,
-    release="plenarbot@1.0",
-    environment="production"
-)
-
 
 def get_current_id():
     return int(r.get('meta:id'))
@@ -39,22 +21,30 @@ def main():
 
     old_id = get_current_id()
 
+    logging.info('Starte suche nach Dokument mit ID ' + str(old_id))
+
     xml_file, new_id = find_new_doc(old_id)
 
-    if new_id:
-        capture_message('Sitzung mit der ID ' + str(old_id) +  ' gefunden')
+    if new_id and xml_file:
+        logging.info('Sitzung mit der ID ' + str(new_id) +  ' gefunden')
         wordnum = process_woerter(xml_file, new_id)
         if wordnum == 0:
+            logging.debug('Es wurde kein neues Wort hinzugefügt.')
             exit   
-        increase_current_id(new_id)
+        else:
+            increase_current_id(new_id)
         
-        capture_message("Es wurden " + str(wordnum) + " neue Wörter hinzugefügt.")
+        logging.info("Es wurden " + str(wordnum) + " neue Wörter hinzugefügt.")
 
+    else:
+        logging.info('Keine neue Sitzung gefunden')
     
     exit
 
 
 if __name__ == "__main__":
+    logging.basicConfig(filename='plenarlog.log', encoding='utf-8', level=logging.DEBUG)
+    logging.info('Starte Plenar-Parser')
     main()
-
+    logging.info('Beende Plenar-Parser')
 
