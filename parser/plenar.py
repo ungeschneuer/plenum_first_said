@@ -51,7 +51,7 @@ def main():
 
 
 if __name__ == "__main__":
-    logging.basicConfig(filename='plenarlog.log', level=logging.DEBUG)
+    logging.basicConfig(filename='plenarlog.log', format='%(asctime)s %(levelname)-8s %(message)s', level=logging.INFO, datefmt='%Y-%m-%d %H:%M:%S')
     logging.info('Starte Plenar-Parser')
     main()
     logging.info('Beende Plenar-Parser')
