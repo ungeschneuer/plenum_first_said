@@ -37,7 +37,7 @@ def normalize(raw_word):
 # Check ob ein valides Wort und weitere Korrigierung
 def ok_word(s):
 
-    if len(s) < 5 or s.endswith('ts') or s[-1].isupper(): 
+    if len(s) < 5 or s.endswith('ts') or s.endswith('html') or s[-1].isupper(): 
         return False
 
     return (not any(i.isdigit() or i in '(.@/#-_§ ' for i in s))
