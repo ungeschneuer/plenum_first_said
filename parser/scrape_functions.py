@@ -36,8 +36,8 @@ def normalize(raw_word):
 
 # Check ob ein valides Wort und weitere Korrigierung
 def ok_word(s):
-
-    if len(s) < 5 or s.endswith('ts') or s.endswith('html') or s[-1].isupper(): 
+# Entfernung hier von html, bzw, und, oder, weil Aufzählungen mit Bindestrich und domains nicht gut rausgefiltert werden.
+    if len(s) < 5 or s.endswith(('ts', 'html', 'de', 'bzw', 'oder', 'und', 'wie')) or s.startswith('www') or s[-1].isupper(): 
         return False
 
     return (not any(i.isdigit() or i in '(.@/#-_§ ' for i in s))
@@ -163,7 +163,7 @@ def wordsfilter(words, id):
 
 
 
-
+#TODO URLS im Vorhinein entfernen
 def process_woerter (xml_file, id):
 
     raw_results = get_wortbeitraege(xml_file)
