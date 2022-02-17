@@ -30,11 +30,11 @@ def compare_words(word):
     pipe.hget('word:' + word + 'en', 'word')
     pipe.hget('word:' + word + 's', 'word')
 
-    # Fälle und Plural entfernen
-    if word.endswith(('s','n')):
+    # Exisitiert schon ein Fall oder ein Singular?
+    if word.endswith(('s','n', 'e')):
         pipe.hget('word:' + word[:-1], 'word')
-
-    if word.endswith(('’s', 'in', '’n')) or word[-2] == 'e':
+    
+    if word.endswith(('’s', 'in', '’n', 'er', 'en')):
         pipe.hget('word:' + word[:-2], 'word')
 
     return pipe.execute()
