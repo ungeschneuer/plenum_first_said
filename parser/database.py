@@ -24,17 +24,18 @@ def compare_words(word):
     pipe.hget('word:' + word.capitalize(), 'word')
 
 
-    # Existiert es schon im Plural?
+    # Existiert es schon im Plural oder ein einem anderen Fall?
     pipe.hget('word:' + word + 'er', 'word')
     pipe.hget('word:' + word + 'n', 'word')
     pipe.hget('word:' + word + 'en', 'word')
     pipe.hget('word:' + word + 's', 'word')
+    pipe.hget('word:' + word + 'es', 'word')
 
-    # Exisitiert schon ein Fall oder ein Singular?
+    # Exisitiert schon ein anderer Fall oder ein Singular?
     if word.endswith(('s','n', 'e')):
         pipe.hget('word:' + word[:-1], 'word')
     
-    if word.endswith(('’s', 'in', '’n', 'er', 'en')):
+    if word.endswith(('’s', 'in', '’n', 'er', 'en', 'es')):
         pipe.hget('word:' + word[:-2], 'word')
 
     return pipe.execute()
