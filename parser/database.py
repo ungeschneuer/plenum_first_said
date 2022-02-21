@@ -10,13 +10,10 @@ twittRedis = redis.StrictRedis(host='localhost', port=6379, db=1)
 pastRedis = redis.StrictRedis(host='localhost', port=6379, db=2)
 
 # Wort abgleichen und zur Datenbank hinzufügen
-def compare_words(word):
+def similiar_word(word):
+
     
-    # Wenn genau das Wort existiert, skippen
-    if r.hget('word:' + word, 'word'):
-        return [word]
-    
-    # Sonst Abfrage von verschiedenen Versionen
+    # Sonst Abfrage von verschiedenen Versionen und das tatsächliche Wort in die Datenbank einfügen
     pipe = r.pipeline()
 
     # Checken ob Kleinschreibung/Großschreibung
@@ -44,13 +41,19 @@ def compare_words(word):
 
 
 def add_word(word, id):
+    # Wenn das Wort direkt existiert, skippen
+    if r.hget('word:' + word, 'word'):
+        return False
     
-    if all(v is None for v in compare_words(word)):
+    # Wenn nicht, dann trotzdem zur Datenbank hinzufügen und checken, ob andere Formen schon existieren.
+    else:
         r.hset('word:' + word, 'word', word)
         r.hset('word:' + word, 'id', id)
-        return True
-
-    return False
+        
+        if all(v is None for v in similiar_word(word)):
+            return True
+        else:
+            return False
 
 def add_to_queue(word, id):
 

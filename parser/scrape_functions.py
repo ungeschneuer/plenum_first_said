@@ -50,8 +50,8 @@ def check_word(word, id):
         if add_word(norm_word, id):
             add_to_queue(norm_word, id)
             return True
-    
-    return False
+    else:
+        return False
 
 
 # Filtert aus XML Datei die tatsächlichen Wortbeiträge
