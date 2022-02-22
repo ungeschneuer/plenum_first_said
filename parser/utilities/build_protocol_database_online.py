@@ -12,7 +12,7 @@ load_dotenv()
 api_key = os.environ.get('BUNDESTAG_API_KEY')
 
 
-for x in range(351, 5468):
+for x in range(0, 5468):
     print(x)
     url = 'https://search.dip.bundestag.de/api/v1/plenarprotokoll-text/' + str(x) + '?apikey=' + api_key
     
