@@ -30,7 +30,7 @@ def get_url_content(url):
 
 def add_protokoll(response):
 
-    parameters = ['dokumentnummer', 'fundstelle', 'id', 'wahlperiode', 'datum', 'titel' ]
+    parameters = ['fundstelle', 'id', 'wahlperiode', 'datum', 'titel' ]
 
     # Erst checken ob es ein Protokoll des Bundestags ist und dann, ob es einen Text hat. 
 
@@ -53,6 +53,9 @@ def add_protokoll(response):
                                 pipe.hset(redis_id, 'pdf_url', document_data[parameter]['pdf_url'])
                         elif parameter == 'datum':
                             pipe.hset(redis_id, parameter, datetime.datetime.strptime(document_data[parameter], '%Y-%m-%d').strftime('%d.%m.%Y'))
+                        elif parameter == 'dokumentnummer':
+                            pipe.hset(redis_id, 'dokumentnummer', document_data['dokumentnummer'])
+                            pipe.hset(redis_id, 'protokollnummer', document_data[parameter].split('/')[1])
                         else:
                             pipe.hset(redis_id, parameter, document_data[parameter])
 
