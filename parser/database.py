@@ -60,13 +60,13 @@ def add_word(word, id):
 def check_age(word,id):
 
     # Quelle des Wortes welches aktuell in der Datenbank ist
-    aktuelle_id = r.hget('word:' + word, 'id')  
-    aktuelle_periode = r.hget('protokoll:' + aktuelle_id, 'wahlperiode')
-    aktuelles_protokollnummer = r.hget('protokoll:' + aktuelle_id, 'protokollnummer')
+    aktuelle_id = r.hget('word:' + word, 'id').decode("utf-8")
+    aktuelle_periode = int(r.hget('protokoll:' + aktuelle_id, 'wahlperiode').decode("utf-8"))
+    aktuelles_protokollnummer = int(r.hget('protokoll:' + aktuelle_id, 'protokollnummer').decode("utf-8"))
 
     # Quelle des Wortes, welches sich doppelt 
-    neue_periode = r.hget('protokoll:' + id, 'wahlperiode')
-    neue_protokollnummer = r.hget('protokoll:' + id, 'protokollnummer')
+    neue_periode = int(r.hget('protokoll:' + id, 'wahlperiode').decode("utf-8"))
+    neue_protokollnummer = int(r.hget('protokoll:' + id, 'protokollnummer').decode("utf-8"))
 
     if (aktuelle_periode >= neue_periode) and (aktuelles_protokollnummer > neue_protokollnummer):
         r.hset('word:' + word, 'word', word)
