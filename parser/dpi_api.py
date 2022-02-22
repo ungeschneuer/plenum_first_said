@@ -30,7 +30,7 @@ def get_url_content(url):
 
 def add_protokoll(response):
 
-    parameters = ['fundstelle', 'id', 'wahlperiode', 'datum', 'titel' ]
+    parameters = ['dokumentnummer', 'fundstelle', 'id', 'wahlperiode', 'datum', 'titel']
 
     # Erst checken ob es ein Protokoll des Bundestags ist und dann, ob es einen Text hat. 
 
