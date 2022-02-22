@@ -62,6 +62,7 @@ def get_wortbeitraege(xml_file):
         return False
 
     sanitized = []
+    # TODO URL-Filter scheint nicht durchgängig zu funktionieren
     regex_url = '(http|ftp|https)://([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?'
 
     for sentence in text:
@@ -163,7 +164,7 @@ def wordsfilter(words, id):
 
 
 
-#TODO URLS im Vorhinein entfernen
+
 def process_woerter (xml_file, id):
 
     raw_results = get_wortbeitraege(xml_file)
