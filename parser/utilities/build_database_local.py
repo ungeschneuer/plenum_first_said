@@ -9,10 +9,13 @@ from scrape_functions import process_woerter
     
 
 wordnum = 0
-directory = 'parser/archive/'
-total = len(os.listdir(directory))
+directory = 'archive/'
+files = os.listdir(directory)
+total = len(files)
 
-for i, filename in enumerate(os.listdir(directory)):
+files.sort(key=lambda x: int(x.split('.')[0]))
+
+for i, filename in enumerate(files):
     if filename.endswith(".xml"):
         filepath = directory + filename
         xml_file = xml_parse.parse(filepath)
