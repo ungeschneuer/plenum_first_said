@@ -1,15 +1,11 @@
 import os
-from progressbar import printProgressBar
+#from progressbar import printProgressBar
 import xml_parse
 from scrape_functions import process_woerter
 
 
-
-
-    
-
 wordnum = 0
-directory = 'archive/'
+directory = 'parser/archive/'
 files = os.listdir(directory)
 total = len(files)
 
@@ -20,7 +16,7 @@ for i, filename in enumerate(files):
         filepath = directory + filename
         xml_file = xml_parse.parse(filepath)
         wordnum += process_woerter(xml_file, filename.strip('.xml'))   
-
-    printProgressBar(i + 1, total, prefix = 'Progress:', suffix = 'Complete', length = 50)
+    print(filename)
+    # printProgressBar(i + 1, total, prefix = 'Progress:', suffix = 'Complete', length = 50)
 
 print("Fertig")
