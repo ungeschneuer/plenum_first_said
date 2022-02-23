@@ -61,23 +61,29 @@ def check_age(word,id):
 
     # Quelle des Wortes welches aktuell in der Datenbank ist
     aktuelle_id = r.hget('word:' + word, 'id').decode("utf-8")
-    aktuell_p = r.hgetall('protokoll:' + aktuelle_id)
 
-    aktuelle_periode = int(aktuell_p[b'wahlperiode'].decode("utf-8"))
-    aktuelle_protokollnummer = int(aktuell_p[b'protokollnummer'].decode("utf-8"))
-
-
-    # Quelle des Wortes, welches sich doppelt 
-    neu_p = r.hgetall('protokoll:' + id)
-    neue_periode = int(neu_p[b'wahlperiode'].decode("utf-8"))
-    neue_protokollnummer = int(neu_p[b'protokollnummer'].decode("utf-8"))
-
-
-    if (aktuelle_periode == neue_periode and aktuelle_protokollnummer > neue_protokollnummer) or (aktuelle_periode > neue_periode):
-        r.hset('word:' + word, 'id', id)
-        return True
-    else:
+    if id == aktuelle_id:
         return False
+
+    else:
+
+        aktuell_p = r.hgetall('protokoll:' + aktuelle_id)
+
+        aktuelle_periode = int(aktuell_p[b'wahlperiode'].decode("utf-8"))
+        aktuelle_protokollnummer = int(aktuell_p[b'protokollnummer'].decode("utf-8"))
+
+
+        # Quelle des Wortes, welches sich doppelt 
+        neu_p = r.hgetall('protokoll:' + str(id))
+        neue_periode = int(neu_p[b'wahlperiode'].decode("utf-8"))
+        neue_protokollnummer = int(neu_p[b'protokollnummer'].decode("utf-8"))
+
+
+        if (aktuelle_periode == neue_periode and aktuelle_protokollnummer > neue_protokollnummer) or (aktuelle_periode > neue_periode):
+            r.hset('word:' + word, 'id', id)
+            return True
+        else:
+            return False
 
 
 

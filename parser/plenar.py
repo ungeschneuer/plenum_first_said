@@ -38,7 +38,7 @@ def main():
                 exit   
             else:
                 increase_current_id(new_id)
-            
+             
             logging.info("Es wurden " + str(wordnum) + " neue Wörter hinzugefügt.")
 
         else:
@@ -60,3 +60,4 @@ if __name__ == "__main__":
     main()
     logging.info('Beende Plenar-Parser')
 
+ 
