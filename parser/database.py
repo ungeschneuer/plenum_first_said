@@ -33,6 +33,17 @@ def similiar_word(word):
     
     if word.endswith(('’s', 'in', '’n', 'er', 'en', 'es')):
         pipe.hget('word:' + word[:-2], 'word')
+    
+    if word.endswith(('m')):
+        pipe.hget('word:' + word[:-1] + 'n', 'word')
+
+    if word.endswith(('n')):
+        pipe.hget('word:' + word[:-1] + 'm', 'word')
+
+    if word.endswith(('en')):
+        pipe.hget('word:' + word[:-2] + 'er', 'word')
+        pipe.hget('word:' + word[:-2] + 'e', 'word')
+        pipe.hget('word:' + word[:-2] + 't', 'word')
 
     return pipe.execute()
 
