@@ -23,7 +23,7 @@ def normalize(raw_word):
         '-' in stripped_word
         and not stripped_word.endswith('-')
         and not stripped_word.startswith('-')
-        and regexexp.search(stripped_word)
+	        and regexexp.search(stripped_word)
     ):
         replaced = re.sub(regexexp, '-', stripped_word)
         return normalize(replaced)
@@ -38,10 +38,6 @@ def normalize(raw_word):
 def ok_word(s):
 # Entfernung hier von html, bzw, und, oder, weil Aufzählungen mit Bindestrich und domains nicht gut rausgefiltert werden.
     if len(s) < 5 or s.endswith(('ts', 'html', 'de', 'bzw', 'oder', 'und', 'wie')) or s.startswith('www') or s[-1].isupper(): 
-        return False
-    
-    # TODO Bindestrichfehler richtig lösen.
-    if s[0].islower():
         return False
 
     return (not any(i.isdigit() or i in '(.@/#-_§ ' for i in s))
@@ -83,7 +79,12 @@ def wordsplitter(text):
 
     try:
         for sentence in text:
-            words += sentence.split()
+            sentence_words = sentence.split()
+
+            # When uppercase letter in word split it
+            for word in sentence_words:
+                words += re.split('(?=[A-Z])', word)
+
         if 'Beginn:' in words:
             words = words[words.index('Beginn:')+1:]
         elif 'Beginn' in words:

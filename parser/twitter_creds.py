@@ -88,3 +88,19 @@ def toot_word(word, keys):
     except Exception as e:
         logging.exception(e)
         return False
+
+
+def tweet_text(text):
+        trends = twitterAPI.trends_place(23424829)
+        trend_array = []
+
+        for trend in trends[0]["trends"]:
+            trend_array.append(trend["name"].strip('#'))
+
+        for word in trend_array:
+            db_word = r.hgetall('word:' + word)
+            if db_word:
+                return True
+
+if __name__ == "__main__":
+    tweet_text("test")

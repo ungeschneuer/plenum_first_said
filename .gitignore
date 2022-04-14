@@ -10,3 +10,4 @@ parser/archive/*
 parser/utilities/mastodon_starter.py
 .env
 venv/*
+parser/plenarlog.log

@@ -100,6 +100,10 @@ def check_age(word,id):
 
 def add_to_queue(word, id):
 
+    # Fix für Strichfehler
+    if word[0].islower():
+        return False
+
     twittRedis.hset(word, 'word', word)
     twittRedis.hset(word, 'id', id)
     
