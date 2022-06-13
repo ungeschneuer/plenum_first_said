@@ -47,6 +47,10 @@ def similiar_word(word):
         pipe.hget('word:' + word[:-2] + 'er', 'word')
         pipe.hget('word:' + word[:-2] + 'e', 'word')
         pipe.hget('word:' + word[:-2] + 't', 'word')
+    
+    # Glücklicherweise wird das Gendern Standard. Darum wird es nicht mehr in die Queue eingefügt.
+    if word.endswith(('innen')):
+        pipe.hget('word:' + word[:-5], 'word')
 
     return pipe.execute()
 
