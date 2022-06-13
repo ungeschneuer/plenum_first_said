@@ -1,4 +1,8 @@
 import redis
+from dpi_api import get_op_response
+import datetime
+import logging
+
 
 # Tatsächliche Datenbank für Wörter
 r = redis.StrictRedis(host='localhost', port=6379, db=0)
@@ -26,12 +30,14 @@ def similiar_word(word):
     pipe.hget('word:' + word + 'en', 'word')
     pipe.hget('word:' + word + 's', 'word')
     pipe.hget('word:' + word + 'es', 'word')
+    pipe.hget('word:' + word + 'e', 'word')
+
 
     # Existiert schon ein anderer Fall oder ein Singular?
     if word.endswith(('s','n', 'e')):
         pipe.hget('word:' + word[:-1], 'word')
     
-    if word.endswith(('’s', 'in', '’n', 'er', 'en', 'es')):
+    if word.endswith(('’s', 'in', '’n', 'er', 'en', 'es', 'se')):
         pipe.hget('word:' + word[:-2], 'word')
 
     if word.endswith(('ern')):
@@ -50,10 +56,17 @@ def similiar_word(word):
 
     return pipe.execute()
 
+# Gleicht mit der OpenParliamentTV Datenbank ab
+def check_open_parliament(word, id):
+    datum = r.hget('protokoll:' + id, 'datum').decode('UTF-8')
+    
+    # Datum entspricht dem Tag vor dem Protokoll
+    date_to_check = datetime.datetime.strptime(datum, '%d.%m.%Y') - datetime.timedelta(days=1)
+    date = date_to_check.strftime('%Y-%m-%d')
+    url = 'https://de.openparliament.tv/api/v1/search/media/?q=' + word + '&date=' + date
+    return get_op_response(url)
 
-
-
-def add_word(word, id):
+def check_existence(word, id):
     # Wenn das Wort direkt existiert, skippen
     if r.hexists('word:' + word, 'word'):
         check_age(word, id)
@@ -62,13 +75,21 @@ def add_word(word, id):
     # Wenn nicht, dann zur Datenbank hinzufügen und trotzdem checken, ob andere Formen schon existieren.
     else:
         if all(v is None for v in similiar_word(word)):
-            r.hset('word:' + word, 'word', word)
-            r.hset('word:' + word, 'id', id)
-            return True
+            add_to_database(word, id)
+            return check_open_parliament(word, id)
         else:
-            r.hset('word:' + word, 'word', word)
-            r.hset('word:' + word, 'id', id)
+            add_to_database (word, id)
             return False
+
+# Helferfunktion, um Wort zum Korpus hinzuzufügen
+def add_to_database (word, id):
+    try:
+        r.hset('word:' + word, 'word', word)
+        r.hset('word:' + word, 'id', id)
+        return True
+    except Exception as e:
+        logging.exception(e)
+        return False
 
 #Sorgt dafür, dass tatsächlich das älteste Wort in der Datenbank steht
 def check_age(word,id):
@@ -100,7 +121,7 @@ def check_age(word,id):
             return False
 
 
-
+# Fügt ein Wort zur Twitter-Datenbank hinzu
 def add_to_queue(word, id):
 
     # Fix für Strichfehler
@@ -111,4 +132,6 @@ def add_to_queue(word, id):
     twittRedis.hset(word, 'id', id)
     
     return True
+
+
 
