@@ -62,14 +62,14 @@ def get_wortbeitraege(xml_file):
         return False
 
     sanitized = []
-    # TODO URL-Filter scheint nicht durchgängig zu funktionieren
     regex_url = '(http|ftp|https)://([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?'
 
     for sentence in text:
         # Encoding funktioniert nicht komplett, darum sanitizing
-        sentence = sentence.replace(u'\xa0', u' ')
-        sentence = sentence.replace('\n', ' ')
-        sentence = re.sub(regex_url, '', sentence)
+        sentence = sentence.replace(u'\xa0', u' ') # Sonderzeichen entfernen
+        sentence = sentence.replace('\n', ' ') # Zeilenumbrüche
+        sentence = sentence.replace('  ', ' ') # Doppelte Leerzeichen
+        sentence = re.sub(regex_url, '', sentence) # URL-Filter
         sanitized.append(sentence)
 
     return sanitized
