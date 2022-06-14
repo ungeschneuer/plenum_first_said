@@ -2,7 +2,7 @@
 import os
 # from progressbar import printProgressBar
 import xml_parse
-from scrape_functions import process_woerter
+from text_parse import process_woerter
 from dotenv import load_dotenv
 import requests
 from dpi_api import add_protokoll

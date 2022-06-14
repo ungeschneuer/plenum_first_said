@@ -56,7 +56,7 @@ def similiar_word(word):
 
     return pipe.execute()
 
-# Gleicht mit der OpenParliamentTV Datenbank ab
+# Gleicht mit der externen OpenParliamentTV Datenbank ab als zweiter Check
 def check_open_parliament(word, id):
     datum = r.hget('protokoll:' + id, 'datum').decode('UTF-8')
     
@@ -66,6 +66,7 @@ def check_open_parliament(word, id):
     url = 'https://de.openparliament.tv/api/v1/search/media/?q=' + word + '&date=' + date
     return get_op_response(url)
 
+# Überprüft, ob das Wort schon in der Datenbank ist und ob die älteste Version notiert ist. 
 def check_existence(word, id):
     # Wenn das Wort direkt existiert, skippen
     if r.hexists('word:' + word, 'word'):
