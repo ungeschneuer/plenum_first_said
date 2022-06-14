@@ -1,5 +1,5 @@
 import redis
-from dpi_api import get_op_response
+from optv_api import get_op_response
 import datetime
 import logging
 

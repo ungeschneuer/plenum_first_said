@@ -1,12 +1,10 @@
 import logging
 from dotenv import load_dotenv
 import os
-import requests
 import json
 from database import r
 import datetime
-from requests.adapters import HTTPAdapter
-from requests.packages.urllib3.util.retry import Retry
+from api_functions import get_url_content
 
 
 load_dotenv()
@@ -14,18 +12,6 @@ load_dotenv()
 
 # API Key aus dem Environment
 api_key = os.environ.get('BUNDESTAG_API_KEY')
-
-
-def get_url_content(url):
-    try:
-        s = requests.Session()
-        retries = Retry(total=5, backoff_factor=1, status_forcelist=[ 502, 503, 504, 54 ])
-        s.mount('https://', HTTPAdapter(max_retries=retries))
-        response = s.get(url)
-        return response
-    except Exception as e:
-        logging.exception(e)
-        return False
 
 
 def add_protokoll(response):
@@ -94,11 +80,3 @@ def find_new_doc(id):
     
     logging.info('Keine neue Sitzung gefunden')
     return False 
-
-def get_op_response(url):
-    response = get_url_content(url)
-    document_data = json.loads(response.text)
-    if document_data['meta']['results']['count'] > 0:
-        return True
-    else:
-        return False
