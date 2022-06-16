@@ -78,5 +78,4 @@ def find_new_doc(id):
             logging.debug('Response für ID ' + str(x) + ' war nicht gültig.')
 
     
-    logging.info('Keine neue Sitzung gefunden')
     return False 

@@ -21,7 +21,7 @@ Unregelmäßigkeiten entstehen z.B. durch Silbentrennungen, die nicht gut von Wo
 
 `xml_parse.xml` verarbeitet das Protokoll, sodass eine Analyse möglich ist.
 
-`scrape_functions.py` ist für die Worttrennung und Normalisierung da, sowie die Verbindung zum Abgleich mit der Datenbank über `database.py`. 
+`text_parse.py` ist für die Worttrennung und Normalisierung da, sowie die Verbindung zum Abgleich mit der Datenbank über `database.py`. 
 
 Im Ordner utilities finden sich Skripte, die bei dem Aufbau der Datenbank geholfen haben. 
 
