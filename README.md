@@ -46,9 +46,11 @@ Aus Gründen der Unterhaltung werden einige Worte aussortiert, die zwar tatsäch
 - Wörter unter 4 Buchstaben
 - Gesetzesabkürzungen
 
+Einige Schwierigkeiten machen hier immer noch die Flexion von Wörtern. Grundregeln der Grammatik sind als Filter hardgecodet, jedoch werden dadurch nicht alle Begriffe erfasst. Lemmatization-Pakete wie HanTa, Spacy und Simplemma kommmen mit Neologismen oder eher seltenen Wörtern wie 'Buttersäureanschäge' nicht wirklich zurecht. 
+
 ## TODOs
 - [ ] Sprecher:in im Kontext mit erwähnen  
-- [ ] Weitere Verfeinerung der Wort-Normalisierung wie Lemmatization (simplemma und HanTa funktionieren hier leider nicht)
+- [ ] Weitere Verfeinerung der Wort-Normalisierung wie Lemmatization.
 
 ## Lizenz und Danksagung
 
