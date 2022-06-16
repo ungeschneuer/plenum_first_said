@@ -39,7 +39,7 @@ Die Mastodon Account findet man je unter <a rel="me" href="https://mastodon.soci
 
 ## Was bedeutet "neues Wort"?
 
-Aus Gründen der Unterhaltung werden einige Worte aussortiert, die zwar tatsächlich zum ersten Mal so gesagt werden, aber nur bedingt an sich einen Informationswert haben. Folgendes wird z.B. herausgefiltert:
+Aus Gründen der Unterhaltung werden einige Worte aussortiert, die zwar tatsächlich zum ersten Mal so gesagt werden, aber nur bedingt an sich einen Informationswert haben. Folgendes wird z.B. versucht herauszufiltern:
 - Plural
 - Genitiv
 - gegenderte Formen
@@ -48,7 +48,7 @@ Aus Gründen der Unterhaltung werden einige Worte aussortiert, die zwar tatsäch
 
 ## TODOs
 - [ ] Sprecher:in im Kontext mit erwähnen  
-- [ ] Weitere Verfeinerung der Wort-Normalisierung
+- [ ] Weitere Verfeinerung der Wort-Normalisierung wie Lemmatization (simplemma und HanTa funktionieren hier leider nicht)
 
 ## Lizenz und Danksagung
 
