@@ -67,7 +67,7 @@ def set_tweet_stopper():
 
 if __name__ == "__main__":
     logging.basicConfig(
-        filename='twitter.log',
+        filename='bundestagbot/parser/twitter.log',
         format='%(asctime)s %(levelname)-8s %(message)s',
         level=logging.INFO,
         datefmt='%Y-%m-%d %H:%M:%S')    
