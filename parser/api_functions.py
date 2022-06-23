@@ -12,4 +12,4 @@ def get_url_content(url):
         return response
     except Exception as e:
         logging.exception(e)
-        return False
+        raise
