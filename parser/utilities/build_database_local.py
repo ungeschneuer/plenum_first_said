@@ -1,7 +1,7 @@
 import os
 #from progressbar import printProgressBar
 import xml_parse
-from scrape_functions import process_woerter
+from text_parse import process_woerter
 
 
 wordnum = 0

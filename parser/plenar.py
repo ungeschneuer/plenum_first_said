@@ -5,7 +5,7 @@
 import logging
 from dpi_api import find_new_doc
 from database import r
-from scrape_functions import process_woerter
+from text_parse import process_woerter
 from dotenv import load_dotenv
 import xml_parse
 

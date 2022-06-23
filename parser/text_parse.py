@@ -2,7 +2,7 @@ import logging
 import re
 from string import punctuation
 import xml_parse
-from database import add_to_queue, add_word
+from database import add_to_queue, check_newness
 
 
 
@@ -47,9 +47,11 @@ def check_word(word, id):
     norm_word = normalize(word)
 
     if ok_word(norm_word):
-        if add_word(norm_word, id):
+        if check_newness(norm_word, id):
             add_to_queue(norm_word, id)
             return True
+        else:
+            return False
     else:
         return False
 

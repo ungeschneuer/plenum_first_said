@@ -35,11 +35,8 @@ def delete_from_queue(word):
     return True
 
 
-def tweet_word(word, id):
-    redis_id = "protokoll:" + str(id)
+def tweet_word(word, keys):
     
-    keys = r.hgetall(redis_id)
-
     try:
         status = twitterAPI.update_status(word)
         context_status = contextAPI.update_status(
@@ -53,8 +50,9 @@ def tweet_word(word, id):
         
         if context_status:
             logging.info('Tweet wurde gesendet.')
-            return toot_word(word, keys)
+            return status.id
         else:
+            logging.debug('Tweet konnte nicht gesendet werde.')
             return False
         
     except UnicodeDecodeError as e:
@@ -83,8 +81,12 @@ def toot_word(word, keys):
                     keys[b'pdf_url'].decode('UTF-8')),
                     in_reply_to_id = toot_status["id"])
 
-        logging.info('Toot wurde gesendet.')
-        return context_status
+        if context_status:
+            logging.info('Toot wurde gesendet.')
+            return toot_status["id"]
+        else:
+            logging.debug('Toot konnte nicht gesendet werde.')
+            return False
     except Exception as e:
         logging.exception(e)
         return False

@@ -1,4 +1,7 @@
 import redis
+import datetime
+import logging
+
 
 # Tatsächliche Datenbank für Wörter
 r = redis.StrictRedis(host='localhost', port=6379, db=0)
@@ -26,6 +29,8 @@ def similiar_word(word):
     pipe.hget('word:' + word + 'en', 'word')
     pipe.hget('word:' + word + 's', 'word')
     pipe.hget('word:' + word + 'es', 'word')
+    pipe.hget('word:' + word + 'e', 'word')
+
 
     # Existiert schon ein anderer Fall oder ein Singular?
     if word.endswith(('s','n', 'e')):
@@ -54,10 +59,8 @@ def similiar_word(word):
 
     return pipe.execute()
 
-
-
-
-def add_word(word, id):
+# Überprüft, ob das Wort schon in der Datenbank ist und ob die älteste Version notiert ist. 
+def check_newness(word, id):
     # Wenn das Wort direkt existiert, skippen
     if r.hexists('word:' + word, 'word'):
         check_age(word, id)
@@ -66,13 +69,21 @@ def add_word(word, id):
     # Wenn nicht, dann zur Datenbank hinzufügen und trotzdem checken, ob andere Formen schon existieren.
     else:
         if all(v is None for v in similiar_word(word)):
-            r.hset('word:' + word, 'word', word)
-            r.hset('word:' + word, 'id', id)
+            add_to_database(word, id)
             return True
         else:
-            r.hset('word:' + word, 'word', word)
-            r.hset('word:' + word, 'id', id)
+            add_to_database (word, id)
             return False
+
+# Helferfunktion, um Wort zum Korpus hinzuzufügen
+def add_to_database (word, id):
+    try:
+        r.hset('word:' + word, 'word', word)
+        r.hset('word:' + word, 'id', id)
+        return True
+    except Exception as e:
+        logging.exception(e)
+        return False
 
 #Sorgt dafür, dass tatsächlich das älteste Wort in der Datenbank steht
 def check_age(word,id):
@@ -104,7 +115,7 @@ def check_age(word,id):
             return False
 
 
-
+# Fügt ein Wort zur Twitter-Datenbank hinzu
 def add_to_queue(word, id):
 
     # Fix für Strichfehler
@@ -115,4 +126,6 @@ def add_to_queue(word, id):
     twittRedis.hset(word, 'id', id)
     
     return True
+
+
 
