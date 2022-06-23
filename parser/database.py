@@ -56,9 +56,9 @@ def similiar_word(word):
 
     return pipe.execute()
 
-# Gleicht mit der externen OpenParliamentTV Datenbank ab als zweiter Check
+# Gleicht mit der externen OpenParliamentTV Datenbank ab als zweiter Check ob es nicht schon existiert.
 def check_open_parliament(word, id):
-    datum = r.hget('protokoll:' + id, 'datum').decode('UTF-8')
+    datum = r.hget('protokoll:' + str(id), 'datum').decode('UTF-8')
     
     # Datum entspricht dem Tag vor dem Protokoll
     date_to_check = datetime.datetime.strptime(datum, '%d.%m.%Y') - datetime.timedelta(days=1)
@@ -67,7 +67,7 @@ def check_open_parliament(word, id):
     return get_op_response(url)
 
 # Überprüft, ob das Wort schon in der Datenbank ist und ob die älteste Version notiert ist. 
-def check_existence(word, id):
+def check_newness(word, id):
     # Wenn das Wort direkt existiert, skippen
     if r.hexists('word:' + word, 'word'):
         check_age(word, id)
