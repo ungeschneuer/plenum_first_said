@@ -1,5 +1,4 @@
 import redis
-from optv_api import get_op_response
 import datetime
 import logging
 
@@ -56,16 +55,6 @@ def similiar_word(word):
 
     return pipe.execute()
 
-# Gleicht mit der externen OpenParliamentTV Datenbank ab als zweiter Check ob es nicht schon existiert.
-def check_open_parliament(word, id):
-    datum = r.hget('protokoll:' + str(id), 'datum').decode('UTF-8')
-    
-    # Datum entspricht dem Tag vor dem Protokoll
-    date_to_check = datetime.datetime.strptime(datum, '%d.%m.%Y') - datetime.timedelta(days=1)
-    date = date_to_check.strftime('%Y-%m-%d')
-    url = 'https://de.openparliament.tv/api/v1/search/media/?q=' + word + '&date=' + date
-    return get_op_response(url)
-
 # Überprüft, ob das Wort schon in der Datenbank ist und ob die älteste Version notiert ist. 
 def check_newness(word, id):
     # Wenn das Wort direkt existiert, skippen
@@ -77,7 +66,7 @@ def check_newness(word, id):
     else:
         if all(v is None for v in similiar_word(word)):
             add_to_database(word, id)
-            return check_open_parliament(word, id)
+            return True
         else:
             add_to_database (word, id)
             return False

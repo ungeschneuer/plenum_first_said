@@ -1,8 +1,10 @@
 import logging
-from database import twittRedis, pastRedis
+from database import twittRedis, pastRedis, r
 from twitter_creds import tweet_word, toot_word
+from optv_api import get_op_response
 import random
-from dotenv import load_dotenv    
+from dotenv import load_dotenv
+import datetime
 
 load_dotenv()
 
@@ -12,24 +14,35 @@ def tweet_queue():
 
     if tweetstop is None:
         key = twittRedis.randomkey()
-        if key and not send_tweet(key):
-            logging.debug('Tweet konnte nicht gesendet werden.')
+
+        if key:
+            word = twittRedis.hget(key, "word").decode("utf-8")
+            id = twittRedis.hget(key, "id").decode("utf-8") 
+            
+            if check_open_parliament(word, id):
+                if send_tweet(word,id):
+                    logging.info('Tweet wurden gesendet')
+                    return True
+                else:
+                    logging.debug('Tweet konnte nicht gesendet werden.')
+                    return False
+        else:
             return False
-        return True    
-    return False
+    
+    else:
+        return False
 
-def send_tweet(key):
-    word = twittRedis.hget(key, "word").decode("utf-8")
-    id = twittRedis.hget(key, "id").decode("utf-8") 
 
+
+def send_tweet(word, id):
 
     status_id = tweet_word(word, id)
 
     if not status_id:
-        logging.debug('Tweet konnte nicht gesendet werden.')
+        logging.debug('Es wurde keine Status ID gefunden.')
         return False
-    
-    return cleanup_db(word, status_id)
+    else:
+        return cleanup_db(word, status_id)
 
 def cleanup_db(word, status_id):
 
@@ -49,9 +62,19 @@ def set_tweet_stopper():
 
     expireTime = 60*round(random.randrange(55,120))
     twittRedis.set('meta:tweetstop', 1 , ex=expireTime)
-    logging.info('Tweet stopper wurde gesetzt.')
+    logging.info('Tweet-Stopper wurde gesetzt.')
 
     return True
+
+# Gleicht mit der externen OpenParliamentTV Datenbank ab als zweiter Check ob es nicht schon existiert.
+def check_open_parliament(word, id):
+    datum = r.hget('protokoll:' + str(id), 'datum').decode('UTF-8')
+    
+    # Datum entspricht dem Tag vor dem Protokoll
+    date_to_check = datetime.datetime.strptime(datum, '%d.%m.%Y') - datetime.timedelta(days=1)
+    date = date_to_check.strftime('%Y-%m-%d')
+    url = 'https://de.openparliament.tv/api/v1/search/media/?q=' + word + '&date=' + date
+    return get_op_response(url)
 
 
 
