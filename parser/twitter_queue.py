@@ -26,6 +26,9 @@ def tweet_queue():
                 else:
                     logging.debug('Tweet konnte nicht gesendet werden.')
                     return False
+            else:
+                logging.info('Wort wurde bei OPTV gefunden.')
+                return False
         else:
             return False
     
@@ -36,23 +39,31 @@ def tweet_queue():
 
 def send_tweet(word, id):
 
-    status_id = tweet_word(word, id)
+    redis_id = "protokoll:" + str(id)
+    keys = r.hgetall(redis_id)
 
-    if not status_id:
-        logging.debug('Es wurde keine Status ID gefunden.')
+    twitter_id = tweet_word(word, keys)
+    mastodon_id = toot_word(word, keys)
+
+    if not twitter_id:
+        logging.debug('Es wurde keine Tweet ID gefunden.')
+        return False
+    elif not mastodon_id:
+        logging.debug('Es wurde keine Mastodon ID gefunden.')
         return False
     else:
-        return cleanup_db(word, status_id)
+        return cleanup_db(word, twitter_id, mastodon_id)
 
-def cleanup_db(word, status_id):
+def cleanup_db(word, twitter_id, mastodon_id):
 
     set_tweet_stopper()
 
     # Ins Archiv bewegen
     try:
         twittRedis.move(word, 2)
-        pastRedis.hset(word, "tweet_id", status_id)
-        logging.info('Tweet wurde ins Archiv verschoben.')
+        pastRedis.hset(word, "tweet_id", twitter_id)
+        pastRedis.hset(word, "mastodon_id", mastodon_id)
+        logging.info('Wort wurde ins Archiv verschoben.')
         return True
     except Exception as e:
         logging.exception(e)
