@@ -17,7 +17,7 @@ Unregelmäßigkeiten entstehen z.B. durch Silbentrennungen, die nicht gut von Wo
 
 `twitter_queue.py` und `twitter_creds.py` packt neue Wörter in eine Warteliste und twittert diese in unterschiedlichen Zeitintervallen. Über eine weitere Funktion wird auch Mastodon benutzt.
 
-`dpi_api.py` verbindet den Bot mit den Servern des Bundestags und sucht nach neuen Protokollen über weiterlaufende IDs. `optv_api.py` ist eine Einbindung der Open Parliament TV API zum Zweitprüfung, ob das Wort wirklich noch nicht existiert. `optv_api.py` hilft bei der Abfrage. 
+`dpi_api.py` verbindet den Bot mit den Servern des Bundestags und sucht nach neuen Protokollen über weiterlaufende IDs. `optv_api.py` ist eine Einbindung der Open Parliament TV API zum Zweitprüfung, ob das Wort wirklich noch nicht existiert. `api_functions.py` hilft bei der Abfrage. 
 
 `xml_processing.py` verarbeitet das Protokoll, sodass eine Analyse möglich ist.
 
