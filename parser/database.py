@@ -1,5 +1,4 @@
 import redis
-import datetime
 import logging
 
 

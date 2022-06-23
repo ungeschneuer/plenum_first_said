@@ -1,13 +1,11 @@
 
 # -*- coding: utf-8 -*-
-
-
 import logging
 from dpi_api import find_new_doc
 from database import r
 from text_parse import process_woerter
 from dotenv import load_dotenv
-import xml_parse
+import xml_processing
 
 load_dotenv()
 
@@ -28,7 +26,7 @@ def main():
 
     if new_id:
         
-        xml_file = xml_parse.get(new_id)
+        xml_file = xml_processing.get(new_id)
 
         if xml_file:
             logging.info('Sitzung mit der ID ' + str(new_id) +  ' gefunden')

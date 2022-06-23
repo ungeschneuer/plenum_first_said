@@ -1,7 +1,7 @@
 import logging
 import re
 from string import punctuation
-import xml_parse
+import xml_processing
 from database import add_to_queue, check_newness
 
 
@@ -59,7 +59,7 @@ def check_word(word, id):
 # Filtert aus XML Datei die tatsächlichen Wortbeiträge
 def get_wortbeitraege(xml_file):
     
-    text = xml_parse.getText(xml_file)
+    text = xml_processing.getText(xml_file)
     if not text:
         return False
 
@@ -188,7 +188,7 @@ def process_woerter (xml_file, id):
 
 if __name__ == "__main__":
     file = '/Users/marcel/Documents/2021/plenum_first_said.nosync/parser/archive/5445.xml'
-    root = xml_parse.parse(file)
+    root = xml_processing.parse(file)
     text = get_wortbeitraege(root)
     words = wordsplitter(text)
     print(words)

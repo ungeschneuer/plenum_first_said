@@ -1,7 +1,7 @@
 # sourcery skip: merge-duplicate-blocks
 import os
 # from progressbar import printProgressBar
-import xml_parse
+import xml_processing
 from text_parse import process_woerter
 from dotenv import load_dotenv
 import requests
@@ -32,7 +32,7 @@ for id in range(5467 , length):
     if response.status_code == 200:
         print("Start Adding Protokoll")
         if add_protokoll(response):
-            xml_file = xml_parse.get(id)
+            xml_file = xml_processing.get(id)
             wordnum += process_woerter(xml_file, id) 
             print("Document added with id: " + str(id))
         else:
