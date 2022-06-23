@@ -74,6 +74,9 @@ def get_wortbeitraege(xml_file):
 
     return sanitized
 
+
+# TODO Dehyphenation auf Line Level
+# https://stackoverflow.com/questions/43666790/python-how-do-i-merge-hyphenated-words-with-newlines
 def wordsplitter(text):
     words = []
 
