@@ -19,6 +19,7 @@ def tweet_queue():
         if key:
             word = twittRedis.hget(key, "word").decode("utf-8")
             id = twittRedis.hget(key, "id").decode("utf-8") 
+            logging.info("Wort '" + word + "' wird veröffentlicht.")
 
             redis_id = "protokoll:" + str(id)
             keys = r.hgetall(redis_id)
@@ -37,7 +38,6 @@ def tweet_queue():
             return False
     
     else:
-        logging.info('Tweet Stopper existent.')
         return False
 
 
