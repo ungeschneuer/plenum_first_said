@@ -35,21 +35,39 @@ def delete_from_queue(word):
     return True
 
 
-def tweet_word(word, keys):
+def tweet_word(word, keys, metadata):
     
     try:
         status = twitterAPI.update_status(word)
-        context_status = contextAPI.update_status(
-            "@{} #{} tauchte zum ersten Mal im {} am {} auf. Das Protokoll findet man unter {}".format(
-                status.user.screen_name,
-                word,
-                keys[b'titel'].decode('UTF-8'),
-                keys[b'datum'].decode('UTF-8'),
-                keys[b'pdf_url'].decode('UTF-8')),
-            in_reply_to_status_id=status.id)
+
+        if metadata:
+            context_status = contextAPI.update_status(
+                """@{} #{} tauchte zum ersten Mal im {} am {} auf. Es wurde von {} ({}) gesagt. 
+                
+                Protokoll: {}
+                Video: {}""".format(
+                    status.user.screen_name,
+                    word,
+                    keys[b'titel'].decode('UTF-8'),
+                    keys[b'datum'].decode('UTF-8'),
+                    metadata['speaker'],
+                    metadata['party'],
+                    keys[b'pdf_url'].decode('UTF-8'),
+                    metadata['link']),
+                in_reply_to_status_id=status.id)
+
+        else: 
+            context_status = contextAPI.update_status(
+                "@{} #{} tauchte zum ersten Mal im {} am {} auf. Das Protokoll findet sich unter {}".format(
+                    status.user.screen_name,
+                    word,
+                    keys[b'titel'].decode('UTF-8'),
+                    keys[b'datum'].decode('UTF-8'),
+                    keys[b'pdf_url'].decode('UTF-8')),
+                in_reply_to_status_id=status.id)
         
         if context_status:
-            logging.info('Tweet wurde gesendet.')
+            logging.info('Tweet wurde gesendet:' + context_status)
             return status.id
         else:
             logging.debug('Tweet konnte nicht gesendet werde.')
@@ -70,16 +88,31 @@ def tweet_word(word, keys):
 
 
 
-def toot_word(word, keys):
+def toot_word(word, keys, metadata):
     try: 
         toot_status = MastodonAPI.toot(word)
 
-        context_status = MastodonKontextAPI.status_post("#{} tauchte zum ersten Mal im {} am {} auf. Das Protokoll findet man unter {}".format(
+        if metadata:
+            context_status = MastodonKontextAPI.status_post("""@{} #{} tauchte zum ersten Mal im {} am {} auf. Es wurde von {} ({}) gesagt. 
+                
+                Protokoll: {}
+                Video: {}""".format(
                     word,
                     keys[b'titel'].decode('UTF-8'),
                     keys[b'datum'].decode('UTF-8'),
-                    keys[b'pdf_url'].decode('UTF-8')),
+                    metadata['speaker'],
+                    metadata['party'],
+                    keys[b'pdf_url'].decode('UTF-8'),
+                    metadata['link']),
                     in_reply_to_id = toot_status["id"])
+
+        else:     
+            context_status = MastodonKontextAPI.status_post("#{} tauchte zum ersten Mal im {} am {} auf. Das Protokoll findet sich unter {}".format(
+                word,
+                keys[b'titel'].decode('UTF-8'),
+                keys[b'datum'].decode('UTF-8'),
+                keys[b'pdf_url'].decode('UTF-8')),
+                in_reply_to_id = toot_status["id"])
 
         if context_status:
             logging.info('Toot wurde gesendet.')
@@ -92,17 +125,5 @@ def toot_word(word, keys):
         return False
 
 
-def tweet_text(text):
-        trends = twitterAPI.trends_place(23424829)
-        trend_array = []
-
-        for trend in trends[0]["trends"]:
-            trend_array.append(trend["name"].strip('#'))
-
-        for word in trend_array:
-            db_word = r.hgetall('word:' + word)
-            if db_word:
-                return True
 
 if __name__ == "__main__":
-    tweet_text("test")

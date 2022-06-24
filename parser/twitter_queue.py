@@ -1,10 +1,9 @@
 import logging
 from database import twittRedis, pastRedis, r
 from twitter_creds import tweet_word, toot_word
-from optv_api import get_op_response
+from optv_api import double_check_newness, check_for_infos
 import random
 from dotenv import load_dotenv
-import datetime
 
 load_dotenv()
 
@@ -23,7 +22,7 @@ def tweet_queue():
             redis_id = "protokoll:" + str(id)
             keys = r.hgetall(redis_id)
             
-            if check_open_parliament(word, keys):
+            if double_check_newness(word, keys):
                 if send_tweet(word, keys):
                     return True
                 else:
@@ -44,8 +43,10 @@ def tweet_queue():
 
 def send_tweet(word, keys):
 
-    twitter_id = tweet_word(word, keys)
-    mastodon_id = toot_word(word, keys)
+    metadata = check_for_infos(word, keys)
+
+    twitter_id = tweet_word(word, keys, metadata)
+    mastodon_id = toot_word(word, keys, metadata)
 
     if not twitter_id:
         logging.debug('Es wurde keine Tweet ID gefunden.')
@@ -86,19 +87,6 @@ def set_tweet_stopper():
     logging.info('Tweet-Stopper wurde gesetzt.')
 
     return True
-
-# Gleicht mit der externen OpenParliamentTV Datenbank ab als zweiter Check ob es nicht schon existiert.
-def check_open_parliament(word, keys):
-    datum = keys[b'datum'].decode('UTF-8')
-    
-    # Datum entspricht dem Tag vor dem Protokoll
-    date_to_check = datetime.datetime.strptime(datum, '%d.%m.%Y') - datetime.timedelta(days=1)
-    date = date_to_check.strftime('%Y-%m-%d')
-    url = 'https://de.openparliament.tv/api/v1/search/media/?q=' + word + '&date=' + date
-    return get_op_response(url)
-
-
-
 
 
 
