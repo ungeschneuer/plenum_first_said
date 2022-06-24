@@ -216,7 +216,3 @@ if __name__ == "__main__":
     # root = xml_processing.parse(file)
     # text = get_wortbeitraege(root)
     # words = wordsplitter(text)
-
-    words = ['apple', 'appl', 'oppl', 'aple', 'touchdown', 'touchdwn', 'Merkel', 'Käse', 'Piranhas']
-    words = find_matches(words)
-    print(words)
