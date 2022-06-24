@@ -1,6 +1,6 @@
 import logging
 from database import twittRedis, pastRedis, r
-from twitter_creds import tweet_word, toot_word
+from twitter_creds import tweet_word, toot_word, delete_from_queue
 from optv_api import double_check_newness, check_for_infos
 import random
 from dotenv import load_dotenv
@@ -30,7 +30,7 @@ def tweet_queue():
                     return False
             else:
                 logging.info('Wort wurde bei OPTV gefunden.')
-                remove_key(key)
+                delete_from_queue(key)
                 return False
         else:
             return False
@@ -71,14 +71,6 @@ def cleanup_db(word, twitter_id, mastodon_id):
     except Exception as e:
         logging.exception(e)
         return False
-
-def remove_key(key):
-    try:
-        twittRedis.delete(key)
-        return True
-    except Exception as e:
-        logging.exception(e)
-        raise
 
 def set_tweet_stopper():
 

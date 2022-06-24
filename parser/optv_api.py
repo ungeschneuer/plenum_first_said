@@ -1,4 +1,5 @@
 import json
+import logging
 from api_functions import get_url_content
 import datetime
 
@@ -34,12 +35,13 @@ def check_for_infos(word, keys):
     datum = keys[b'datum'].decode('UTF-8')
 
     date = datetime.datetime.strptime(datum, '%d.%m.%Y').strftime('%Y-%m-%d')
-    url = 'https://de.openparliament.tv/api/v1/search/media/?q=' + word + '&dateTo=' + date + 'dateFrom=' + date
+    url = 'https://de.openparliament.tv/api/v1/search/media/?q=' + word + '&dateTo=' + date + '&dateFrom=' + date
     document_data = get_op_response(url)
 
     if does_exist(document_data):
         return get_metadata(document_data, word)
     else:
+        logging.info('Es konnten keine Infos von OPTV empfangen werden.')
         return False
 
 

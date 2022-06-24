@@ -44,7 +44,6 @@ def tweet_word(word, keys, metadata):
             context_status = contextAPI.update_status(
                 """@{} #{} tauchte zum ersten Mal im {} am {} auf. Es wurde von {} ({}) gesagt. 
                 
-                Protokoll: {}
                 Video: {}""".format(
                     status.user.screen_name,
                     word,
@@ -56,6 +55,13 @@ def tweet_word(word, keys, metadata):
                     metadata['link']),
                 in_reply_to_status_id=status.id)
 
+            second_context_status = contextAPI.update_status(
+                """@{} Das {} findet sich als PDF unter {}""".format(
+                    context_status.user.screen_name,
+                    keys[b'titel'].decode('UTF-8'),
+                    keys[b'pdf_url'].decode('UTF-8')),
+                in_reply_to_status_id=context_status.id)
+
         else: 
             context_status = contextAPI.update_status(
                 "@{} #{} tauchte zum ersten Mal im {} am {} auf. Das Protokoll findet sich unter {}".format(
@@ -66,8 +72,8 @@ def tweet_word(word, keys, metadata):
                     keys[b'pdf_url'].decode('UTF-8')),
                 in_reply_to_status_id=status.id)
         
-        if context_status:
-            logging.info('Tweet wurde gesendet:' + context_status)
+        if status and context_status:
+            logging.info('Tweet wurde gesendet:' + context_status.id_str)
             return status.id
         else:
             logging.debug('Tweet konnte nicht gesendet werde.')
@@ -76,7 +82,7 @@ def tweet_word(word, keys, metadata):
     except UnicodeDecodeError as e:
         logging.exception(e)
         return False
-    except tweepy.TweepError as e:
+    except tweepy.TweepyException as e:
         logging.exception(e)
         
         if e.args[0][0]['code'] == 187:
@@ -84,6 +90,10 @@ def tweet_word(word, keys, metadata):
             return False
         
         return False
+    except tweepy.HTTPException as e:
+        logging.exception(e)
+        return False
+
     
 
 
@@ -114,7 +124,7 @@ def toot_word(word, keys, metadata):
                 keys[b'pdf_url'].decode('UTF-8')),
                 in_reply_to_id = toot_status["id"])
 
-        if context_status:
+        if toot_status and context_status:
             logging.info('Toot wurde gesendet.')
             return toot_status["id"]
         else:
@@ -123,7 +133,3 @@ def toot_word(word, keys, metadata):
     except Exception as e:
         logging.exception(e)
         return False
-
-
-
-if __name__ == "__main__":
