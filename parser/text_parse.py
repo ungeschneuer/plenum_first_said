@@ -212,7 +212,8 @@ def find_matches(new_words):
 
 
 if __name__ == "__main__":
-    # file = '/Users/marcel/Documents/2021/plenum_first_said.nosync/parser/archive/5445.xml'
-    # root = xml_processing.parse(file)
-    # text = get_wortbeitraege(root)
-    # words = wordsplitter(text)
+    file = '/Users/marcel/Documents/2021/plenum_first_said.nosync/parser/archive/5445.xml'
+    root = xml_processing.parse(file)
+    text = get_wortbeitraege(root)
+    words = wordsplitter(text)
+
