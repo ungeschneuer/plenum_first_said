@@ -1,10 +1,10 @@
+from ctypes import sizeof
 import logging
 import re
 from string import punctuation
 import xml_processing
 from database import add_to_queue, check_newness
-
-
+import difflib
 
 
 # Normalisierungfunktion von nyt_first_said
@@ -173,8 +173,6 @@ def wordsfilter(words, id):
     return wordnum
 
 
-
-
 def process_woerter (xml_file, id):
 
     raw_results = get_wortbeitraege(xml_file)
@@ -186,9 +184,31 @@ def process_woerter (xml_file, id):
 
     return(wordsfilter(words, id))
 
+# Recursive pruning der Liste, um Index-Fehler zu vermeiden
+def prune(new_words):
+    for word in new_words:
+        matches = difflib.get_close_matches(word, new_words)
+        
+        if matches and len(matches) > 1:
+            for match in matches:
+                if match == word:
+                    continue
+                new_words.remove(match)
+            
+            new_words = prune(new_words)
+            break
+
+    return new_words
+        
+
+
+
+
 if __name__ == "__main__":
-    file = '/Users/marcel/Documents/2021/plenum_first_said.nosync/parser/archive/5445.xml'
-    root = xml_processing.parse(file)
-    text = get_wortbeitraege(root)
-    words = wordsplitter(text)
-    print(words)
+    # file = '/Users/marcel/Documents/2021/plenum_first_said.nosync/parser/archive/5445.xml'
+    # root = xml_processing.parse(file)
+    # text = get_wortbeitraege(root)
+    # words = wordsplitter(text)
+
+    words = ['apple', 'appl', 'oppl', 'aple', 'touchdown', 'touchdwn', 'Merkel', 'Käse', 'Piranhas']
+    words = prune(words)
