@@ -5,6 +5,120 @@ import xml_processing
 from database import add_to_queue, check_newness
 
 
+def find_beginn(text):
+
+    if text.find('Beginn:') == -1:
+        text = text[text.find('Beginn'):]
+    else:
+        text = text[text.find('Beginn'):]
+    
+    return text
+
+
+def dehyphenate(text):
+
+    lines = text.split('\n')
+    for num, line in enumerate(lines):
+        if line.endswith('-'):
+            # the end of the word is at the start of next line
+            end = lines[num+1].split()[0]
+            # we remove the - and append the end of the word
+            lines[num] = line[:-1] + end
+            # and remove the end of the word and possibly the 
+            # following space from the next line
+            lines[num+1] = lines[num+1][len(end)+1:]
+
+    return '\n'.join(lines)
+
+def pre_split_clean(text):
+
+    # Encoding funktioniert nicht komplett, darum sanitizing
+    text = text.replace(u'\xa0', u' ') # Sonderzeichen entfernen
+    text = text.replace('  ', ' ') # Doppelte Leerzeichen
+
+    regex_url = '(http|ftp|https|http)://([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?'
+    text = re.sub(regex_url, '', text) # URL-Filter
+
+    return text
+
+
+def wordsplitter(text):
+    words = []
+
+    try:
+        words = text.split()
+
+    except Exception as e:
+        logging.exception(e)
+        exit()
+    
+    return words
+
+# Wenn Aufzählung, werden die nächsten zwei Worte entfernt.
+def de_enumaration(words):
+
+    clean_words = []
+    skip = 0
+
+    for word in words:
+        if skip > 0:
+            skip -= 1
+            continue
+        
+        if word.endswith('-'):
+            skip = 2
+        else:
+            clean_words.append(word)
+    
+    return clean_words
+
+
+def wordsfilter(words, id):  
+    wordnum = 0
+    
+    # Wort hat Buchstaben
+    regchar = re.compile('([A-Z])|([a-z])\w+')
+    # Wort hat nicht gleiche Zeichen hintereinander
+    regmul = re.compile('([A-z])\1{3,}')
+    # Wort hat nur am Anfag Großbuchstaben
+    regsmall = re.compile('[A-z]{1}[a-z]*[A-Z]+[a-z]*')
+
+    for word in words:
+        if regchar.search(word) and not regmul.search(word) and not regsmall.search(word):
+
+            # Enfernen, von sonst nicht filterbaren Aufzählungen
+            if word.endswith('-,') or word.endswith('-') or word.startswith('-'):
+                continue
+
+            # Zusammefassung oder binäre Ansprache
+            if '/' in word:
+                splitted = word.split('/')
+                word = splitted[0]
+
+                if check_word(splitted[1], id):
+                    wordnum += 1
+            
+            if check_word(word, id):
+                wordnum += 1
+    
+    return wordnum
+
+
+def process_woerter (xml_file, id):
+
+    raw_text = xml_processing.getText(xml_file)
+
+    if not raw_text:
+        return False
+    
+    text = find_beginn(raw_text)
+    text = pre_split_clean(text)
+    text = dehyphenate(text)
+
+    words = wordsplitter(text)
+    words = de_enumaration(words)
+
+    return(wordsfilter(words, id))
 
 
 # Normalisierungfunktion von nyt_first_said
@@ -14,19 +128,8 @@ def normalize(raw_word):
     regexexp = re.compile('-{2,}')
 
     # Entfernen von Zeichen (Wie schwer kann das sein??!!)
-    punctuation = r"""#"!$%&'())*+,‚."/:;<=>?@[\]^_`{|}~“”„"""
+    punctuation = r"""#"!$%&'())*+,‚.":;<=>?@[\]^_`{|}~“”„"""
     stripped_word = raw_word.translate(str.maketrans('', '', punctuation))
-
-
-    # Check ob Spiegelstrich einen Silbentrennung ist oder tatsächlich ganzes Wort
-    if (
-        '-' in stripped_word
-        and not stripped_word.endswith('-')
-        and not stripped_word.startswith('-')
-	        and regexexp.search(stripped_word)
-    ):
-        replaced = re.sub(regexexp, '-', stripped_word)
-        return normalize(replaced)
 
     if stripped_word.endswith('ʼ') or stripped_word.endswith('’'):
         stripped_word = stripped_word[:-1]
@@ -56,139 +159,13 @@ def check_word(word, id):
         return False
 
 
-# Filtert aus XML Datei die tatsächlichen Wortbeiträge
-def get_wortbeitraege(xml_file):
-    
-    text = xml_processing.getText(xml_file)
-    if not text:
-        return False
-
-    sanitized = []
-    regex_url = '(http|ftp|https)://([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?'
-
-    for sentence in text:
-        # Encoding funktioniert nicht komplett, darum sanitizing
-        sentence = sentence.replace(u'\xa0', u' ') # Sonderzeichen entfernen
-        sentence = sentence.replace('\n', ' ') # Zeilenumbrüche
-        sentence = sentence.replace('  ', ' ') # Doppelte Leerzeichen
-        sentence = re.sub(regex_url, '', sentence) # URL-Filter
-        sanitized.append(sentence)
-
-    return sanitized
-
-
-# TODO Dehyphenation auf Line Level
-# https://stackoverflow.com/questions/43666790/python-how-do-i-merge-hyphenated-words-with-newlines
-def wordsplitter(text):
-    words = []
-
-    try:
-        for sentence in text:
-            sentence_words = sentence.split()
-
-            # When uppercase letter in word split it
-            for word in sentence_words:
-                words += re.split('(?=[A-Z])', word)
-
-        if 'Beginn:' in words:
-            words = words[words.index('Beginn:')+1:]
-        elif 'Beginn' in words:
-            words = words[words.index('Beginn')+1:]
-    except Exception as e:
-        logging.exception(e)
-        exit()
-    
-    return words
-
-
-def wordsfilter(words, id):  
-    wordnum = 0
-    first_half = ""
-    skip = False
-    possible_hyphenation = False
-    
-    # Wort hat Buchstaben
-    regchar = re.compile('([A-Z])|([a-z])\w+')
-    # Wort hat nicht gleiche Zeichen hintereinander
-    regmul = re.compile('([A-z])\1{3,}')
-
-    for word in words:
-        if skip:
-            skip = False
-            continue
-        if regchar.search(word) and not regmul.search(word) and not ('http' in word):
-
-            # Checkt ob Silbentrennung Wörter getrennt hat
-            if possible_hyphenation:
-
-                # Wenn zweite Hälfte groß geschrieben ist, ist es ein neues Wort und beide werden einzelnd weiter geschickt.
-                if word[0].isupper() or word.startswith('-'):
-                    if check_word(first_half, id):
-                        wordnum += 1
-                    possible_hyphenation = False
-                    #Gleich aussortieren, wenn Wort mit Strich anfängt
-                    if word.startswith('-'):
-                        continue
-                # Aufzählung raus sortieren    
-                elif word == 'und' or word == 'oder' or word == 'bzw':
-                    if check_word(first_half, id):
-                        wordnum += 1
-                    possible_hyphenation = False
-                    # Nächsten Teil der Aufzählung gleich mit entfernen
-                    skip = True
-                    continue
-                else:
-                    # Wenn zweite Hälfte klein, dann kombinieren der beiden Wörter
-                    combined = first_half.strip('-') + word
-                    possible_hyphenation = False
-
-                    # TODO Check ob es ein tatsächliches Wort ist
-
-                    word = combined
-
-
-            # Wenn Wort mit Spiegelstrich endet dann zurückhalten und in der nächsten Iteration testen ob Silbentrennung
-            if word.endswith('-') and word.count('-') < 2:
-                first_half = word
-                possible_hyphenation = True
-                continue
-
-            # Wortaufzählung entfernen
-            if word.startswith('-') or word.startswith('‑'):
-                continue
-
-
-            # Zusammefassung oder binäre Ansprache
-            if '/' in word:
-                splitted = word.split('/')
-                word = splitted[0]
-
-                if check_word(splitted[1], id):
-                    wordnum += 1
-
-            
-            if check_word(word, id):
-                wordnum += 1
-    
-    return wordnum
-
-
-
-
-def process_woerter (xml_file, id):
-
-    raw_results = get_wortbeitraege(xml_file)
-
-    if not raw_results:
-        return 0
-        
-    words = wordsplitter(raw_results)
-
-    return(wordsfilter(words, id))
-
 if __name__ == "__main__":
-    file = '/Users/marcel/Documents/2021/plenum_first_said.nosync/parser/archive/5445.xml'
+    file = '/Users/marcel/Documents/2021/plenum_first_said.nosync/parser/5500.xml'
     root = xml_processing.parse(file)
-    text = get_wortbeitraege(root)
+    text = xml_processing.getText(root)
+    text = find_beginn(text)
+    text = dehyphenate(text)
+    text = pre_split_clean(text)
     words = wordsplitter(text)
+    words = de_enumaration(words)
     print(words)
