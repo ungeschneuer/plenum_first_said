@@ -35,13 +35,16 @@ def dehyphenate(text):
 # Cleaning vor dem Wordsplitting
 def pre_split_clean(text):
 
-    # Encoding funktioniert nicht komplett, darum sanitizing
-    text = text.replace(u'\xa0', u' ') # Sonderzeichen entfernen
-    text = text.replace('  ', ' ') # Doppelte Leerzeichen
-
     regex_url = '(http|ftp|https|http)://([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?'
     text = re.sub(regex_url, '', text) # URL-Filter
 
+    # Satzzeichen werden durch Leerzeichen ersetzt
+    punctuation = r"""#"!$%&'()*+,‚.":;<=>?@[\]^_`{|}~“”„’ʼ"""
+    for character in punctuation:
+        text = text.replace(character, ' ')
+    text = text.replace(u'\xa0', u' ') # Sonderzeichen entfernen
+    text = text.replace('  ', ' ') # Doppelze Leerzeichen zu einfachen. 
+   
     return text
 
 # Wörter splitten am Leerzeichen
@@ -79,31 +82,19 @@ def de_enumaration(words):
 def wordsfilter(words, id):  
     new_words = []
     
-    # Wort hat Buchstaben
+    # Wort hat nur Buchstaben
     regchar = re.compile('([A-Z])|([a-z])\w+')
-    # Wort hat gleiche Zeichen hintereinander
-    regmul = re.compile('([A-z])\1{3,}')
-    # Wort hat nicht nur am Anfag Großbuchstaben
-    regsmall = re.compile('[A-z]{1}[a-z]*[A-Z]+[a-z]*')
 
     for word in words:
-        if regchar.search(word) and not regmul.search(word) and not regsmall.search(word):
+        if regchar.search(word):
 
             # Enfernen von sonst nicht filterbaren Aufzählungen
             if word.endswith('-,') or word.endswith('-') or word.endswith('–') or word.startswith('-'):
-                continue
+                continue     
 
-            # Trennung von Bundestrich-Kompositionen
-            if '/' in word:
-                splitted = word.split('/')
-                word = splitted[0]
-
-                if check_word(splitted[1], id):
-                    new_words.append(splitted[1])
-            
             if check_word(word, id):
                 new_words.append(word)
-    
+        
     return new_words
 
 # Hauptfunktion des Moduls für die Aufbereitung und Trennung der Wörter
@@ -126,48 +117,42 @@ def process_woerter (xml_file, id):
     return(wordsfilter(words, id))
 
 
-# Normalisierung vor Datenbank-Abgleich des Wortes
-def normalize(raw_word):
-
-    # Ausfiltern von weiteren Zeichen im Testlauf
-    regexexp = re.compile('-{2,}')
-
-    # Entfernen von Zeichen (Wie schwer kann das sein??!!)
-    punctuation = r"""#"!$%&'())*+,‚.":;<=>?@[\]^_`{|}~“”„"""
-    stripped_word = raw_word.translate(str.maketrans('', '', punctuation))
-
-    if stripped_word.endswith('ʼ') or stripped_word.endswith('’'):
-        stripped_word = stripped_word[:-1]
-
-    return stripped_word
-
-
 # Check ob es ein valides Wort ist
-def ok_word(s):
-# Entfernung hier von html, bzw, und, oder, weil Aufzählungen mit Bindestrich und domains nicht gut rausgefiltert werden.
-    if len(s) < 5 or s.endswith(('ts', 'html', 'de', 'bzw', 'oder', 'und', 'wie', 'pdf')) or s.startswith('www') or s[-1].isupper(): 
+def ok_word(word):
+
+    # Wort hat gleiche Zeichen mehrmals hintereinander
+    regmul = re.compile('([A-z])\1{4,}')
+    # Wort hat nicht nur am Anfag Großbuchstaben
+    regsmall = re.compile('[A-z]{1}[a-z]*[A-Z]+[a-z]*')
+
+    if regmul.search(word) or regsmall.search(word):
         return False
 
-    return (not any(i.isdigit() or i in '(.@/#-_§ ' for i in s))
+    return (not any(i.isdigit() or i in '(.@/#_§ ' for i in word))
 
 # Normalisiert das Wort, überprüft ob es schon im Speicher ist und fügt es der Queue hinzu
 def check_word(word, id):
-    norm_word = normalize(word)
 
-    if ok_word(norm_word):
-        if check_newness(norm_word, id):
+    if ok_word(word):
+        if check_newness(word, id):
             return True
         else:
             return False
     else:
         return False
 
+# Aussortieren von Wörtern für Twitter
 def prune(new_words, id):
     
     pruned_words = find_matches(new_words)
 
+    # Entfernt Kompositionen, die eine Silbentrennung in der Mitte der Zeile sein könnten.
     for word in pruned_words:
-        add_to_queue(word, id)
+        regcomp = re.compile('[a-z]+[-–][a-z]+')
+        if regcomp.search(word) or len(word) < 5:
+            continue
+        else:
+            add_to_queue(word, id)
 
 
 
