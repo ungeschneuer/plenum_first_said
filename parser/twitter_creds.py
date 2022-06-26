@@ -42,7 +42,7 @@ def tweet_word(word, keys, metadata):
 
         if metadata:
             context_status = contextAPI.update_status(
-                "@{} #{} tauchte zum ersten Mal im {} am {} auf. Es wurde von {} ({}) gesagt./n/nVideo: {}".format(
+                "@{} #{} tauchte zum ersten Mal im {} am {} auf. Es wurde von {} ({}) gesagt.\n\nVideo: {}".format(
                     status.user.screen_name,
                     word,
                     keys[b'titel'].decode('UTF-8'),
@@ -100,7 +100,7 @@ def toot_word(word, keys, metadata):
         toot_status = MastodonAPI.toot(word)
 
         if metadata:
-            context_status = MastodonKontextAPI.status_post("#{} tauchte zum ersten Mal im {} am {} auf. Es wurde von {} ({}) gesagt./n/nVideo: {}".format(
+            context_status = MastodonKontextAPI.status_post("#{} tauchte zum ersten Mal im {} am {} auf. Es wurde von {} ({}) gesagt.\n\nVideo: {}".format(
                     word,
                     keys[b'titel'].decode('UTF-8'),
                     keys[b'datum'].decode('UTF-8'),
