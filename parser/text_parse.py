@@ -21,7 +21,7 @@ def dehyphenate(text):
 
     lines = text.split('\n')
     for num, line in enumerate(lines):
-        if line.endswith('-'):
+        if line.endswith('-') or line.endswith('–'):
             # the end of the word is at the start of next line
             end = lines[num+1].split()[0]
             # we remove the - and append the end of the word
@@ -68,7 +68,7 @@ def de_enumaration(words):
             skip -= 1
             continue
         
-        if word.endswith('-'):
+        if word.endswith('-') or word.endswith('–'):
             skip = 2
         else:
             clean_words.append(word)
@@ -90,7 +90,7 @@ def wordsfilter(words, id):
         if regchar.search(word) and not regmul.search(word) and not regsmall.search(word):
 
             # Enfernen von sonst nicht filterbaren Aufzählungen
-            if word.endswith('-,') or word.endswith('-') or word.startswith('-'):
+            if word.endswith('-,') or word.endswith('-') or word.endswith('–') or word.startswith('-'):
                 continue
 
             # Trennung von Bundestrich-Kompositionen

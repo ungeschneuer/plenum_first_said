@@ -1,5 +1,6 @@
 # sourcery skip: merge-duplicate-blocks
 import os
+import string
 # from progressbar import printProgressBar
 import xml_processing
 from text_parse import process_woerter, prune
@@ -33,10 +34,9 @@ for id in range(0 , length):
 
     url = 'https://search.dip.bundestag.de/api/v1/plenarprotokoll-text/' + str(id) + '?apikey=' + api_key
     response = requests.get(url)
-    logging.info(url)
+    logging.info('Checke ID ' + str(id))
    
     if response.status_code == 200:
-        logging.info("Start Adding Protokoll")
         if add_protokoll(response):
             xml_file = xml_processing.get(id)
             new_words = process_woerter(xml_file, id) 
