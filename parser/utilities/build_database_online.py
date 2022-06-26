@@ -25,29 +25,32 @@ api_key = os.environ.get('BUNDESTAG_API_KEY')
 
 wordnum = 0
 id = ""
-length = 5502
+start = 0
+end = 5502
 
-for id in range(0 , length):
+for id in range(start , end):
 
-    if id % 10 == 0 and id != 0:
+    if id % 10 == 0 and id != start:
         time.sleep(5)  
 
     url = 'https://search.dip.bundestag.de/api/v1/plenarprotokoll-text/' + str(id) + '?apikey=' + api_key
     response = requests.get(url)
     logging.info('Checke ID ' + str(id))
-   
     if response.status_code == 200:
-        if add_protokoll(response):
+        if add_protokoll(response):     
             xml_file = xml_processing.get(id)
-            new_words = process_woerter(xml_file, id) 
+            new_words = process_woerter(xml_file, id)
+            if len(new_words) > 0:
+                logging.info('In Protokoll ' + str(id) + ' z.B. neu hinzugekommen: ' + new_words[0])
+            logging.info('Es wurden ' + str(len(new_words)) + ' neue Wörter hinzugefügt.' )
             wordnum += len(new_words)
-            logging.info(str(wordnum) + ' Wörter hinzugefügt.')
+
         else:
-            logging.info("not possible to find protokoll - skip id: " + str(id))
             continue
     else:
         logging.info("no status 200 - skip id: " + str(id))
-        continue      
+        continue
+
 
     # printProgressBar(id + 1, length, prefix = 'Progress:', suffix = 'Complete', length = 50)
 
