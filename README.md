@@ -17,7 +17,7 @@ Unregelmäßigkeiten entstehen z.B. durch Silbentrennungen, die nicht gut von Wo
 
 `twitter_queue.py` und `twitter_creds.py` packt neue Wörter in eine Warteliste und twittert diese in unterschiedlichen Zeitintervallen. Über eine weitere Funktion wird auch Mastodon benutzt.
 
-`dpi_api.py` verbindet den Bot mit den Servern des Bundestags und sucht nach neuen Protokollen über weiterlaufende IDs. `optv_api.py` ist eine Einbindung der Open Parliament TV API zum Zweitprüfung, ob das Wort wirklich noch nicht existiert. `api_functions.py` hilft bei der Abfrage. 
+`dpi_api.py` verbindet den Bot mit den Servern des Bundestags und sucht nach neuen Protokollen über weiterlaufende IDs. `optv_api.py` ist eine Einbindung der Open Parliament TV API zum Zweitprüfung, ob das Wort wirklich noch nicht existiert und gibt dem Kontext-Bot noch mehr Kontext. `api_functions.py` hilft bei der Abfrage. 
 
 `xml_processing.py` verarbeitet das Protokoll, sodass eine Analyse möglich ist.
 
@@ -30,6 +30,18 @@ Im Ordner utilities finden sich Skripte, die bei dem Aufbau der Datenbank geholf
 ## DPI API 
 
 Das Dokumentations- und Informationssystem für Parlamentsmaterialien stellt jährlich einen neuen öffentlichen Key aus. Der aktuelle bis Mai 2023 gültige Key ist unter `example.env` hinterlegt. Bei dauerhafter Nutzung empfiehlt es sich jedoch, [einen eigenen Key zu beantragen](https://dip.bundestag.de/%C3%BCber-dip/hilfe/api#content).
+
+## Open Parliament TV API
+Open Parliament TV bereitet selber die Protokolle für ihr eigenes Projekt auf, den Text mit der Videoaufzeichung zu verbinden. Dies nutze ich: 
+
+1. Zum erneuten Abgleich ob das Wort **wirklich** noch nicht gesagt wurde (seit 2017).
+2. Um dem Wort mehr Kontext zu geben.
+
+Hierbei gibt es einige Limitierungen. Da die Protokolle weiterhin nicht vollkommen automatisiert verarbeitet werden können, hat OPTV immer wieder ein Delay von ein paar Tagen. Außerdem wird nur der Text verarbeitet, der wirklich gesagt wurde und nicht die Teile, die schriftlich eingereicht werden. 
+
+[Webseite zur API](https://de.openparliament.tv/api/)
+[Webseite zum Projekt](https://openparliament.tv/)
+[GitHub](https://github.com/OpenParliamentTV)
 
 ## Mastodon und Twitter
 Für den Zugang zu Twitter benutze ich die Library [Tweepy](https://www.tweepy.org/) und für Mastodon benutze ich [Mastodon.py.](https://github.com/halcy/Mastodon.py) Dort gibt es auch eine Dokumentation, wie man die Keys richtig erstellt. 

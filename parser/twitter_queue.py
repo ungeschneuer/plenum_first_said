@@ -1,10 +1,9 @@
 import logging
 from database import twittRedis, pastRedis, r
-from twitter_creds import tweet_word, toot_word
-from optv_api import get_op_response
+from twitter_creds import tweet_word, toot_word, delete_from_queue
+from optv_api import double_check_newness, check_for_infos
 import random
 from dotenv import load_dotenv
-import datetime
 
 load_dotenv()
 
@@ -19,11 +18,12 @@ def tweet_queue():
         if key:
             word = twittRedis.hget(key, "word").decode("utf-8")
             id = twittRedis.hget(key, "id").decode("utf-8") 
+            logging.info("Wort '" + word + "' wird veröffentlicht.")
 
             redis_id = "protokoll:" + str(id)
             keys = r.hgetall(redis_id)
             
-            if check_open_parliament(word, keys):
+            if double_check_newness(word, keys):
                 if send_tweet(word, keys):
                     return True
                 else:
@@ -31,21 +31,22 @@ def tweet_queue():
                     return False
             else:
                 logging.info('Wort wurde bei OPTV gefunden.')
-                remove_key(key)
+                delete_from_queue(key)
                 return False
         else:
             return False
     
     else:
-        logging.info('Tweet Stopper existent.')
         return False
 
 
 
 def send_tweet(word, keys):
 
-    twitter_id = tweet_word(word, keys)
-    mastodon_id = toot_word(word, keys)
+    metadata = check_for_infos(word, keys)
+
+    twitter_id = tweet_word(word, keys, metadata)
+    mastodon_id = toot_word(word, keys, metadata)
 
     if not twitter_id:
         logging.debug('Es wurde keine Tweet ID gefunden.')
@@ -71,14 +72,6 @@ def cleanup_db(word, twitter_id, mastodon_id):
         logging.exception(e)
         return False
 
-def remove_key(key):
-    try:
-        twittRedis.delete(key)
-        return True
-    except Exception as e:
-        logging.exception(e)
-        raise
-
 def set_tweet_stopper():
 
     expireTime = 60*round(random.randrange(55,120))
@@ -86,19 +79,6 @@ def set_tweet_stopper():
     logging.info('Tweet-Stopper wurde gesetzt.')
 
     return True
-
-# Gleicht mit der externen OpenParliamentTV Datenbank ab als zweiter Check ob es nicht schon existiert.
-def check_open_parliament(word, keys):
-    datum = keys[b'datum'].decode('UTF-8')
-    
-    # Datum entspricht dem Tag vor dem Protokoll
-    date_to_check = datetime.datetime.strptime(datum, '%d.%m.%Y') - datetime.timedelta(days=1)
-    date = date_to_check.strftime('%Y-%m-%d')
-    url = 'https://de.openparliament.tv/api/v1/search/media/?q=' + word + '&date=' + date
-    return get_op_response(url)
-
-
-
 
 
 

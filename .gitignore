@@ -11,4 +11,5 @@ parser/utilities/mastodon_starter.py
 .env
 venv/*
 parser/plenarlog.log
-parser/archive/1.xml
+*.xml
+

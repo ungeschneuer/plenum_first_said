@@ -28,8 +28,8 @@ def normalize(raw_word):
         replaced = re.sub(regexexp, '-', stripped_word)
         return normalize(replaced)
 
-    if stripped_word.endswith('ʼ'):
-        stripped_word = stripped_word.strip('ʼ')
+    if stripped_word.endswith('ʼ') or stripped_word.endswith('’'):
+        stripped_word = stripped_word[:-1]
 
     return stripped_word
 
@@ -37,7 +37,7 @@ def normalize(raw_word):
 # Check ob ein valides Wort und weitere Korrigierung
 def ok_word(s):
 # Entfernung hier von html, bzw, und, oder, weil Aufzählungen mit Bindestrich und domains nicht gut rausgefiltert werden.
-    if len(s) < 5 or s.endswith(('ts', 'html', 'de', 'bzw', 'oder', 'und', 'wie')) or s.startswith('www') or s[-1].isupper(): 
+    if len(s) < 5 or s.endswith(('ts', 'html', 'de', 'bzw', 'oder', 'und', 'wie', 'pdf')) or s.startswith('www') or s[-1].isupper(): 
         return False
 
     return (not any(i.isdigit() or i in '(.@/#-_§ ' for i in s))
