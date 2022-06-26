@@ -61,7 +61,7 @@ Aus Gründen der Unterhaltung werden einige Worte aussortiert, die zwar tatsäch
 Einige Schwierigkeiten machen hier immer noch die Flexion von Wörtern. Grundregeln der Grammatik sind als Filter hardgecodet, jedoch werden dadurch nicht alle Begriffe erfasst. Lemmatization-Pakete wie HanTa, Spacy und Simplemma kommmen mit Neologismen oder eher seltenen Wörtern wie 'Buttersäureanschäge' nicht wirklich zurecht. 
 
 ## TODOs
-- [ ] Sprecher:in im Kontext mit erwähnen  
+- [X] Sprecher:in im Kontext mit erwähnen (#3)
 - [ ] Weitere Verfeinerung der Wort-Normalisierung wie Lemmatization.
 
 ## Lizenz und Danksagung
