@@ -35,21 +35,42 @@ def delete_from_queue(word):
     return True
 
 
-def tweet_word(word, keys):
+def tweet_word(word, keys, metadata):
     
     try:
         status = twitterAPI.update_status(word)
-        context_status = contextAPI.update_status(
-            "@{} #{} tauchte zum ersten Mal im {} am {} auf. Das Protokoll findet man unter {}".format(
-                status.user.screen_name,
-                word,
-                keys[b'titel'].decode('UTF-8'),
-                keys[b'datum'].decode('UTF-8'),
-                keys[b'pdf_url'].decode('UTF-8')),
-            in_reply_to_status_id=status.id)
+
+        if metadata:
+            context_status = contextAPI.update_status(
+                "@{} #{} tauchte zum ersten Mal im {} am {} auf. Es wurde von {} ({}) gesagt./n/nVideo: {}".format(
+                    status.user.screen_name,
+                    word,
+                    keys[b'titel'].decode('UTF-8'),
+                    keys[b'datum'].decode('UTF-8'),
+                    metadata['speaker'],
+                    metadata['party'],
+                    metadata['link']),
+                in_reply_to_status_id=status.id)
+
+            second_context_status = contextAPI.update_status(
+                "@{} Das {} findet sich als PDF unter {}".format(
+                    context_status.user.screen_name,
+                    keys[b'titel'].decode('UTF-8'),
+                    keys[b'pdf_url'].decode('UTF-8')),
+                in_reply_to_status_id=context_status.id)
+
+        else: 
+            context_status = contextAPI.update_status(
+                "@{} #{} tauchte zum ersten Mal im {} am {} auf. Das Protokoll findet sich unter {}".format(
+                    status.user.screen_name,
+                    word,
+                    keys[b'titel'].decode('UTF-8'),
+                    keys[b'datum'].decode('UTF-8'),
+                    keys[b'pdf_url'].decode('UTF-8')),
+                in_reply_to_status_id=status.id)
         
-        if context_status:
-            logging.info('Tweet wurde gesendet.')
+        if status and context_status:
+            logging.info('Tweet wurde gesendet:' + context_status.id_str)
             return status.id
         else:
             logging.debug('Tweet konnte nicht gesendet werde.')
@@ -58,7 +79,7 @@ def tweet_word(word, keys):
     except UnicodeDecodeError as e:
         logging.exception(e)
         return False
-    except tweepy.TweepError as e:
+    except tweepy.TweepyException as e:
         logging.exception(e)
         
         if e.args[0][0]['code'] == 187:
@@ -66,22 +87,44 @@ def tweet_word(word, keys):
             return False
         
         return False
+    except tweepy.HTTPException as e:
+        logging.exception(e)
+        return False
+
     
 
 
 
-def toot_word(word, keys):
+def toot_word(word, keys, metadata):
     try: 
         toot_status = MastodonAPI.toot(word)
 
-        context_status = MastodonKontextAPI.status_post("#{} tauchte zum ersten Mal im {} am {} auf. Das Protokoll findet man unter {}".format(
+        if metadata:
+            context_status = MastodonKontextAPI.status_post("#{} tauchte zum ersten Mal im {} am {} auf. Es wurde von {} ({}) gesagt./n/nVideo: {}".format(
                     word,
                     keys[b'titel'].decode('UTF-8'),
                     keys[b'datum'].decode('UTF-8'),
-                    keys[b'pdf_url'].decode('UTF-8')),
+                    metadata['speaker'],
+                    metadata['party'],
+                    metadata['link']),
                     in_reply_to_id = toot_status["id"])
 
-        if context_status:
+            second_context_status = MastodonKontextAPI.status_post(
+                "Das {} findet sich als PDF unter {}".format(
+                    context_status.user.screen_name,
+                    keys[b'titel'].decode('UTF-8'),
+                    keys[b'pdf_url'].decode('UTF-8')),
+                in_reply_to_status_id=context_status.id)
+
+        else:     
+            context_status = MastodonKontextAPI.status_post("#{} tauchte zum ersten Mal im {} am {} auf. Das Protokoll findet sich unter {}".format(
+                word,
+                keys[b'titel'].decode('UTF-8'),
+                keys[b'datum'].decode('UTF-8'),
+                keys[b'pdf_url'].decode('UTF-8')),
+                in_reply_to_id = toot_status["id"])
+
+        if toot_status and context_status:
             logging.info('Toot wurde gesendet.')
             return toot_status["id"]
         else:
@@ -90,19 +133,3 @@ def toot_word(word, keys):
     except Exception as e:
         logging.exception(e)
         return False
-
-
-def tweet_text(text):
-        trends = twitterAPI.trends_place(23424829)
-        trend_array = []
-
-        for trend in trends[0]["trends"]:
-            trend_array.append(trend["name"].strip('#'))
-
-        for word in trend_array:
-            db_word = r.hgetall('word:' + word)
-            if db_word:
-                return True
-
-if __name__ == "__main__":
-    tweet_text("test")

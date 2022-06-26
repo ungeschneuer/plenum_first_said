@@ -1,10 +1,10 @@
+from ctypes import sizeof
 import logging
 import re
 from string import punctuation
 import xml_processing
-from database import add_to_queue, check_newness
-
-
+from database import add_to_queue, check_newness, twittRedis
+import difflib
 
 
 # Normalisierungfunktion von nyt_first_said
@@ -48,7 +48,6 @@ def check_word(word, id):
 
     if ok_word(norm_word):
         if check_newness(norm_word, id):
-            add_to_queue(norm_word, id)
             return True
         else:
             return False
@@ -102,7 +101,7 @@ def wordsplitter(text):
 
 
 def wordsfilter(words, id):  
-    wordnum = 0
+    new_words = []
     first_half = ""
     skip = False
     possible_hyphenation = False
@@ -124,7 +123,7 @@ def wordsfilter(words, id):
                 # Wenn zweite Hälfte groß geschrieben ist, ist es ein neues Wort und beide werden einzelnd weiter geschickt.
                 if word[0].isupper() or word.startswith('-'):
                     if check_word(first_half, id):
-                        wordnum += 1
+                        new_words.append(first_half)
                     possible_hyphenation = False
                     #Gleich aussortieren, wenn Wort mit Strich anfängt
                     if word.startswith('-'):
@@ -132,7 +131,7 @@ def wordsfilter(words, id):
                 # Aufzählung raus sortieren    
                 elif word == 'und' or word == 'oder' or word == 'bzw':
                     if check_word(first_half, id):
-                        wordnum += 1
+                        new_words.append(first_half)
                     possible_hyphenation = False
                     # Nächsten Teil der Aufzählung gleich mit entfernen
                     skip = True
@@ -164,31 +163,57 @@ def wordsfilter(words, id):
                 word = splitted[0]
 
                 if check_word(splitted[1], id):
-                    wordnum += 1
+                    new_words.append(splitted[1])
 
             
             if check_word(word, id):
-                wordnum += 1
+                new_words.append(word)
     
-    return wordnum
+    return new_words
 
-
-
-
+# Filtert Sprechanteile aus Protokoll, splittete und filtert sie. 
 def process_woerter (xml_file, id):
 
     raw_results = get_wortbeitraege(xml_file)
 
     if not raw_results:
-        return 0
+        return raw_results
         
     words = wordsplitter(raw_results)
 
     return(wordsfilter(words, id))
+
+
+def prune(new_words, id):
+    
+    pruned_words = find_matches(new_words)
+
+    for word in pruned_words:
+        add_to_queue(word, id)
+
+
+
+# Recursive match finding der Liste, um Index-Fehler zu vermeiden
+def find_matches(new_words):
+    for word in new_words:
+        matches = difflib.get_close_matches(word, new_words, n=4)
+        
+        if matches and len(matches) > 1:
+            for match in matches:
+                if match == word:
+                    continue
+                new_words.remove(match)
+            find_matches(new_words)
+            break
+    return new_words
+        
+
+
+
 
 if __name__ == "__main__":
     file = '/Users/marcel/Documents/2021/plenum_first_said.nosync/parser/archive/5445.xml'
     root = xml_processing.parse(file)
     text = get_wortbeitraege(root)
     words = wordsplitter(text)
-    print(words)
+

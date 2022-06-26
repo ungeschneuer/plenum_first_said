@@ -3,7 +3,7 @@
 import logging
 from dpi_api import find_new_doc
 from database import r
-from text_parse import process_woerter
+from text_parse import process_woerter, prune
 from dotenv import load_dotenv
 import xml_processing
 
@@ -30,14 +30,15 @@ def main():
 
         if xml_file:
             logging.info('Sitzung mit der ID ' + str(new_id) +  ' gefunden')
-            wordnum = process_woerter(xml_file, new_id)
-            if wordnum == 0:
+            new_words = process_woerter(xml_file, new_id)
+            if len(new_words) == 0:
                 logging.debug('Es wurde kein neues Wort hinzugefügt.')
                 exit   
             else:
+                prune(new_words, new_id)
                 increase_current_id(new_id)
              
-            logging.info("Es wurden " + str(wordnum) + " neue Wörter hinzugefügt.")
+            logging.info("Es wurden " + str(len(new_words)) + " neue Wörter hinzugefügt.")
 
         else:
             logging.debug('Fehler im XML File.')
