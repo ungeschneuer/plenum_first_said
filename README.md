@@ -61,8 +61,8 @@ Aus Gründen der Unterhaltung werden einige Worte aussortiert, die zwar tatsäch
 Einige Schwierigkeiten machen hier immer noch die Flexion von Wörtern. Grundregeln der Grammatik sind als Filter hardgecodet, jedoch werden dadurch nicht alle Begriffe erfasst. Lemmatization-Pakete wie HanTa, Spacy und Simplemma kommmen mit Neologismen oder eher seltenen Wörtern wie 'Buttersäureanschäge' nicht wirklich zurecht. 
 
 ## TODOs
-- [X] Sprecher:in im Kontext mit erwähnen (#3)
-- [ ] Weitere Verfeinerung der Wort-Normalisierung wie Lemmatization.
+- [X] Sprecher:in im Kontext mit erwähnen ([#5](https://github.com/ungeschneuer/plenum_first_said/pull/5))
+- [X] Weitere Verfeinerung der Wort-Normalisierung ([#8](https://github.com/ungeschneuer/plenum_first_said/pull/8)). 
 
 ## Lizenz und Danksagung
 
