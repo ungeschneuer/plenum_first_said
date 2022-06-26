@@ -25,7 +25,7 @@ def save(id, current_xml):
     
     return filename
 
-
+# XML Dokument bekommen hinter der ID
 def get(id):
 
     url = 'https://search.dip.bundestag.de/api/v1/plenarprotokoll-text/' + str(id) + '?apikey=' + api_key + '&format=xml'
@@ -45,26 +45,26 @@ def parse(filename):
     tree = ET.parse(filename)
     return tree.getroot()
 
-
+#  Auf verschiedene Arten der Formatierung eingehen und als String ausgeben.
 def getText(xml_file):
 
-    text = []
+    text_array = []
     klassen = ['J', '1','O', 'J_1', 'T']
     
     #Checken ob neues Format und Text rausziehen
     for p in xml_file.iter("p"):
         if any(value in p.attrib.values() for value in klassen):
-            text.append(p.text)
+            text_array.append(p.text)
     
     # Altes Format bekommen
-    if not text: 
+    if not text_array: 
         if xml_file.findall('text'):
-            text.append(xml_file.find('text').text)
+            text_array.append(xml_file.find('text').text)
         if xml_file.findall('TEXT'):
-            text.append(xml_file.find('TEXT').text)
+            text_array.append(xml_file.find('TEXT').text)
 
-    if not text:
+    if not text_array:
         return False
     else:        
-        return text
+        return ''.join(text_array)
 
