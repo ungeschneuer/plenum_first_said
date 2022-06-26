@@ -42,21 +42,18 @@ def tweet_word(word, keys, metadata):
 
         if metadata:
             context_status = contextAPI.update_status(
-                """@{} #{} tauchte zum ersten Mal im {} am {} auf. Es wurde von {} ({}) gesagt. 
-                
-                Video: {}""".format(
+                "@{} #{} tauchte zum ersten Mal im {} am {} auf. Es wurde von {} ({}) gesagt./n/nVideo: {}".format(
                     status.user.screen_name,
                     word,
                     keys[b'titel'].decode('UTF-8'),
                     keys[b'datum'].decode('UTF-8'),
                     metadata['speaker'],
                     metadata['party'],
-                    keys[b'pdf_url'].decode('UTF-8'),
                     metadata['link']),
                 in_reply_to_status_id=status.id)
 
             second_context_status = contextAPI.update_status(
-                """@{} Das {} findet sich als PDF unter {}""".format(
+                "@{} Das {} findet sich als PDF unter {}".format(
                     context_status.user.screen_name,
                     keys[b'titel'].decode('UTF-8'),
                     keys[b'pdf_url'].decode('UTF-8')),
@@ -103,18 +100,21 @@ def toot_word(word, keys, metadata):
         toot_status = MastodonAPI.toot(word)
 
         if metadata:
-            context_status = MastodonKontextAPI.status_post("""@{} #{} tauchte zum ersten Mal im {} am {} auf. Es wurde von {} ({}) gesagt. 
-                
-                Protokoll: {}
-                Video: {}""".format(
+            context_status = MastodonKontextAPI.status_post("#{} tauchte zum ersten Mal im {} am {} auf. Es wurde von {} ({}) gesagt./n/nVideo: {}".format(
                     word,
                     keys[b'titel'].decode('UTF-8'),
                     keys[b'datum'].decode('UTF-8'),
                     metadata['speaker'],
                     metadata['party'],
-                    keys[b'pdf_url'].decode('UTF-8'),
                     metadata['link']),
                     in_reply_to_id = toot_status["id"])
+
+            second_context_status = MastodonKontextAPI.status_post(
+                "Das {} findet sich als PDF unter {}".format(
+                    context_status.user.screen_name,
+                    keys[b'titel'].decode('UTF-8'),
+                    keys[b'pdf_url'].decode('UTF-8')),
+                in_reply_to_status_id=context_status.id)
 
         else:     
             context_status = MastodonKontextAPI.status_post("#{} tauchte zum ersten Mal im {} am {} auf. Das Protokoll findet sich unter {}".format(
