@@ -82,7 +82,7 @@ def add_to_database (word, id):
         return True
     except Exception as e:
         logging.exception(e)
-        return False
+        raise
 
 #Sorgt dafür, dass tatsächlich das älteste Wort in der Datenbank steht
 def check_age(word,id):
@@ -95,23 +95,26 @@ def check_age(word,id):
 
     else:
 
-        aktuell_p = r.hgetall('protokoll:' + aktuelle_id)
-
-        aktuelle_periode = int(aktuell_p[b'wahlperiode'].decode("utf-8"))
-        aktuelle_protokollnummer = int(aktuell_p[b'protokollnummer'].decode("utf-8"))
-
-
-        # Quelle des Wortes, welches sich doppelt 
-        neu_p = r.hgetall('protokoll:' + str(id))
-        neue_periode = int(neu_p[b'wahlperiode'].decode("utf-8"))
-        neue_protokollnummer = int(neu_p[b'protokollnummer'].decode("utf-8"))
+        try: 
+            aktuell_p = r.hgetall('protokoll:' + str(aktuelle_id))
+            aktuelle_periode = int(aktuell_p[b'wahlperiode'].decode("utf-8"))
+            aktuelle_protokollnummer = int(aktuell_p[b'protokollnummer'].decode("utf-8"))
 
 
-        if (aktuelle_periode == neue_periode and aktuelle_protokollnummer > neue_protokollnummer) or (aktuelle_periode > neue_periode):
-            r.hset('word:' + word, 'id', id)
-            return True
-        else:
-            return False
+            # Quelle des Wortes, welches sich doppelt 
+            neu_p = r.hgetall('protokoll:' + str(id))
+            neue_periode = int(neu_p[b'wahlperiode'].decode("utf-8"))
+            neue_protokollnummer = int(neu_p[b'protokollnummer'].decode("utf-8"))
+
+
+            if (aktuelle_periode == neue_periode and aktuelle_protokollnummer > neue_protokollnummer) or (aktuelle_periode > neue_periode):
+                r.hset('word:' + word, 'id', id)
+                return True
+            else:
+                return False
+        except Exception as e:
+            logging.exception(e)
+            raise
 
 
 # Fügt ein Wort zur Twitter-Datenbank hinzu

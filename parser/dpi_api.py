@@ -50,7 +50,7 @@ def add_protokoll(response):
                     return True
                 except Exception as e:
                     logging.exception(e)
-                    return False
+                    raise
             else:
                 logging.info('Dokument mit ID ' + document_data['id'] + ' hat keinen Text')
                 return False
