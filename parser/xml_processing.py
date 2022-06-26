@@ -25,7 +25,7 @@ def save(id, current_xml):
     
     return filename
 
-
+# XML Dokument bekommen hinter der ID
 def get(id):
 
     url = 'https://search.dip.bundestag.de/api/v1/plenarprotokoll-text/' + str(id) + '?apikey=' + api_key + '&format=xml'
@@ -45,7 +45,7 @@ def parse(filename):
     tree = ET.parse(filename)
     return tree.getroot()
 
-
+#  Auf verschiedene Arten der Formatierung eingehen und als String ausgeben.
 def getText(xml_file):
 
     text_array = []

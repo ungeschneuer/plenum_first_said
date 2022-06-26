@@ -4,7 +4,7 @@ from string import punctuation
 import xml_processing
 from database import add_to_queue, check_newness
 
-
+# Beginn des Dokumentes finden mit Rechtschreibfehlern. 
 def find_beginn(text):
 
     if text.find('Beginn:') == -1:
@@ -14,7 +14,7 @@ def find_beginn(text):
     
     return text
 
-
+# Silbentrennung rückgängig machen. 
 def dehyphenate(text):
 
     lines = text.split('\n')
@@ -30,6 +30,7 @@ def dehyphenate(text):
 
     return '\n'.join(lines)
 
+# Cleaning vor dem Wordsplitting
 def pre_split_clean(text):
 
     # Encoding funktioniert nicht komplett, darum sanitizing
@@ -41,7 +42,7 @@ def pre_split_clean(text):
 
     return text
 
-
+# Wörter splitten am Leerzeichen
 def wordsplitter(text):
     words = []
 
@@ -78,19 +79,19 @@ def wordsfilter(words, id):
     
     # Wort hat Buchstaben
     regchar = re.compile('([A-Z])|([a-z])\w+')
-    # Wort hat nicht gleiche Zeichen hintereinander
+    # Wort hat gleiche Zeichen hintereinander
     regmul = re.compile('([A-z])\1{3,}')
-    # Wort hat nur am Anfag Großbuchstaben
+    # Wort hat nicht nur am Anfag Großbuchstaben
     regsmall = re.compile('[A-z]{1}[a-z]*[A-Z]+[a-z]*')
 
     for word in words:
         if regchar.search(word) and not regmul.search(word) and not regsmall.search(word):
 
-            # Enfernen, von sonst nicht filterbaren Aufzählungen
+            # Enfernen von sonst nicht filterbaren Aufzählungen
             if word.endswith('-,') or word.endswith('-') or word.startswith('-'):
                 continue
 
-            # Zusammefassung oder binäre Ansprache
+            # Trennung von Bundestrich-Kompositionen
             if '/' in word:
                 splitted = word.split('/')
                 word = splitted[0]
@@ -103,7 +104,7 @@ def wordsfilter(words, id):
     
     return wordnum
 
-
+# Hauptfunktion des Moduls für die Aufbereitung und Trennung der Wörter
 def process_woerter (xml_file, id):
 
     raw_text = xml_processing.getText(xml_file)
@@ -121,7 +122,7 @@ def process_woerter (xml_file, id):
     return(wordsfilter(words, id))
 
 
-# Normalisierungfunktion von nyt_first_said
+# Normalisierung vor Datenbank-Abgleich des Wortes
 def normalize(raw_word):
 
     # Ausfiltern von weiteren Zeichen im Testlauf
@@ -137,7 +138,7 @@ def normalize(raw_word):
     return stripped_word
 
 
-# Check ob ein valides Wort und weitere Korrigierung
+# Check ob es ein valides Wort ist
 def ok_word(s):
 # Entfernung hier von html, bzw, und, oder, weil Aufzählungen mit Bindestrich und domains nicht gut rausgefiltert werden.
     if len(s) < 5 or s.endswith(('ts', 'html', 'de', 'bzw', 'oder', 'und', 'wie', 'pdf')) or s.startswith('www') or s[-1].isupper(): 
@@ -160,7 +161,7 @@ def check_word(word, id):
 
 
 if __name__ == "__main__":
-    file = '/Users/marcel/Documents/2021/plenum_first_said.nosync/parser/5500.xml'
+    file = '#'
     root = xml_processing.parse(file)
     text = xml_processing.getText(root)
     text = find_beginn(text)
