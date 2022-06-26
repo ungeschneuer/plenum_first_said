@@ -114,10 +114,12 @@ def process_woerter (xml_file, id):
     if not raw_text:
         return False
     
+    # Verarbeitung des String
     text = find_beginn(raw_text)
     text = pre_split_clean(text)
     text = dehyphenate(text)
 
+    # Verarbeitung des Wort-Arrays
     words = wordsplitter(text)
     words = de_enumaration(words)
 
