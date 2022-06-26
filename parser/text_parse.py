@@ -77,7 +77,7 @@ def de_enumaration(words):
 
 
 def wordsfilter(words, id):  
-    wordnum = 0
+    new_words = []
     
     # Wort hat Buchstaben
     regchar = re.compile('([A-Z])|([a-z])\w+')
@@ -99,12 +99,12 @@ def wordsfilter(words, id):
                 word = splitted[0]
 
                 if check_word(splitted[1], id):
-                    wordnum += 1
+                    new_words.append(splitted[1])
             
             if check_word(word, id):
-                wordnum += 1
+                new_words.append(word)
     
-    return wordnum
+    return new_words
 
 # Hauptfunktion des Moduls für die Aufbereitung und Trennung der Wörter
 def process_woerter (xml_file, id):
