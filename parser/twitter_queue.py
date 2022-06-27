@@ -76,7 +76,7 @@ def set_tweet_stopper():
 
     expireTime = 60*round(random.randrange(55,120))
     twittRedis.set('meta:tweetstop', 1 , ex=expireTime)
-    logging.info('Tweet-Stopper wurde gesetzt auf ' + expireTime/60 + ' Minuten.')
+    logging.info('Tweet-Stopper wurde gesetzt auf ' + str(expireTime/60) + ' Minuten.')
 
     return True
 

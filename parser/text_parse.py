@@ -21,14 +21,20 @@ def dehyphenate(text):
 
     lines = text.split('\n')
     for num, line in enumerate(lines):
-        if line.endswith('-') or line.endswith('–'):
-            # the end of the word is at the start of next line
-            end = lines[num+1].split()[0]
-            # we remove the - and append the end of the word
-            lines[num] = line[:-1] + end
-            # and remove the end of the word and possibly the 
-            # following space from the next line
-            lines[num+1] = lines[num+1][len(end)+1:]
+        if line.endswith('-'):
+            try:
+                # the end of the word is at the start of next line
+                end = lines[num+1].split()[0]
+                # we remove the - and append the end of the word
+                lines[num] = line[:-1] + end
+                # and remove the end of the word and possibly the 
+                # following space from the next line
+                lines[num+1] = lines[num+1][len(end)+1:]
+            except Exception as e:
+                logging.exception(e)
+                logging.info('Line 1: ' + lines[num])
+                logging.info('Line 2: ' + lines[num+1])
+                continue
 
     return '\n'.join(lines)
 
