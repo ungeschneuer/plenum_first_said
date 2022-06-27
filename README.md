@@ -39,9 +39,9 @@ Open Parliament TV bereitet selber die Protokolle für ihr eigenes Projekt auf, 
 
 Hierbei gibt es einige Limitierungen. Da die Protokolle weiterhin nicht vollkommen automatisiert verarbeitet werden können, hat OPTV immer wieder ein Delay von ein paar Tagen. Außerdem wird nur der Text verarbeitet, der wirklich gesagt wurde und nicht die Teile, die schriftlich eingereicht werden. 
 
-[Webseite zur API](https://de.openparliament.tv/api/)
-[Webseite zum Projekt](https://openparliament.tv/)
-[GitHub](https://github.com/OpenParliamentTV)
+[Webseite zur API](https://de.openparliament.tv/api/)  
+[Webseite zum Projekt](https://openparliament.tv/)  
+[GitHub](https://github.com/OpenParliamentTV)  
 
 ## Mastodon und Twitter
 Für den Zugang zu Twitter benutze ich die Library [Tweepy](https://www.tweepy.org/) und für Mastodon benutze ich [Mastodon.py.](https://github.com/halcy/Mastodon.py) Dort gibt es auch eine Dokumentation, wie man die Keys richtig erstellt. 
