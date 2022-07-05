@@ -33,7 +33,8 @@ def dehyphenate(text):
             except Exception as e:
                 logging.exception(e)
                 logging.info('Line 1: ' + lines[num])
-                logging.info('Line 2: ' + lines[num+1])
+                if len(lines) <= num:
+                    logging.info('Line 2: ' + lines[num+1])
                 continue
 
     return '\n'.join(lines)
