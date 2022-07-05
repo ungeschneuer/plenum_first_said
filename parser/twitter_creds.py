@@ -31,8 +31,10 @@ MastodonKontextAPI = Mastodon(access_token = os.environ.get('MASTODON_KONTEXT_AC
 
 
 def delete_from_queue(word):
-    twittRedis.hdel(word)
-    return True
+    if twittRedis.delete(word):
+        return True
+    else: 
+        return False
 
 
 def tweet_word(word, keys, metadata):
