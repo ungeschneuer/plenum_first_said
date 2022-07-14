@@ -81,15 +81,15 @@ def tweet_word(word, keys, metadata):
     except UnicodeDecodeError as e:
         logging.exception(e)
         return False
-    except tweepy.TweepyException as e:
+    except tweepy.TwitterServerError as e:
         logging.exception(e)
-        
-        if e.args[0][0]['code'] == 187:
-            delete_from_queue(word)
-            return False
-        
         return False
     except tweepy.HTTPException as e:
+        logging.exception(e)
+        if e.api_codes[0] == 187:
+            delete_from_queue(word)
+        return False
+    except tweepy.TweepyException as e:
         logging.exception(e)
         return False
 
