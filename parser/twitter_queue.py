@@ -66,6 +66,7 @@ def cleanup_db(word, twitter_id, mastodon_id):
         twittRedis.move(word, 2)
         pastRedis.hset(word, "tweet_id", twitter_id)
         pastRedis.hset(word, "mastodon_id", mastodon_id)
+        delete_from_queue(word)
         logging.info('Wort wurde ins Archiv verschoben.')
         return True
     except Exception as e:
