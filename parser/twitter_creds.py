@@ -9,6 +9,8 @@ from database import r, twittRedis
 import tweepy
 from mastodon import Mastodon
 
+from .twitter_queue import cleanup_db
+
 load_dotenv()
 
 def TwitterApi():
@@ -92,6 +94,10 @@ def tweet_word(word, keys, metadata):
     except tweepy.TweepyException as e:
         logging.exception(e)
         return False
+    except tweepy.errors.Forbidden as e:
+        logging.exception(e)
+        return False
+
 
     
 
@@ -111,12 +117,17 @@ def toot_word(word, keys, metadata):
                     metadata['link']),
                     in_reply_to_id = toot_status["id"])
 
-            second_context_status = MastodonKontextAPI.status_post(
-                "Das {} findet sich als PDF unter {}".format(
-                    context_status.user.screen_name,
-                    keys[b'titel'].decode('UTF-8'),
-                    keys[b'pdf_url'].decode('UTF-8')),
-                in_reply_to_status_id=context_status.id)
+
+            if context_status.user:
+                second_context_status = MastodonKontextAPI.status_post(
+                    "Das {} findet sich als PDF unter {}".format(
+                        context_status.user.screen_name,
+                        keys[b'titel'].decode('UTF-8'),
+                        keys[b'pdf_url'].decode('UTF-8')),
+                    in_reply_to_status_id=context_status.id)
+            else:
+                logging.info(context_status)
+                return False
 
         else:     
             context_status = MastodonKontextAPI.status_post("#{} tauchte zum ersten Mal im {} am {} auf. Das Protokoll findet sich unter {}".format(

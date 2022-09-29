@@ -7,6 +7,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
+# Organisiert das Senden von Tweets
+# Wenn irgendeine Art von Fehler beim Senden passiert, wird das Wort entfernt. 
+# TODO Granularere Fehlerbehandlung
 def tweet_queue():
     
     tweetstop = twittRedis.get('meta:tweetstop')
@@ -21,19 +25,21 @@ def tweet_queue():
             logging.info("Wort '" + word + "' wird veröffentlicht.")
 
             redis_id = "protokoll:" + str(id)
-            keys = r.hgetall(redis_id)
+            protokoll_keys = r.hgetall(redis_id)
             
-            if double_check_newness(word, keys):
-                if send_tweet(word, keys):
+            if double_check_newness(word, protokoll_keys):
+                if send_tweet(word, protokoll_keys):
                     return True
                 else:
                     logging.debug('Wort konnte nicht gesendet werden.')
+                    delete_from_queue(word)
                     return False
             else:
                 logging.info('Wort wurde bei OPTV gefunden.')
-                delete_from_queue(key)
+                delete_from_queue(word)
                 return False
         else:
+            logging.info("Key does not exist. Key: " + str(key))
             return False
     
     else:
@@ -46,16 +52,20 @@ def send_tweet(word, keys):
     metadata = check_for_infos(word, keys)
 
     twitter_id = tweet_word(word, keys, metadata)
-    mastodon_id = toot_word(word, keys, metadata)
 
-    if not twitter_id:
+
+    if twitter_id:
+        mastodon_id = toot_word(word, keys, metadata)
+
+        if not mastodon_id:
+            logging.debug('Es wurde keine Mastodon ID gefunden.')
+            return False
+    else:
         logging.debug('Es wurde keine Tweet ID gefunden.')
         return False
-    elif not mastodon_id:
-        logging.debug('Es wurde keine Mastodon ID gefunden.')
-        return False
-    else:
-        return cleanup_db(word, twitter_id, mastodon_id)
+
+    
+    return cleanup_db(word, twitter_id, mastodon_id)
 
 def cleanup_db(word, twitter_id, mastodon_id):
 
