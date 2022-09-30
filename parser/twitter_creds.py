@@ -9,8 +9,6 @@ from database import r, twittRedis
 import tweepy
 from mastodon import Mastodon
 
-from .twitter_queue import cleanup_db
-
 load_dotenv()
 
 def TwitterApi():
