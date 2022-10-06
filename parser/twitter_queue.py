@@ -35,7 +35,7 @@ def tweet_queue():
                     delete_from_queue(word)
                     return False
             else:
-                logging.info('Wort wurde bei OPTV gefunden.')
+                logging.info('Wort wurde bei OPTV vor dem Protokoll gefunden.')
                 delete_from_queue(word)
                 return False
         else:
