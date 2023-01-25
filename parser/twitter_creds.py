@@ -7,7 +7,8 @@ from dotenv import load_dotenv
 import os
 from database import r, twittRedis
 import tweepy
-from mastodon import Mastodon, MastodonError
+from mastodon import Mastodon
+import mastodon
 from time import sleep
 
 load_dotenv()
@@ -137,13 +138,16 @@ def toot_word(word, keys, metadata):
                         metadata['party'],
                         metadata['link']),
                         in_reply_to_id = toot_status["id"])
-            except MastodonError as e:
-                logging.exception(e)
+            except mastodon.MastodonNotFoundError as m:
+                logging.exception(m)
                 sleep(120)
                 patience += 1 
                 continue
             except Exception as e:
                 logging.exception(e)
+                return False
+            except:
+                logging.exception()
                 return False
             if patience > 50:
                 logging.info('Maximale Versuche wurde überschritten.')
@@ -162,13 +166,16 @@ def toot_word(word, keys, metadata):
                             keys[b'titel'].decode('UTF-8'),
                             keys[b'pdf_url'].decode('UTF-8')),
                         in_reply_to_status_id=context_status.id)
-                except MastodonError as e:
-                    logging.exception(e)
+                except mastodon.MastodonNotFoundError as m:
+                    logging.exception(m)
                     sleep(120)
                     patience += 1
                     continue
                 except Exception as e:
                     logging.exception(e)
+                    return False
+                except:
+                    logging.exception()
                     return False
                 if patience > 50:
                     logging.info('Maximale Versuche wurde überschritten.')
@@ -189,13 +196,16 @@ def toot_word(word, keys, metadata):
                     keys[b'datum'].decode('UTF-8'),
                     keys[b'pdf_url'].decode('UTF-8')),
                     in_reply_to_id = toot_status["id"])
-            except MastodonError as e:
-                logging.exception(e)
+            except mastodon.MastodonNotFoundError as m:
+                logging.exception()
                 sleep(120)
                 patience += 1 
                 continue
             except Exception as e:
                 logging.exception(e)
+                return False
+            except:
+                logging.exception()
                 return False
             if patience > 50:
                 logging.info('Maximale Versuche wurde überschritten.')
