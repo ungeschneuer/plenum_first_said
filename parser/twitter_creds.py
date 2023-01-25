@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 import os
 from database import r, twittRedis
 import tweepy
-from mastodon import Mastodon
+from mastodon import Mastodon, MastodonError
 from time import sleep
 
 load_dotenv()
@@ -137,7 +137,7 @@ def toot_word(word, keys, metadata):
                         metadata['party'],
                         metadata['link']),
                         in_reply_to_id = toot_status["id"])
-            except Mastodon.MastodonNotFoundError as e:
+            except MastodonError as e:
                 logging.exception(e)
                 sleep(120)
                 patience += 1 
@@ -162,7 +162,7 @@ def toot_word(word, keys, metadata):
                             keys[b'titel'].decode('UTF-8'),
                             keys[b'pdf_url'].decode('UTF-8')),
                         in_reply_to_status_id=context_status.id)
-                except Mastodon.MastodonNotFoundError as e:
+                except MastodonError as e:
                     logging.exception(e)
                     sleep(120)
                     patience += 1
@@ -189,7 +189,7 @@ def toot_word(word, keys, metadata):
                     keys[b'datum'].decode('UTF-8'),
                     keys[b'pdf_url'].decode('UTF-8')),
                     in_reply_to_id = toot_status["id"])
-            except Mastodon.MastodonNotFoundError as e:
+            except MastodonError as e:
                 logging.exception(e)
                 sleep(120)
                 patience += 1 
