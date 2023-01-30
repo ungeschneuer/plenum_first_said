@@ -6,7 +6,7 @@ import logging
 r = redis.StrictRedis(host='localhost', port=6379, db=0)
 
 # Datenbank für zu twitternde Wörter
-twittRedis = redis.StrictRedis(host='localhost', port=6379, db=1)
+postRedis = redis.StrictRedis(host='localhost', port=6379, db=1)
 
 # Datenbank mit getwitterten tweets
 pastRedis = redis.StrictRedis(host='localhost', port=6379, db=2)
@@ -124,10 +124,16 @@ def add_to_queue(word, id):
     if word[0].islower():
         return False
 
-    twittRedis.hset(word, 'word', word)
-    twittRedis.hset(word, 'id', id)
+    postRedis.hset(word, 'word', word)
+    postRedis.hset(word, 'id', id)
     
     return True
+
+def delete_from_queue(word):
+    if postRedis.delete(word):
+        return True
+    else: 
+        return False
 
 
 

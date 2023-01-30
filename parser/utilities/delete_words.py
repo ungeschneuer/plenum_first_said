@@ -1,14 +1,14 @@
-from database import twittRedis, r
+from database import postRedis, r
 
 
 # Entfernt neue Wörter aus der Queue und der Datenbank
 
-while twittRedis.dbsize() > 0:
+while postRedis.dbsize() > 0:
 
-    key = twittRedis.randomkey().decode('utf-8')
+    key = postRedis.randomkey().decode('utf-8')
 
     wkey = "word:" + key
 
     r.delete(wkey)
-    twittRedis.delete(key)
+    postRedis.delete(key)
 
