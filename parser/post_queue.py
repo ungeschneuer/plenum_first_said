@@ -11,12 +11,12 @@ load_dotenv()
 
 # Organisiert das Senden von Tweets
 # Wenn irgendeine Art von Fehler beim Senden passiert, wird das Wort entfernt. 
-# TODO Granularere Fehlerbehandlung
 def post_from_queue():
     
     tweetstop = postRedis.get('meta:tweetstop')
 
     if tweetstop is None:
+        set_tweet_stopper()
         logging.info('Tweet Skript wird gestartet')
         key = postRedis.randomkey()
 
@@ -68,8 +68,6 @@ def send_word(word, keys):
     return cleanup_db(word, twitter_id, mastodon_id)
 
 def cleanup_db(word, twitter_id, mastodon_id):
-
-    set_tweet_stopper()
 
     # Ins Archiv bewegen
     try:

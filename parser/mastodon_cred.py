@@ -52,7 +52,7 @@ def toot_word(word, keys, metadata):
                         metadata['party'],
                         metadata['link']),
                         in_reply_to_id = toot_status["id"])
-            except mastodon.Mastodon.MastodonNotFoundError as m:
+            except mastodon.MastodonNotFoundError as m:
                 logging.exception(m)
                 sleep(120)
                 patience += 1 
@@ -75,39 +75,42 @@ def toot_word(word, keys, metadata):
 
 
 
-        if context_status.user:
-            while True:
-                try:
-                    second_context_status = MastodonKontextAPI.status_post(
-                        "Das {} findet sich als PDF unter {}".format(
-                            context_status.user.screen_name,
-                            keys[b'titel'].decode('UTF-8'),
-                            keys[b'pdf_url'].decode('UTF-8')),
-                        in_reply_to_status_id=context_status.id)
-                except mastodon.Mastodon.MastodonNotFoundError as m:
-                    logging.exception(m)
-                    sleep(120)
-                    patience += 1
-                    continue
-                except Exception as e:
-                    logging.exception(e)
-                    sleep(120)
-                    patience += 1
-                    continue
-                except:
-                    logging.exception("Unbekannter Fehler")
-                    sleep(120)
-                    patience += 1
-                    continue
-                if patience > 50:
-                    logging.info('Maximale Versuche wurde überschritten.')
-                    return False
-                else:
-                    break
+        while True:
+            try:
+                second_context_status = MastodonKontextAPI.status_post(
+                    "Das {} findet sich als PDF unter {}".format(
+                        context_status.user.screen_name,
+                        keys[b'titel'].decode('UTF-8'),
+                        keys[b'pdf_url'].decode('UTF-8')),
+                    in_reply_to_status_id=context_status.id)
+            except mastodon.MastodonNotFoundError as m:
+                logging.exception(m)
+                sleep(120)
+                patience += 1
+                continue
+            except AttributeError as e:
+                logging.exception(e)
+                sleep(120)
+                patience += 1
+                continue
 
-        else:
-            logging.info(context_status)
-            return False
+            except Exception as e:
+                logging.exception(e)
+                sleep(120)
+                patience += 1
+                continue
+            except:
+                logging.exception("Unbekannter Fehler")
+                sleep(120)
+                patience += 1
+                continue
+            if patience > 50:
+                logging.info('Maximale Versuche wurde überschritten.')
+                return False
+            else:
+                break
+
+
 
     else:
         while True:
@@ -118,7 +121,7 @@ def toot_word(word, keys, metadata):
                     keys[b'datum'].decode('UTF-8'),
                     keys[b'pdf_url'].decode('UTF-8')),
                     in_reply_to_id = toot_status["id"])
-            except mastodon.Mastodon.MastodonNotFoundError as m:
+            except mastodon.MastodonNotFoundError as m:
                 logging.exception("Unbekannter Fehler")
                 sleep(120)
                 patience += 1 
