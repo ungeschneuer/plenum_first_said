@@ -15,9 +15,9 @@ Unregelmäßigkeiten entstehen z.B. durch Silbentrennungen, die nicht gut von Wo
 
 `plenar.py` ist die Hauptfunktion, die den Rest orchestriert. Sie wird stündlich aufgerufen. `database.py` erlaubt eine Verbindung zur lokalen Redis Datenbank. 
 
-`post_queue.py`, `twitter_creds.py` und `mastodon_creds.py` packt neue Wörter in eine Warteliste und twittert diese in unterschiedlichen Zeitintervallen. Über eine weitere Funktion wird auch Mastodon benutzt.
+`post_queue.py`, `twitter_creds.py` und `mastodon_creds.py` packt neue Wörter in eine Warteliste und twittert diese in unterschiedlichen Zeitintervallen.
 
-`dpi_api.py` verbindet den Bot mit den Servern des Bundestags und sucht nach neuen Protokollen über weiterlaufende IDs. `optv_api.py` ist eine Einbindung der Open Parliament TV API zum Zweitprüfung, ob das Wort wirklich noch nicht existiert und gibt dem Kontext-Bot noch mehr Kontext. `api_functions.py` hilft bei der Abfrage. 
+`dpi_api.py` verbindet den Bot mit den Servern des Bundestags und sucht nach neuen Protokollen über weiterlaufende IDs. `optv_api.py` ist eine Einbindung der Open Parliament TV API zur Zweitprüfung, ob das Wort wirklich noch nicht existiert und gibt dem Kontext-Bot noch mehr Kontext. `api_functions.py` hilft bei der Abfrage. 
 
 `xml_processing.py` verarbeitet das Protokoll, sodass eine Analyse möglich ist.
 
@@ -37,28 +37,28 @@ Open Parliament TV bereitet selber die Protokolle für ihr eigenes Projekt auf, 
 1. Zum erneuten Abgleich ob das Wort **wirklich** noch nicht gesagt wurde (seit 2017).
 2. Um dem Wort mehr Kontext zu geben.
 
-Hierbei gibt es einige Limitierungen. Da die Protokolle weiterhin nicht vollkommen automatisiert verarbeitet werden können, hat OPTV immer wieder ein Delay von ein paar Tagen. Außerdem wird nur der Text verarbeitet, der wirklich gesagt wurde und nicht die Teile, die schriftlich eingereicht werden. 
+Hierbei gibt es einige Limitierungen. Da die Protokolle weiterhin nicht vollkommen automatisiert verarbeitet werden können, hat OPTV immer wieder einen Delay von ein paar Tagen. Außerdem wird nur der Text verarbeitet, der wirklich gesagt wurde und nicht die Teile, die schriftlich eingereicht werden. 
 
 [Webseite zur API](https://de.openparliament.tv/api/)  
 [Webseite zum Projekt](https://openparliament.tv/)  
 [GitHub](https://github.com/OpenParliamentTV)  
 
 ## Mastodon und Twitter
-Für den Zugang zu Twitter benutze ich die Library [Tweepy](https://www.tweepy.org/) und für Mastodon benutze ich [Mastodon.py.](https://github.com/halcy/Mastodon.py) Dort gibt es auch eine Dokumentation, wie man die Keys richtig erstellt. 
+Für den Zugang zu Twitter benutze ich die Library [Tweepy](https://www.tweepy.org/) und für Mastodon benutze ich [Mastodon.py](https://github.com/halcy/Mastodon.py). Dort gibt es auch eine Dokumentation, wie man die Keys richtig erstellt. 
 
 Die Mastodon Account findet man je unter <a rel="me" href="https://mastodon.social/@BT_First_Said">@BT_First_Said@mastodon.social</a> und <a rel="me" href="https://mastodon.social/@FSBT_Kontext">@FSBT_Kontext@mastodon.social</a>.
 
 
 ## Was bedeutet "neues Wort"?
 
-Aus Gründen der Unterhaltung werden einige Worte aussortiert, die zwar tatsächlich zum ersten Mal so gesagt werden, aber nur bedingt an sich einen Informationswert haben. Folgendes wird z.B. versucht herauszufiltern:
+Aus Gründen der Unterhaltung werden einige Worte aussortiert, die zwar tatsächlich zum ersten Mal so gesagt werden, aber nur bedingt an sich einen Informationswert haben. Folgendes wird z.B. versucht, herauszufiltern:
 - Plural
 - Genitiv
 - gegenderte Formen
 - Wörter unter 4 Buchstaben
 - Gesetzesabkürzungen
 
-Einige Schwierigkeiten machen hier immer noch die Flexion von Wörtern. Grundregeln der Grammatik sind als Filter hardgecodet, jedoch werden dadurch nicht alle Begriffe erfasst. Lemmatization-Pakete wie HanTa, Spacy und Simplemma kommmen mit Neologismen oder eher seltenen Wörtern wie 'Buttersäureanschäge' nicht wirklich zurecht. 
+Einige Schwierigkeiten machen hier immer noch die Flexion von Wörtern. Grundregeln der Grammatik sind als Filter hardgecodet, jedoch werden dadurch nicht alle Begriffe erfasst. Lemmatization-Pakete wie HanTa, Spacy und Simplemma kommmen mit Neologismen oder eher seltenen Wörtern wie 'Buttersäureanschläge' nicht wirklich zurecht. 
 
 ## TODOs
 - [X] Sprecher:in im Kontext mit erwähnen ([#5](https://github.com/ungeschneuer/plenum_first_said/pull/5))
