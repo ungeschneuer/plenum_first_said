@@ -54,7 +54,7 @@ def get_metadata(document_data, word):
     link = 'https://de.openparliament.tv/' + type + '/' + id + '?q=' + word
 
     speaker = document_data['data'][0]['relationships']['people']['data'][0]['attributes']['label']
-    party = document_data['data'][0]['relationships']['people']['data'][0]['attributes']['party']['labelAlternative'][0]
+    party = document_data['data'][0]['relationships']['people']['data'][0]['attributes']['party']['label']
 
     metadata = {
         'link': link,
