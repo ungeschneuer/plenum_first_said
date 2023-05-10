@@ -49,7 +49,7 @@ def toot_word(word, keys, metadata):
                 return False
             else:
                 try:
-                    context_status = MastodonKontextAPI.status_post("#{} tauchte zum ersten Mal im {} am {} auf. Es wurde von {} ({}) gesagt.\n\nVideo: {}".format(
+                    context_status = MastodonKontextAPI.status_post("#{} tauchte zum ersten Mal im {} am {} auf. Es wurde im Rahmen der Rede von {} ({}) gesagt.\n\nVideo: {}".format(
                             word,
                             keys[b'titel'].decode('UTF-8'),
                             keys[b'datum'].decode('UTF-8'),

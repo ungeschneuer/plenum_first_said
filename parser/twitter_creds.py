@@ -34,7 +34,7 @@ def tweet_word(word, keys, metadata):
 
         if metadata:
             context_status = contextAPI.update_status(
-                "@{} #{} tauchte zum ersten Mal im {} am {} auf. Es wurde von {} ({}) gesagt.\n\nVideo: {}".format(
+                "@{} #{} tauchte zum ersten Mal im {} am {} auf. Es wurde im Rahmen der Rede von {} ({}) gesagt.\n\nVideo: {}".format(
                     status.user.screen_name,
                     word,
                     keys[b'titel'].decode('UTF-8'),
