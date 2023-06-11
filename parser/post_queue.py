@@ -53,19 +53,18 @@ def send_word(word, keys):
     metadata = check_for_infos(word, keys)
 
     twitter_id = tweet_word(word, keys, metadata)
+    mastodon_id = toot_word(word, keys, metadata)
 
-
-    if twitter_id:
-        mastodon_id = toot_word(word, keys, metadata)
-
-        if not mastodon_id:
-            logging.debug('Es wurde keine Mastodon ID gefunden.')
-    else:
+    if not mastodon_id:
+        logging.debug('Es wurde keine Mastodon ID gefunden.')
+    if not twitter_id:
         logging.debug('Es wurde keine Tweet ID gefunden.')
         return False
 
-    
-    return cleanup_db(word, twitter_id, mastodon_id)
+    if mastodon_id or twitter_id:
+        return cleanup_db(word, twitter_id, mastodon_id)
+    else:
+        raise Exception('Es wurde keine ID gefunden.')
 
 def cleanup_db(word, twitter_id, mastodon_id):
 
@@ -100,7 +99,7 @@ def set_tweet_stopper():
 
 if __name__ == "__main__":
     logging.basicConfig(
-        filename='bundestagbot/parser/twitter.log',
+        filename='bundestagbot/parser/post.log',
         format='%(asctime)s %(levelname)-8s %(message)s',
         level=logging.INFO,
         datefmt='%Y-%m-%d %H:%M:%S')    
