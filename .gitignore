@@ -13,4 +13,5 @@ venv/*
 parser/plenarlog.log
 *.xml
 
-parser/twitter.log
+parser/post.log
+parser/mastodon_cred.py

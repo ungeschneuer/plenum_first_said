@@ -37,7 +37,8 @@ def toot_word(word, keys, metadata):
                 continue
             break
 
-    
+    sleep(5)
+
     # Posts Context
     # Metada is information from OPTV
     if metadata:
@@ -97,7 +98,6 @@ def toot_word(word, keys, metadata):
                     continue
                 except AttributeError as e:
                     logging.exception(e)
-                    logging.info(context_status)
                     sleep(60)
                     patience += 1
                     continue
