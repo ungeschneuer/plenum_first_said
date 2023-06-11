@@ -30,10 +30,10 @@ contextAPI = ContextTwitterApi()
 def tweet_word(word, keys, metadata):
     
     try:
-        status = twitterAPI.update_status(word)
+        status = twitterAPI.create_tweet(word)
 
         if metadata:
-            context_status = contextAPI.update_status(
+            context_status = contextAPI.create_tweet(
                 "@{} #{} tauchte zum ersten Mal im {} am {} auf. Es wurde im Rahmen der Rede von {} ({}) gesagt.\n\nVideo: {}".format(
                     status.user.screen_name,
                     word,
@@ -44,7 +44,7 @@ def tweet_word(word, keys, metadata):
                     metadata['link']),
                 in_reply_to_status_id=status.id)
 
-            second_context_status = contextAPI.update_status(
+            second_context_status = contextAPI.create_tweet(
                 "@{} Das {} findet sich als PDF unter {}".format(
                     context_status.user.screen_name,
                     keys[b'titel'].decode('UTF-8'),
@@ -52,7 +52,7 @@ def tweet_word(word, keys, metadata):
                 in_reply_to_status_id=context_status.id)
 
         else: 
-            context_status = contextAPI.update_status(
+            context_status = contextAPI.create_tweet(
                 "@{} #{} tauchte zum ersten Mal im {} am {} auf. Das Protokoll findet sich unter {}".format(
                     status.user.screen_name,
                     word,
