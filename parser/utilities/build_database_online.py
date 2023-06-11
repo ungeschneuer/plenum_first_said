@@ -24,13 +24,11 @@ api_key = os.environ.get('BUNDESTAG_API_KEY')
     
 
 wordnum = 0
-id = ""
-start = 0
-end = 5502
+length = 5502
 
-for id in range(start , end):
+for id in range(1442 , length):
 
-    if id % 10 == 0 and id != start:
+    if id % 10 == 0 and id != 0:
         time.sleep(5)  
 
     url = 'https://search.dip.bundestag.de/api/v1/plenarprotokoll-text/' + str(id) + '?apikey=' + api_key
@@ -40,7 +38,7 @@ for id in range(start , end):
         if add_protokoll(response):     
             xml_file = xml_processing.get(id)
             new_words = process_woerter(xml_file, id)
-            if len(new_words) > 0:
+            if len(new_words) < 0:
                 logging.info('In Protokoll ' + str(id) + ' z.B. neu hinzugekommen: ' + new_words[0])
             logging.info('Es wurden ' + str(len(new_words)) + ' neue Wörter hinzugefügt.' )
             wordnum += len(new_words)

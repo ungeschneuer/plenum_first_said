@@ -11,9 +11,7 @@ if total_keys > 400:
 
         if key == b'meta:tweetstop':
             continue
-        print(key)
         word = postRedis.hget(key, "word").decode("utf-8")
-        print('word:' + word)
         postRedis.delete(word)
 
 
