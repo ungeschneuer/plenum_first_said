@@ -51,9 +51,8 @@ def post_from_queue():
 def send_word(word, keys):
 
     metadata = check_for_infos(word, keys)
-
-    twitter_id = tweet_word(word, keys, metadata)
     mastodon_id = toot_word(word, keys, metadata)
+    twitter_id = tweet_word(word, keys, metadata)
 
     if not mastodon_id:
         logging.debug('Es wurde keine Mastodon ID gefunden.')
