@@ -13,3 +13,4 @@ venv/*
 parser/plenarlog.log
 *.xml
 
+parser/twitter.log
