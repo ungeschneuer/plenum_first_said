@@ -34,33 +34,41 @@ def double_check_newness(word, keys):
 def check_for_infos(word, keys):
     datum = keys[b'datum'].decode('UTF-8')
 
-    date = datetime.datetime.strptime(datum, '%d.%m.%Y').strftime('%Y-%m-%d')
-    url = 'https://de.openparliament.tv/api/v1/search/media/?q=' + word + '&dateTo=' + date + '&dateFrom=' + date
-    document_data = get_op_response(url)
+    try:
+        date = datetime.datetime.strptime(datum, '%d.%m.%Y').strftime('%Y-%m-%d')
+        url = 'https://de.openparliament.tv/api/v1/search/media/?q=' + word + '&dateTo=' + date + '&dateFrom=' + date
+        document_data = get_op_response(url)
 
-    if does_exist(document_data):
-        return get_metadata(document_data, word)
-    else:
-        logging.info('Es konnten keine Infos von OPTV empfangen werden.')
+        if does_exist(document_data):
+            return get_metadata(document_data, word)
+        else:
+            logging.info('Das Wort existiert bei OPTV nicht.')
+            return False
+    except Exception as e:
+        logging.info('Es gab Probleme beim Zugriff auf die OPTV API. Das Wort konnte nicht überprüft werden.')
+        logging.exception(e)
         return False
 
 
 # Gibt ein dicitionary mit den Metadaten von OPTV aus. 
 def get_metadata(document_data, word):
-    
-    type = document_data['data'][0]['type']
-    id = document_data['data'][0]['id']
+    try:
+        type = document_data['data'][0]['type']
+        id = document_data['data'][0]['id']
 
-    link = 'https://de.openparliament.tv/' + type + '/' + id + '?q=' + word
+        link = 'https://de.openparliament.tv/' + type + '/' + id + '?q=' + word
 
-    speaker = document_data['data'][0]['relationships']['people']['data'][0]['attributes']['label']
-    party = document_data['data'][0]['relationships']['people']['data'][0]['attributes']['party']['label']
+        speaker = document_data['data'][0]['relationships']['people']['data'][0]['attributes']['label']
+        party = document_data['data'][0]['relationships']['people']['data'][0]['attributes']['party']['label']
 
-    metadata = {
-        'link': link,
-        'speaker' : speaker,
-        'party': party,
-    }
+        metadata = {
+            'link': link,
+            'speaker' : speaker,
+            'party': party,
+        }
 
-    return metadata
-
+        return metadata
+    except Exception as e:
+        logging.info('Es konnten keine Metadaten von OPTV empfangen werden. Es gab Probleme beim Zugriff auf die OPTV API')
+        logging.exception(e)
+        return False

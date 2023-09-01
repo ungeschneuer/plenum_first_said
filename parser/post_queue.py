@@ -58,12 +58,12 @@ def send_word(word, keys):
         logging.debug('Es wurde keine Mastodon ID gefunden.')
     if not twitter_id:
         logging.debug('Es wurde keine Tweet ID gefunden.')
-        return False
 
     if mastodon_id or twitter_id:
         return cleanup_db(word, twitter_id, mastodon_id)
     else:
         raise Exception('Es wurde keine ID gefunden.')
+
 
 def cleanup_db(word, twitter_id, mastodon_id):
 
