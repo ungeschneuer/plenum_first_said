@@ -20,6 +20,10 @@ def post_from_queue():
         logging.info('Tweet Skript wird gestartet')
         key = postRedis.randomkey()
 
+        if key == b'meta:tweetstop':
+            logging.info('Keine Wörter in der Queue.')
+            return False
+
         if key:
             word = postRedis.hget(key, "word").decode("utf-8")
             id = postRedis.hget(key, "id").decode("utf-8") 
