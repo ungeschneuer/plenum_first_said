@@ -87,10 +87,9 @@ def toot_word(word, keys, metadata):
                 try:
                     second_context_status = MastodonKontextAPI.status_post(
                         "Das {} findet sich als PDF unter {}".format(
-                            context_status.user.screen_name,
                             keys[b'titel'].decode('UTF-8'),
                             keys[b'pdf_url'].decode('UTF-8')),
-                        in_reply_to_status_id=context_status.id)
+                        in_reply_to_id=context_status["id"])
                 except mastodon.MastodonNotFoundError as m:
                     logging.exception(m)
                     sleep(60)
