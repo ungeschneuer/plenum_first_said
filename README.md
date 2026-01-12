@@ -1,15 +1,15 @@
 # Plenum First Said
 
 
-Plenum First Said ist ein Bot, der neue Wörter postet, die zum ersten Mal während einer Bundestagsdebatte gesagt wurden. Das Projekt ist noch im Aufbau und es wird in keiner Weise  Korrektheit garantiert. 
+Plenum First Said ist ein Bot, der neue Wörter postet, die zum ersten Mal während einer Bundestagsdebatte gesagt wurden. Es wird in keiner Weise Korrektheit garantiert. 
 
 Das Projekt wurde durch den Twitter-Account [@NYT_first_said](https://x.com/NYT_first_said) von Max Bittker inspiriert und dessen [Code](https://github.com/MaxBittker/nyt-first-said) als Startpunkt genutzt, jedoch zum großen Teil verändert. 
 
 ## Funktionsweise
 
-Über eine vom Bundestag bereitgestellte [OpenData-API](https://dip.bundestag.de/%C3%BCber-dip/hilfe/api#content) wird täglich nach einem neuen Plenarprotokoll des Bundestags gesucht. Wird es gefunden, wird jedes einzelne Wort mit einer selbsterstellten Datenbank abgeglichen, die aus allen veröffentlichten Plenarprotokollen aufgebaut wurde. Sollte das Wort nicht in der Datenbank gefunden werden, wird dieses zu einer Warteschlange hinzugefügt und zu einem bestimmten Zeitpunkt gepostet und besagter Datenbank selber hinzugefügt. Der Account [@FSBT_Kontext](https://mastodon.social/@FSBT_Kontext) antwortet automatisiert auf jeden Tweet mit weiterem Kontext zum Wort.
+Über eine vom Bundestag bereitgestellte [OpenData-API](https://dip.bundestag.de/%C3%BCber-dip/hilfe/api#content) wird täglich nach einem neuen Plenarprotokoll des Bundestags gesucht. Wird es gefunden, wird jedes einzelne Wort mit einer selbsterstellten Datenbank abgeglichen, die aus allen veröffentlichten Plenarprotokollen aufgebaut wurde. Sollte das Wort nicht in der Datenbank gefunden werden, wird dieses zu einer Warteschlange hinzugefügt und zu einem bestimmten Zeitpunkt gepostet und besagter Datenbank selber hinzugefügt. Der Account [@FSBT_Kontext](https://mastodon.social/@FSBT_Kontext) antwortet automatisiert auf jeden Post mit weiterem Kontext zum Wort, der durch die OpenParliamentTV-API geliefert wird.
 
-Unregelmäßigkeiten entstehen z.B. durch Silbentrennungen, die nicht gut von Wortverbindungen getrennt werden können (z.B. Know- (neue Zeile) how). 
+Unregelmäßigkeiten entstehen z.B. durch Silbentrennungen, die nicht gut von Wortverbindungen getrennt werden können (z.B. Know- (neue Zeile) how) und Rechtschreibfehlern. 
 
 ## Architektur
 
@@ -29,7 +29,7 @@ Im Ordner utilities finden sich Skripte, die bei dem Aufbau der Datenbank geholf
 
 ## DPI API 
 
-Das Dokumentations- und Informationssystem für Parlamentsmaterialien stellt jährlich einen neuen öffentlichen Key aus. Der aktuelle bis Mai 2023 gültige Key ist unter `example.env` hinterlegt. Bei dauerhafter Nutzung empfiehlt es sich jedoch, [einen eigenen Key zu beantragen](https://dip.bundestag.de/%C3%BCber-dip/hilfe/api#content).
+Das Dokumentations- und Informationssystem für Parlamentsmaterialien stellt jährlich einen neuen öffentlichen Key aus. Der aktuelle bis Mai 2025 gültige Key ist unter `example.env` hinterlegt. Bei dauerhafter Nutzung empfiehlt es sich jedoch, [einen eigenen Key zu beantragen](https://dip.bundestag.de/%C3%BCber-dip/hilfe/api#content).
 
 ## Open Parliament TV API
 Open Parliament TV bereitet selber die Protokolle für ihr eigenes Projekt auf, den Text mit der Videoaufzeichung zu verbinden. Dies nutze ich: 
