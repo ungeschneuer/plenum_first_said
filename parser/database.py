@@ -5,10 +5,10 @@ import logging
 # Tatsächliche Datenbank für Wörter
 r = redis.StrictRedis(host='localhost', port=6379, db=0)
 
-# Datenbank für zu twitternde Wörter
+# Datenbank für zu postende Wörter
 postRedis = redis.StrictRedis(host='localhost', port=6379, db=1)
 
-# Datenbank mit getwitterten tweets
+# Datenbank mit geposteten tweets
 pastRedis = redis.StrictRedis(host='localhost', port=6379, db=2)
 
 # Wort abgleichen und zur Datenbank hinzufügen
@@ -117,7 +117,7 @@ def check_age(word,id):
             raise
 
 
-# Fügt ein Wort zur Twitter-Datenbank hinzu
+# Fügt ein Wort zur Posting-Datenbank hinzu
 def add_to_queue(word, id):
 
     # Fix für Strichfehler

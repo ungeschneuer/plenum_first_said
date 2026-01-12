@@ -1,6 +1,6 @@
 import logging
 from database import postRedis, pastRedis, r, delete_from_queue
-from twitter_creds import tweet_word
+# from twitter_creds import tweet_word
 from mastodon_cred import toot_word
 from optv_api import double_check_newness, check_for_infos
 import random
@@ -51,7 +51,8 @@ def post_from_queue():
         return False
 
 
-
+"""
+Alte Funktion mit Twitter
 def send_word(word, keys):
 
     metadata = check_for_infos(word, keys)
@@ -67,14 +68,26 @@ def send_word(word, keys):
         return cleanup_db(word, twitter_id, mastodon_id)
     else:
         raise Exception('Es wurde keine ID gefunden.')
+"""
+def send_word(word, keys):
 
+    metadata = check_for_infos(word, keys)
+    mastodon_id = toot_word(word, keys, metadata)
 
-def cleanup_db(word, twitter_id, mastodon_id):
+    if not mastodon_id:
+        logging.debug('Es wurde keine Mastodon ID gefunden.')
+
+    if mastodon_id:
+        return cleanup_db(word, mastodon_id)
+    else:
+        raise Exception('Es wurde keine ID gefunden.')
+
+def cleanup_db(word, mastodon_id):
 
     # Ins Archiv bewegen
     try:
         postRedis.move(word, 2)
-        pastRedis.hset(word, "tweet_id", twitter_id)
+        # pastRedis.hset(word, "tweet_id", twitter_id)
         pastRedis.hset(word, "mastodon_id", mastodon_id)
         delete_from_queue(word)
         logging.info('Wort wurde ins Archiv verschoben.')

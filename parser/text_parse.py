@@ -148,7 +148,7 @@ def check_word(word, id):
     else:
         return False
 
-# Aussortieren von Wörtern für Twitter
+# Aussortieren von Wörtern für Postings
 def prune(new_words, id):
     
     pruned_words = find_matches(new_words)
