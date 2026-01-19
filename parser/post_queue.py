@@ -114,8 +114,10 @@ def set_tweet_stopper():
 
 
 if __name__ == "__main__":
+    import os
+    log_file = os.path.join(os.path.dirname(__file__), 'post.log')
     logging.basicConfig(
-        filename='bundestagbot/parser/post.log',
+        filename=log_file,
         format='%(asctime)s %(levelname)-8s %(message)s',
         level=logging.INFO,
         datefmt='%Y-%m-%d %H:%M:%S')    
