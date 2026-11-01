@@ -8,6 +8,7 @@ import os
 from mastodon import Mastodon
 import mastodon
 from time import sleep
+import hashlib
 
 load_dotenv()
 
@@ -38,6 +39,12 @@ def build_context_message(word, keys, metadata):
             word, titel, datum, link)
 
 
+# Idempotency-Key pro Wort und Post-Art: Wenn ein Request beim Server ankommt,
+# die Antwort aber verloren geht (z.B. Timeout), erzeugt der Retry keinen zweiten Post.
+def idempotency_key(word, kind):
+    return hashlib.sha256((kind + ':' + word).encode('utf-8')).hexdigest()
+
+
 # Mastodon API is a bit wobbly so a fix with while loops 
 def toot_word(word, keys, metadata):
 
@@ -53,9 +60,10 @@ def toot_word(word, keys, metadata):
         else:
             try:
                 if is_afd:
-                    toot_status = MastodonAPI.status_post(word, spoiler_text='Wort von der AfD', sensitive=True)
+                    toot_status = MastodonAPI.status_post(word, spoiler_text='Wort von der AfD', sensitive=True,
+                                                         idempotency_key=idempotency_key(word, 'word'))
                 else:
-                    toot_status = MastodonAPI.toot(word)
+                    toot_status = MastodonAPI.status_post(word, idempotency_key=idempotency_key(word, 'word'))
             except Exception as e:
                 logging.exception(e)
                 sleep(60)
@@ -76,17 +84,18 @@ def toot_word(word, keys, metadata):
             context_message = build_context_message(word, keys, metadata)
         except Exception as e:
             logging.exception(e)
-            return False
+            return toot_status["id"]
 
         while True:
             if patience > 10:
                 logging.info('Maximale Versuche wurde überschritten.')
-                return False
+                return toot_status["id"]
             else:
                 try:
                     context_status = MastodonKontextAPI.status_post(
                         context_message,
-                        in_reply_to_id=toot_status["id"])
+                        in_reply_to_id=toot_status["id"],
+                        idempotency_key=idempotency_key(word, 'context'))
                 except mastodon.MastodonNotFoundError as m:
                     logging.exception(m)
                     sleep(60)
@@ -111,14 +120,15 @@ def toot_word(word, keys, metadata):
 
             if patience > 10:
                 logging.info('Maximale Versuche wurde überschritten.')
-                return False
+                return toot_status["id"]
             else:
                 try:
                     second_context_status = MastodonKontextAPI.status_post(
                         "Das {} findet sich als PDF unter {}".format(
                             keys[b'titel'].decode('UTF-8'),
                             keys[b'pdf_url'].decode('UTF-8')),
-                        in_reply_to_id=context_status["id"])
+                        in_reply_to_id=context_status["id"],
+                        idempotency_key=idempotency_key(word, 'pdf'))
                 except mastodon.MastodonNotFoundError as m:
                     logging.exception(m)
                     sleep(60)
@@ -150,7 +160,7 @@ def toot_word(word, keys, metadata):
 
             if patience > 10:
                 logging.info('Maximale Versuche wurde überschritten.')
-                return False
+                return toot_status["id"]
             else:
                 try:     
                     context_status = MastodonKontextAPI.status_post("#{} tauchte zum ersten Mal im {} am {} auf. Das Protokoll findet sich unter {}".format(
@@ -158,7 +168,8 @@ def toot_word(word, keys, metadata):
                         keys[b'titel'].decode('UTF-8'),
                         keys[b'datum'].decode('UTF-8'),
                         keys[b'pdf_url'].decode('UTF-8')),
-                        in_reply_to_id = toot_status["id"])
+                        in_reply_to_id = toot_status["id"],
+                        idempotency_key=idempotency_key(word, 'context'))
                 except mastodon.MastodonNotFoundError as m:
                     logging.exception("Unbekannter Fehler")
                     sleep(60)

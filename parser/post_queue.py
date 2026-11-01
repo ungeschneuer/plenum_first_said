@@ -1,5 +1,6 @@
 import logging
-from database import postRedis, pastRedis, r, delete_from_queue
+from database import (postRedis, pastRedis, r, delete_from_queue, already_posted,
+                      random_queued_word, is_too_old, MAX_WORD_AGE_DAYS)
 # from twitter_creds import tweet_word
 from mastodon_cred import toot_word
 from optv_api import double_check_newness, check_for_infos
@@ -10,91 +11,80 @@ load_dotenv()
 
 
 # Organisiert das Senden von Tweets
-# Wenn irgendeine Art von Fehler beim Senden passiert, wird das Wort entfernt. 
+# Bereits gepostete, zu alte oder bei OPTV schon bekannte Wörter werden entfernt.
 def post_from_queue():
     
     tweetstop = postRedis.get('meta:tweetstop')
 
-    if tweetstop is None:
-        set_tweet_stopper()
-        logging.info('Tweet Skript wird gestartet')
-        key = postRedis.randomkey()
+    if tweetstop is not None:
+        return False
 
-        if key == b'meta:tweetstop':
-            logging.info('Keine Wörter in der Queue.')
-            return False
+    set_tweet_stopper()
+    logging.info('Tweet Skript wird gestartet')
 
-        if key:
-            word = postRedis.hget(key, "word").decode("utf-8")
-            id = postRedis.hget(key, "id").decode("utf-8") 
-            logging.info("Wort '" + word + "' wird veröffentlicht.")
+    word = random_queued_word()
 
-            redis_id = "protokoll:" + str(id)
-            protokoll_keys = r.hgetall(redis_id)
-            
-            if double_check_newness(word, protokoll_keys):
-                if send_word(word, protokoll_keys):
-                    return True
-                else:
-                    logging.debug('Wort konnte nicht gesendet werden.')
-                    delete_from_queue(word)
-                    return False
-            else:
-                logging.info('Wort wurde bei OPTV vor dem Protokolldatum gefunden.')
-                delete_from_queue(word)
-                return False
-        else:
-            logging.info("Key does not exist. Key: " + str(key))
-            return False
+    if word is None:
+        logging.info('Keine Wörter in der Queue.')
+        return False
+
+    id = postRedis.hget(word, "id")
+    if id is None:
+        logging.info("Wort '" + word + "' hat keine Protokoll-ID und wird entfernt.")
+        delete_from_queue(word)
+        return False
+    id = id.decode("utf-8")
+
+    if already_posted(word):
+        logging.info("Wort '" + word + "' wurde bereits gepostet und wird aus der Queue entfernt.")
+        delete_from_queue(word)
+        return False
+
+    if is_too_old(id):
+        logging.info("Wort '" + word + "' stammt aus einem Protokoll älter als " + str(MAX_WORD_AGE_DAYS) + " Tage und wird entfernt.")
+        delete_from_queue(word)
+        return False
+
+    logging.info("Wort '" + word + "' wird veröffentlicht.")
+
+    redis_id = "protokoll:" + str(id)
+    protokoll_keys = r.hgetall(redis_id)
     
+    if double_check_newness(word, protokoll_keys):
+        if send_word(word, id, protokoll_keys):
+            return True
+        else:
+            logging.info('Wort konnte nicht gesendet werden.')
+            return False
     else:
+        logging.info('Wort wurde bei OPTV vor dem Protokolldatum gefunden.')
+        delete_from_queue(word)
         return False
 
 
-"""
-Alte Funktion mit Twitter
-def send_word(word, keys):
-
-    metadata = check_for_infos(word, keys)
-    mastodon_id = toot_word(word, keys, metadata)
-    twitter_id = tweet_word(word, keys, metadata)
-
-    if not mastodon_id:
-        logging.debug('Es wurde keine Mastodon ID gefunden.')
-    if not twitter_id:
-        logging.debug('Es wurde keine Tweet ID gefunden.')
-
-    if mastodon_id or twitter_id:
-        return cleanup_db(word, twitter_id, mastodon_id)
-    else:
-        raise Exception('Es wurde keine ID gefunden.')
-"""
-def send_word(word, keys):
+def send_word(word, id, keys):
 
     metadata = check_for_infos(word, keys)
     mastodon_id = toot_word(word, keys, metadata)
 
     if not mastodon_id:
-        logging.debug('Es wurde keine Mastodon ID gefunden.')
+        # Haupt-Toot ist nicht durchgegangen: Wort bleibt in der Queue für einen späteren Versuch.
+        logging.info('Es wurde keine Mastodon ID gefunden.')
+        return False
 
-    if mastodon_id:
-        return cleanup_db(word, mastodon_id)
-    else:
-        raise Exception('Es wurde keine ID gefunden.')
+    return cleanup_db(word, id, mastodon_id)
 
-def cleanup_db(word, mastodon_id):
+def cleanup_db(word, id, mastodon_id):
 
-    # Ins Archiv bewegen
+    # Ins Archiv schreiben und aus der Queue entfernen.
+    # Archiv zuerst, damit das Wort auch bei einem Fehler danach nicht erneut gepostet wird.
     try:
-        postRedis.move(word, 2)
-        # pastRedis.hset(word, "tweet_id", twitter_id)
-        pastRedis.hset(word, "mastodon_id", mastodon_id)
-        delete_from_queue(word)
-        logging.info('Wort wurde ins Archiv verschoben.')
-        return True
+        pastRedis.hset(word, mapping={"word": word, "id": id, "mastodon_id": str(mastodon_id)})
     except Exception as e:
         logging.exception(e)
-        return False
+    delete_from_queue(word)
+    logging.info('Wort wurde ins Archiv verschoben.')
+    return True
 
 def set_tweet_stopper():
 

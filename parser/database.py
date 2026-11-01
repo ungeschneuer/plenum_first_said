@@ -1,3 +1,4 @@
+import datetime
 import logging
 import os
 
@@ -48,6 +49,21 @@ postRedis = _redis_client(1)
 
 # Datenbank mit geposteten tweets
 pastRedis = _redis_client(2)
+
+
+def _int_env(name, default):
+    try:
+        return int(os.getenv(name, str(default)))
+    except ValueError:
+        logging.warning("Ungültiger Wert für %s. Fallback auf %s.", name, default)
+        return default
+
+
+# Wörter aus Protokollen, die älter sind, werden nicht mehr gepostet.
+MAX_WORD_AGE_DAYS = _int_env('MAX_WORD_AGE_DAYS', 30)
+
+# Maximale Anzahl an Wörtern in der Queue.
+MAX_QUEUE_SIZE = _int_env('MAX_QUEUE_SIZE', 400)
 
 # Wort abgleichen und zur Datenbank hinzufügen
 def similiar_word(word):
@@ -162,6 +178,11 @@ def add_to_queue(word, id):
     if word[0].islower():
         return False
 
+    # Bereits gepostete Wörter nie wieder in die Queue
+    if already_posted(word):
+        logging.info("Wort '%s' wurde bereits gepostet und wird nicht erneut eingereiht.", word)
+        return False
+
     postRedis.hset(word, 'word', word)
     postRedis.hset(word, 'id', id)
     
@@ -174,3 +195,46 @@ def delete_from_queue(word):
         return False
 
 
+# Ist das Wort schon im Archiv der geposteten Wörter?
+def already_posted(word):
+    return pastRedis.exists(word) > 0
+
+
+# Alle Wörter in der Queue (ohne Meta-Keys)
+def queued_words():
+    for key in postRedis.scan_iter():
+        if key.startswith(b'meta:'):
+            continue
+        yield key.decode('utf-8')
+
+
+# Zufälliges Wort aus der Queue oder None, wenn sie leer ist
+def random_queued_word():
+    for _ in range(10):
+        key = postRedis.randomkey()
+        if key is None:
+            return None
+        if not key.startswith(b'meta:'):
+            return key.decode('utf-8')
+    return next(queued_words(), None)
+
+
+# Alter des Protokolls in Tagen, None wenn unbekannt
+def protokoll_age_days(id):
+    if id is None:
+        return None
+    if isinstance(id, bytes):
+        id = id.decode('utf-8')
+    datum = r.hget('protokoll:' + str(id), 'datum')
+    if not datum:
+        return None
+    try:
+        date = datetime.datetime.strptime(datum.decode('utf-8'), '%d.%m.%Y').date()
+    except ValueError:
+        return None
+    return (datetime.date.today() - date).days
+
+
+def is_too_old(id):
+    age = protokoll_age_days(id)
+    return age is not None and age > MAX_WORD_AGE_DAYS
