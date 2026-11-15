@@ -188,6 +188,20 @@
    },
    "status": "ausgelassen"
   },
+  "Abed (Name)": {
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Johannes Wiegelmann"
+   },
+   "protokoll": {
+    "datum": "09.10.2026",
+    "iso_datum": "2026-10-09",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21100.pdf",
+    "titel": "Protokoll der 100. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Abed%20%28Name%29"
+   },
+   "status": "ausgelassen"
+  },
   "Abfallvermeidungsförderung": {
    "erste": null,
    "protokoll": {
@@ -2826,6 +2840,20 @@
    },
    "status": "ausgelassen"
   },
+  "Banas (Name)": {
+   "erste": {
+    "fraktion": "SPD",
+    "name": "Sabine Dittmar"
+   },
+   "protokoll": {
+    "datum": "24.09.2026",
+    "iso_datum": "2026-09-24",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21096.pdf",
+    "titel": "Protokoll der 96. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Banas%20%28Name%29"
+   },
+   "status": "ausgelassen"
+  },
   "Bankability": {
    "erste": {
     "fraktion": "CDU/CSU",
@@ -2865,6 +2893,20 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21100.pdf",
     "titel": "Protokoll der 100. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Bargeldbesitz"
+   },
+   "status": "ausgelassen"
+  },
+  "Barghuthi (Name)": {
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Alexander Wolf"
+   },
+   "protokoll": {
+    "datum": "04.11.2026",
+    "iso_datum": "2026-11-04",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21104.pdf",
+    "titel": "Protokoll der 104. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Barghuthi%20%28Name%29"
    },
    "status": "ausgelassen"
   },
@@ -3128,6 +3170,20 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21093.pdf",
     "titel": "Protokoll der 93. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Bauministerkarriere"
+   },
+   "status": "ausgelassen"
+  },
+  "Baupolitiker (Name)": {
+   "erste": {
+    "name": "Sören Bartol",
+    "rolle": "Parl. Staatssekretär bei der Bundesministerin für Wohnen, Stadtentwicklung und Bauwesen"
+   },
+   "protokoll": {
+    "datum": "11.11.2026",
+    "iso_datum": "2026-11-11",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21107.pdf",
+    "titel": "Protokoll der 107. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Baupolitiker%20%28Name%29"
    },
    "status": "ausgelassen"
   },
@@ -3474,6 +3530,20 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21097.pdf",
     "titel": "Protokoll der 97. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Bengio"
+   },
+   "status": "ausgelassen"
+  },
+  "Benko (Name)": {
+   "erste": {
+    "fraktion": "Bündnis 90/Die Grünen",
+    "name": "Max Lucks"
+   },
+   "protokoll": {
+    "datum": "12.11.2026",
+    "iso_datum": "2026-11-12",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21108.pdf",
+    "titel": "Protokoll der 108. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Benko%20%28Name%29"
    },
    "status": "ausgelassen"
   },
@@ -3947,6 +4017,17 @@
    },
    "status": "ausgelassen"
   },
+  "Bhakdi": {
+   "erste": null,
+   "protokoll": {
+    "datum": "14.10.2026",
+    "iso_datum": "2026-10-14",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21101.pdf",
+    "titel": "Protokoll der 101. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Bhakdi"
+   },
+   "status": "wartet"
+  },
   "Bierdeckelidee": {
    "erste": {
     "fraktion": "BÜNDNIS 90/DIE GRÜNEN",
@@ -4215,6 +4296,20 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21101.pdf",
     "titel": "Protokoll der 101. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Blunder"
+   },
+   "status": "ausgelassen"
+  },
+  "Blunder (Name)": {
+   "erste": {
+    "name": "Karin Prien",
+    "rolle": "Bundesministerin für Bildung, Familie, Senioren, Frauen und Jugend"
+   },
+   "protokoll": {
+    "datum": "14.10.2026",
+    "iso_datum": "2026-10-14",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21101.pdf",
+    "titel": "Protokoll der 101. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Blunder%20%28Name%29"
    },
    "status": "ausgelassen"
   },
@@ -5197,6 +5292,20 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21107.pdf",
     "titel": "Protokoll der 107. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/B%C3%BCroraumnutzung"
+   },
+   "status": "ausgelassen"
+  },
+  "Büscher (Name)": {
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Gereon Bollmann"
+   },
+   "protokoll": {
+    "datum": "05.11.2026",
+    "iso_datum": "2026-11-05",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21105.pdf",
+    "titel": "Protokoll der 105. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/B%C3%BCscher%20%28Name%29"
    },
    "status": "ausgelassen"
   },
@@ -6359,6 +6468,20 @@
    },
    "status": "ausgelassen"
   },
+  "Dahns (Name)": {
+   "erste": {
+    "name": "Alexander Dobrindt",
+    "rolle": "Bundesminister des Innern"
+   },
+   "protokoll": {
+    "datum": "12.11.2026",
+    "iso_datum": "2026-11-12",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21108.pdf",
+    "titel": "Protokoll der 108. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Dahns%20%28Name%29"
+   },
+   "status": "ausgelassen"
+  },
   "Dalek": {
    "erste": {
     "fraktion": "AfD",
@@ -6697,6 +6820,20 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21108.pdf",
     "titel": "Protokoll der 108. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Deisseroth"
+   },
+   "status": "ausgelassen"
+  },
+  "Deisseroth (Name)": {
+   "erste": {
+    "name": "Dorothee Bär",
+    "rolle": "Bundesministerin für Forschung, Technologie und Raumfahrt"
+   },
+   "protokoll": {
+    "datum": "12.11.2026",
+    "iso_datum": "2026-11-12",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21108.pdf",
+    "titel": "Protokoll der 108. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Deisseroth%20%28Name%29"
    },
    "status": "ausgelassen"
   },
@@ -9267,6 +9404,17 @@
    },
    "status": "ausgelassen"
   },
+  "Elif (Name)": {
+   "erste": null,
+   "protokoll": {
+    "datum": "04.11.2026",
+    "iso_datum": "2026-11-04",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21104.pdf",
+    "titel": "Protokoll der 104. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Elif%20%28Name%29"
+   },
+   "status": "ausgelassen"
+  },
   "Elisha": {
    "erste": {
     "fraktion": "CDU/CSU",
@@ -9803,6 +9951,20 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21095.pdf",
     "titel": "Protokoll der 95. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Eralp"
+   },
+   "status": "ausgelassen"
+  },
+  "Eralp (Name)": {
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Beatrix von Storch"
+   },
+   "protokoll": {
+    "datum": "23.09.2026",
+    "iso_datum": "2026-09-23",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21095.pdf",
+    "titel": "Protokoll der 95. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Eralp%20%28Name%29"
    },
    "status": "ausgelassen"
   },
@@ -11587,6 +11749,20 @@
    },
    "status": "ausgelassen"
   },
+  "Forsthoffer (Name)": {
+   "erste": {
+    "name": "Julia Klöckner",
+    "rolle": "Präsidentin"
+   },
+   "protokoll": {
+    "datum": "10.09.2026",
+    "iso_datum": "2026-09-10",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21093.pdf",
+    "titel": "Protokoll der 93. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Forsthoffer%20%28Name%29"
+   },
+   "status": "ausgelassen"
+  },
   "Fossilpolitik": {
    "erste": {
     "fraktion": "Die Linke",
@@ -11696,6 +11872,17 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21095.pdf",
     "titel": "Protokoll der 95. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Freiwilligenbesatz"
+   },
+   "status": "ausgelassen"
+  },
+  "Freiwilligkeit (Name)": {
+   "erste": null,
+   "protokoll": {
+    "datum": "24.09.2026",
+    "iso_datum": "2026-09-24",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21096.pdf",
+    "titel": "Protokoll der 96. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Freiwilligkeit%20%28Name%29"
    },
    "status": "ausgelassen"
   },
@@ -12389,6 +12576,20 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21107.pdf",
     "titel": "Protokoll der 107. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Gastarbeitende"
+   },
+   "status": "ausgelassen"
+  },
+  "Gastbeiträge (Name)": {
+   "erste": {
+    "fraktion": "Bündnis 90/Die Grünen",
+    "name": "Julian Joswig"
+   },
+   "protokoll": {
+    "datum": "08.10.2026",
+    "iso_datum": "2026-10-08",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21099.pdf",
+    "titel": "Protokoll der 99. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Gastbeitr%C3%A4ge%20%28Name%29"
    },
    "status": "ausgelassen"
   },
@@ -13519,6 +13720,20 @@
    },
    "status": "ausgelassen"
   },
+  "Gianaurelio (Name)": {
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Markus Reichel"
+   },
+   "protokoll": {
+    "datum": "15.10.2026",
+    "iso_datum": "2026-10-15",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21102.pdf",
+    "titel": "Protokoll der 102. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Gianaurelio%20%28Name%29"
+   },
+   "status": "ausgelassen"
+  },
   "Gigantorechenzentrum": {
    "erste": {
     "fraktion": "Die Linke",
@@ -13838,6 +14053,21 @@
    },
    "status": "ausgelassen"
   },
+  "Gosch": {
+   "erste": {
+    "fraktion": "Bündnis 90/Die Grünen",
+    "name": "Michael Kellner",
+    "zwischenruf": true
+   },
+   "protokoll": {
+    "datum": "24.09.2026",
+    "iso_datum": "2026-09-24",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21096.pdf",
+    "titel": "Protokoll der 96. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Gosch"
+   },
+   "status": "wartet"
+  },
   "Governance-Verbesserung": {
    "erste": null,
    "protokoll": {
@@ -14097,6 +14327,20 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Gruppenkonstellation"
    },
    "status": "ausgelassen"
+  },
+  "Gruppenkuscheln": {
+   "erste": {
+    "fraktion": "Die Linke",
+    "name": "Heidi Reichinnek"
+   },
+   "protokoll": {
+    "datum": "09.10.2026",
+    "iso_datum": "2026-10-09",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21100.pdf",
+    "titel": "Protokoll der 100. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Gruppenkuscheln"
+   },
+   "status": "wartet"
   },
   "Gründerhype": {
    "erste": {
@@ -14492,6 +14736,20 @@
    },
    "status": "ausgelassen"
   },
+  "Hammerbacher": {
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Martin Reichardt"
+   },
+   "protokoll": {
+    "datum": "05.11.2026",
+    "iso_datum": "2026-11-05",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21105.pdf",
+    "titel": "Protokoll der 105. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Hammerbacher"
+   },
+   "status": "wartet"
+  },
   "Hammerbanden-Sympathisantin": {
    "erste": {
     "fraktion": "AfD",
@@ -14576,6 +14834,20 @@
    },
    "status": "ausgelassen"
   },
+  "Hans-Thomas (Name)": {
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Martin Reichardt"
+   },
+   "protokoll": {
+    "datum": "09.10.2026",
+    "iso_datum": "2026-10-09",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21100.pdf",
+    "titel": "Protokoll der 100. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Hans-Thomas%20%28Name%29"
+   },
+   "status": "ausgelassen"
+  },
   "Hardwaresicherheit": {
    "erste": {
     "fraktion": "AfD",
@@ -14601,6 +14873,20 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21100.pdf",
     "titel": "Protokoll der 100. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Hartz-IV-Protest"
+   },
+   "status": "ausgelassen"
+  },
+  "Haushaltsberichterstattern (Name)": {
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Jens Spahn"
+   },
+   "protokoll": {
+    "datum": "09.09.2026",
+    "iso_datum": "2026-09-09",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21092.pdf",
+    "titel": "Protokoll der 92. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Haushaltsberichterstattern%20%28Name%29"
    },
    "status": "ausgelassen"
   },
@@ -15404,6 +15690,20 @@
    },
    "status": "ausgelassen"
   },
+  "Huss (Name)": {
+   "erste": {
+    "fraktion": "Bündnis 90/Die Grünen",
+    "name": "Jan-Niclas Gesenhues"
+   },
+   "protokoll": {
+    "datum": "14.10.2026",
+    "iso_datum": "2026-10-14",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21101.pdf",
+    "titel": "Protokoll der 101. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Huss%20%28Name%29"
+   },
+   "status": "ausgelassen"
+  },
   "Hydroelektrolyseur": {
    "erste": {
     "name": "Katherina Reiche",
@@ -15526,6 +15826,20 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/H%C3%A4uptlingsstelle"
    },
    "status": "ausgelassen"
+  },
+  "Hélène": {
+   "erste": {
+    "name": "Dorothee Bär",
+    "rolle": "Bundesministerin für Forschung, Technologie und Raumfahrt"
+   },
+   "protokoll": {
+    "datum": "24.09.2026",
+    "iso_datum": "2026-09-24",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21096.pdf",
+    "titel": "Protokoll der 96. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/H%C3%A9l%C3%A8ne"
+   },
+   "status": "wartet"
   },
   "Höchstversicherungssumme": {
    "erste": {
@@ -15856,6 +16170,20 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21102.pdf",
     "titel": "Protokoll der 102. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Imamo%C4%9Flu"
+   },
+   "status": "ausgelassen"
+  },
+  "Imamoğlu (Name)": {
+   "erste": {
+    "fraktion": "Bündnis 90/Die Grünen",
+    "name": "Claudia Roth"
+   },
+   "protokoll": {
+    "datum": "15.10.2026",
+    "iso_datum": "2026-10-15",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21102.pdf",
+    "titel": "Protokoll der 102. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Imamo%C4%9Flu%20%28Name%29"
    },
    "status": "ausgelassen"
   },
@@ -16270,6 +16598,17 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21106.pdf",
     "titel": "Protokoll der 106. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Instagram-Feed"
+   },
+   "status": "ausgelassen"
+  },
+  "Intelligence (Name)": {
+   "erste": null,
+   "protokoll": {
+    "datum": "07.10.2026",
+    "iso_datum": "2026-10-07",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21098.pdf",
+    "titel": "Protokoll der 98. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Intelligence%20%28Name%29"
    },
    "status": "ausgelassen"
   },
@@ -17850,6 +18189,20 @@
    },
    "status": "ausgelassen"
   },
+  "Karl-Eugen": {
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Martin Sichert"
+   },
+   "protokoll": {
+    "datum": "24.09.2026",
+    "iso_datum": "2026-09-24",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21096.pdf",
+    "titel": "Protokoll der 96. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Karl-Eugen"
+   },
+   "status": "ausgelassen"
+  },
   "Karrierechatbot": {
    "erste": {
     "fraktion": "AfD",
@@ -18264,6 +18617,20 @@
    },
    "status": "ausgelassen"
   },
+  "Kippa (Name)": {
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Götz Frömming"
+   },
+   "protokoll": {
+    "datum": "11.11.2026",
+    "iso_datum": "2026-11-11",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21107.pdf",
+    "titel": "Protokoll der 107. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Kippa%20%28Name%29"
+   },
+   "status": "ausgelassen"
+  },
   "Kirchengänger": {
    "erste": null,
    "protokoll": {
@@ -18428,6 +18795,17 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Kleiderwahl"
    },
    "status": "ausgelassen"
+  },
+  "Kleinlein": {
+   "erste": null,
+   "protokoll": {
+    "datum": "04.11.2026",
+    "iso_datum": "2026-11-04",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21104.pdf",
+    "titel": "Protokoll der 104. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Kleinlein"
+   },
+   "status": "wartet"
   },
   "Kleinstlast": {
    "erste": {
@@ -19301,6 +19679,17 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21105.pdf",
     "titel": "Protokoll der 105. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Koranj%C3%BCnger"
+   },
+   "status": "ausgelassen"
+  },
+  "Kornelius (Name)": {
+   "erste": null,
+   "protokoll": {
+    "datum": "23.09.2026",
+    "iso_datum": "2026-09-23",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21095.pdf",
+    "titel": "Protokoll der 95. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Kornelius%20%28Name%29"
    },
    "status": "ausgelassen"
   },
@@ -20869,6 +21258,20 @@
    },
    "status": "ausgelassen"
   },
+  "Liminski (Name)": {
+   "erste": {
+    "fraktion": "SPD",
+    "name": "Sanae Abdi"
+   },
+   "protokoll": {
+    "datum": "09.09.2026",
+    "iso_datum": "2026-09-09",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21092.pdf",
+    "titel": "Protokoll der 92. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Liminski%20%28Name%29"
+   },
+   "status": "ausgelassen"
+  },
   "Linienförmiger": {
    "erste": null,
    "protokoll": {
@@ -21397,6 +21800,20 @@
    },
    "status": "ausgelassen"
   },
+  "Lüge (Name)": {
+   "erste": {
+    "name": "Andrea Lindholz",
+    "rolle": "Vizepräsidentin"
+   },
+   "protokoll": {
+    "datum": "05.11.2026",
+    "iso_datum": "2026-11-05",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21105.pdf",
+    "titel": "Protokoll der 105. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/L%C3%BCge%20%28Name%29"
+   },
+   "status": "ausgelassen"
+  },
   "Lügenkram": {
    "erste": null,
    "protokoll": {
@@ -21503,6 +21920,20 @@
    },
    "status": "ausgelassen"
   },
+  "Machelet (Name)": {
+   "erste": {
+    "name": "Julia Klöckner",
+    "rolle": "Präsidentin"
+   },
+   "protokoll": {
+    "datum": "15.10.2026",
+    "iso_datum": "2026-10-15",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21102.pdf",
+    "titel": "Protokoll der 102. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Machelet%20%28Name%29"
+   },
+   "status": "ausgelassen"
+  },
   "Machtkartellpartei": {
    "erste": {
     "fraktion": "AfD",
@@ -21528,6 +21959,20 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21105.pdf",
     "titel": "Protokoll der 105. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Magerl"
+   },
+   "status": "ausgelassen"
+  },
+  "Magerl (Name)": {
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Carina Schießl"
+   },
+   "protokoll": {
+    "datum": "05.11.2026",
+    "iso_datum": "2026-11-05",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21105.pdf",
+    "titel": "Protokoll der 105. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Magerl%20%28Name%29"
    },
    "status": "ausgelassen"
   },
@@ -21570,6 +22015,20 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21100.pdf",
     "titel": "Protokoll der 100. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Mamad"
+   },
+   "status": "ausgelassen"
+  },
+  "Mamad (Name)": {
+   "erste": {
+    "fraktion": "Bündnis 90/Die Grünen",
+    "name": "Filiz Polat"
+   },
+   "protokoll": {
+    "datum": "09.10.2026",
+    "iso_datum": "2026-10-09",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21100.pdf",
+    "titel": "Protokoll der 100. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Mamad%20%28Name%29"
    },
    "status": "ausgelassen"
   },
@@ -21872,6 +22331,20 @@
    },
    "status": "ausgelassen"
   },
+  "Mayer-Runge (Name)": {
+   "erste": {
+    "name": "Carsten Linnemann",
+    "rolle": "Bundesminister für Gesundheit"
+   },
+   "protokoll": {
+    "datum": "15.10.2026",
+    "iso_datum": "2026-10-15",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21102.pdf",
+    "titel": "Protokoll der 102. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Mayer-Runge%20%28Name%29"
+   },
+   "status": "ausgelassen"
+  },
   "Maßnahmenanbieter": {
    "erste": {
     "fraktion": "AfD",
@@ -22070,6 +22543,20 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21108.pdf",
     "titel": "Protokoll der 108. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Meltzian"
+   },
+   "status": "ausgelassen"
+  },
+  "Meltzian (Name)": {
+   "erste": {
+    "name": "Alexander Dobrindt",
+    "rolle": "Bundesminister des Innern"
+   },
+   "protokoll": {
+    "datum": "12.11.2026",
+    "iso_datum": "2026-11-12",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21108.pdf",
+    "titel": "Protokoll der 108. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Meltzian%20%28Name%29"
    },
    "status": "ausgelassen"
   },
@@ -22920,6 +23407,20 @@
    },
    "status": "ausgelassen"
   },
+  "Mladić (Name)": {
+   "erste": {
+    "fraktion": "Bündnis 90/Die Grünen",
+    "name": "Boris Mijatović"
+   },
+   "protokoll": {
+    "datum": "05.11.2026",
+    "iso_datum": "2026-11-05",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21105.pdf",
+    "titel": "Protokoll der 105. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Mladi%C4%87%20%28Name%29"
+   },
+   "status": "ausgelassen"
+  },
   "Mobbingzahl": {
    "erste": {
     "fraktion": "BÜNDNIS 90/DIE GRÜNEN",
@@ -23185,6 +23686,20 @@
    },
    "status": "ausgelassen"
   },
+  "Muhsal (Name)": {
+   "erste": {
+    "fraktion": "Die Linke",
+    "name": "Bodo Ramelow"
+   },
+   "protokoll": {
+    "datum": "09.10.2026",
+    "iso_datum": "2026-10-09",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21100.pdf",
+    "titel": "Protokoll der 100. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Muhsal%20%28Name%29"
+   },
+   "status": "ausgelassen"
+  },
   "Multi-Level-Governance-Prinzip": {
    "erste": {
     "fraktion": "SPD",
@@ -23322,6 +23837,20 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21101.pdf",
     "titel": "Protokoll der 101. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Mutjinde"
+   },
+   "status": "ausgelassen"
+  },
+  "Mutjinde (Name)": {
+   "erste": {
+    "fraktion": "Die Linke",
+    "name": "Charlotte Antonia Neuhäuser"
+   },
+   "protokoll": {
+    "datum": "14.10.2026",
+    "iso_datum": "2026-10-14",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21101.pdf",
+    "titel": "Protokoll der 101. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Mutjinde%20%28Name%29"
    },
    "status": "ausgelassen"
   },
@@ -23853,6 +24382,20 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21100.pdf",
     "titel": "Protokoll der 100. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Nartowa"
+   },
+   "status": "ausgelassen"
+  },
+  "Nartowa (Name)": {
+   "erste": {
+    "fraktion": "SPD",
+    "name": "Johannes Schraps"
+   },
+   "protokoll": {
+    "datum": "09.10.2026",
+    "iso_datum": "2026-10-09",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21100.pdf",
+    "titel": "Protokoll der 100. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Nartowa%20%28Name%29"
    },
    "status": "ausgelassen"
   },
@@ -26751,6 +27294,34 @@
    },
    "status": "ausgelassen"
   },
+  "Porsche (Name)": {
+   "erste": {
+    "fraktion": "Die Linke",
+    "name": "Sören Pellmann"
+   },
+   "protokoll": {
+    "datum": "14.10.2026",
+    "iso_datum": "2026-10-14",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21101.pdf",
+    "titel": "Protokoll der 101. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Porsche%20%28Name%29"
+   },
+   "status": "ausgelassen"
+  },
+  "Poschardt": {
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Götz Frömming"
+   },
+   "protokoll": {
+    "datum": "09.09.2026",
+    "iso_datum": "2026-09-09",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21092.pdf",
+    "titel": "Protokoll der 92. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Poschardt"
+   },
+   "status": "wartet"
+  },
   "Postenkarussell": {
    "erste": {
     "fraktion": "AfD",
@@ -27676,6 +28247,20 @@
    },
    "status": "ausgelassen"
   },
+  "Rammo (Name)": {
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Rainer Groß"
+   },
+   "protokoll": {
+    "datum": "23.09.2026",
+    "iso_datum": "2026-09-23",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21095.pdf",
+    "titel": "Protokoll der 95. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Rammo%20%28Name%29"
+   },
+   "status": "ausgelassen"
+  },
   "Rammo-Clan": {
    "erste": {
     "fraktion": "Die Linke",
@@ -27743,6 +28328,20 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21102.pdf",
     "titel": "Protokoll der 102. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Ratenvereinbarung"
+   },
+   "status": "ausgelassen"
+  },
+  "Rauhe (Name)": {
+   "erste": {
+    "fraktion": "Die Linke",
+    "name": "Christian Görke"
+   },
+   "protokoll": {
+    "datum": "09.09.2026",
+    "iso_datum": "2026-09-09",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21092.pdf",
+    "titel": "Protokoll der 92. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Rauhe%20%28Name%29"
    },
    "status": "ausgelassen"
   },
@@ -28318,6 +28917,21 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21096.pdf",
     "titel": "Protokoll der 96. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Reiche-Absturz"
+   },
+   "status": "ausgelassen"
+  },
+  "Reichinneks (Name)": {
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Stephan Brandner",
+    "zwischenruf": true
+   },
+   "protokoll": {
+    "datum": "25.09.2026",
+    "iso_datum": "2026-09-25",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21097.pdf",
+    "titel": "Protokoll der 97. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Reichinneks%20%28Name%29"
    },
    "status": "ausgelassen"
   },
@@ -29154,6 +29768,20 @@
    },
    "status": "ausgelassen"
   },
+  "Roswall": {
+   "erste": {
+    "fraktion": "SPD",
+    "name": "Dunja Kreiser"
+   },
+   "protokoll": {
+    "datum": "08.10.2026",
+    "iso_datum": "2026-10-08",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21099.pdf",
+    "titel": "Protokoll der 99. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Roswall"
+   },
+   "status": "wartet"
+  },
   "Rot-Rot-Grün-Bewegung": {
    "erste": {
     "fraktion": "AfD",
@@ -29729,6 +30357,20 @@
    },
    "status": "ausgelassen"
   },
+  "Santos-Wintz (Name)": {
+   "erste": {
+    "fraktion": "SPD",
+    "name": "Dirk Wiese"
+   },
+   "protokoll": {
+    "datum": "23.09.2026",
+    "iso_datum": "2026-09-23",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21095.pdf",
+    "titel": "Protokoll der 95. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Santos-Wintz%20%28Name%29"
+   },
+   "status": "ausgelassen"
+  },
   "Saseler": {
    "erste": {
     "fraktion": "BÜNDNIS 90/DIE GRÜNEN",
@@ -30045,6 +30687,20 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21107.pdf",
     "titel": "Protokoll der 107. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Schei%C3%9Fflagge"
+   },
+   "status": "ausgelassen"
+  },
+  "Schellenberger (Name)": {
+   "erste": {
+    "fraktion": "Bündnis 90/Die Grünen",
+    "name": "Steffi Lemke"
+   },
+   "protokoll": {
+    "datum": "09.10.2026",
+    "iso_datum": "2026-10-09",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21100.pdf",
+    "titel": "Protokoll der 100. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Schellenberger%20%28Name%29"
    },
    "status": "ausgelassen"
   },
@@ -30619,6 +31275,20 @@
    },
    "status": "ausgelassen"
   },
+  "Schwarte (Name)": {
+   "erste": {
+    "name": "Julia Klöckner",
+    "rolle": "Präsidentin"
+   },
+   "protokoll": {
+    "datum": "10.09.2026",
+    "iso_datum": "2026-09-10",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21093.pdf",
+    "titel": "Protokoll der 93. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Schwarte%20%28Name%29"
+   },
+   "status": "ausgelassen"
+  },
   "Schweinegrunzlaut": {
    "erste": {
     "fraktion": "AfD",
@@ -30800,6 +31470,20 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21107.pdf",
     "titel": "Protokoll der 107. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Seelsorge-Ausbildung"
+   },
+   "status": "ausgelassen"
+  },
+  "Selahattin (Name)": {
+   "erste": {
+    "fraktion": "Die Linke",
+    "name": "Cansu Özdemir"
+   },
+   "protokoll": {
+    "datum": "15.10.2026",
+    "iso_datum": "2026-10-15",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21102.pdf",
+    "titel": "Protokoll der 102. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Selahattin%20%28Name%29"
    },
    "status": "ausgelassen"
   },
@@ -31297,6 +31981,20 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21105.pdf",
     "titel": "Protokoll der 105. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Skrupellosere"
+   },
+   "status": "ausgelassen"
+  },
+  "Smotrich (Name)": {
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Torben Braga"
+   },
+   "protokoll": {
+    "datum": "24.09.2026",
+    "iso_datum": "2026-09-24",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21096.pdf",
+    "titel": "Protokoll der 96. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Smotrich%20%28Name%29"
    },
    "status": "ausgelassen"
   },
@@ -33148,6 +33846,21 @@
    },
    "status": "ausgelassen"
   },
+  "Sziborra (Name)": {
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Martin Reichardt",
+    "zwischenruf": true
+   },
+   "protokoll": {
+    "datum": "09.10.2026",
+    "iso_datum": "2026-10-09",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21100.pdf",
+    "titel": "Protokoll der 100. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Sziborra%20%28Name%29"
+   },
+   "status": "ausgelassen"
+  },
   "Sziborra-Seidlitz": {
    "erste": {
     "fraktion": "AfD",
@@ -33805,6 +34518,20 @@
    },
    "status": "ausgelassen"
   },
+  "Tetzel": {
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Ronald Gläser"
+   },
+   "protokoll": {
+    "datum": "14.10.2026",
+    "iso_datum": "2026-10-14",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21101.pdf",
+    "titel": "Protokoll der 101. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Tetzel"
+   },
+   "status": "wartet"
+  },
   "Teufelsgas": {
    "erste": {
     "fraktion": "AfD",
@@ -33888,6 +34615,20 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Theaterform"
    },
    "status": "ausgelassen"
+  },
+  "Thielbörger": {
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Martin Reichardt"
+   },
+   "protokoll": {
+    "datum": "11.11.2026",
+    "iso_datum": "2026-11-11",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21107.pdf",
+    "titel": "Protokoll der 107. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Thielb%C3%B6rger"
+   },
+   "status": "wartet"
   },
   "Thormann": {
    "erste": {
@@ -34537,6 +35278,20 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21093.pdf",
     "titel": "Protokoll der 93. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Tu-Nix"
+   },
+   "status": "ausgelassen"
+  },
+  "Tu-Nix (Name)": {
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Julian Schmidt"
+   },
+   "protokoll": {
+    "datum": "10.09.2026",
+    "iso_datum": "2026-09-10",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21093.pdf",
+    "titel": "Protokoll der 93. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Tu-Nix%20%28Name%29"
    },
    "status": "ausgelassen"
   },
@@ -38272,6 +39027,20 @@
    },
    "status": "ausgelassen"
   },
+  "Yahya": {
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Alexander Wolf"
+   },
+   "protokoll": {
+    "datum": "24.09.2026",
+    "iso_datum": "2026-09-24",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21096.pdf",
+    "titel": "Protokoll der 96. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Yahya"
+   },
+   "status": "wartet"
+  },
   "Yoshua": {
    "erste": {
     "name": "Thomas Jarzombek",
@@ -38392,6 +39161,20 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21105.pdf",
     "titel": "Protokoll der 105. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Zavala"
+   },
+   "status": "ausgelassen"
+  },
+  "Zavala (Name)": {
+   "erste": {
+    "fraktion": "Bündnis 90/Die Grünen",
+    "name": "Boris Mijatović"
+   },
+   "protokoll": {
+    "datum": "05.11.2026",
+    "iso_datum": "2026-11-05",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21105.pdf",
+    "titel": "Protokoll der 105. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Zavala%20%28Name%29"
    },
    "status": "ausgelassen"
   },
@@ -41286,6 +42069,34 @@
    },
    "status": "ausgelassen"
   },
+  "mitfeiernd": {
+   "erste": {
+    "fraktion": "Die Linke",
+    "name": "David Schliesing"
+   },
+   "protokoll": {
+    "datum": "24.09.2026",
+    "iso_datum": "2026-09-24",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21096.pdf",
+    "titel": "Protokoll der 96. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/mitfeiernd"
+   },
+   "status": "ausgelassen"
+  },
+  "mitfiebernd": {
+   "erste": {
+    "fraktion": "Die Linke",
+    "name": "David Schliesing"
+   },
+   "protokoll": {
+    "datum": "24.09.2026",
+    "iso_datum": "2026-09-24",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21096.pdf",
+    "titel": "Protokoll der 96. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/mitfiebernd"
+   },
+   "status": "wartet"
+  },
   "mitner": {
    "erste": {
     "fraktion": "AfD",
@@ -42558,6 +43369,17 @@
    },
    "status": "ausgelassen"
   },
+  "unterbringend": {
+   "erste": null,
+   "protokoll": {
+    "datum": "14.10.2026",
+    "iso_datum": "2026-10-14",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21101.pdf",
+    "titel": "Protokoll der 101. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/unterbringend"
+   },
+   "status": "wartet"
+  },
   "unterhaltungsbedingt": {
    "erste": null,
    "protokoll": {
@@ -43265,6 +44087,20 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21093.pdf",
     "titel": "Protokoll der 93. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/%C3%81gnes"
+   },
+   "status": "ausgelassen"
+  },
+  "Ágnes (Name)": {
+   "erste": {
+    "name": "Julia Klöckner",
+    "rolle": "Präsidentin"
+   },
+   "protokoll": {
+    "datum": "10.09.2026",
+    "iso_datum": "2026-09-10",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21093.pdf",
+    "titel": "Protokoll der 93. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/%C3%81gnes%20%28Name%29"
    },
    "status": "ausgelassen"
   },
