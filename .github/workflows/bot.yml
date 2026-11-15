@@ -1,0 +1,54 @@
+name: Neue Wörter posten
+
+on:
+  schedule:
+    # Stündlich; der Bot wartet zwischen zwei Posts zufällig 55 bis 120 Minuten.
+    - cron: '23 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bot
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - run: pip install -r requirements.txt
+
+      - name: Warteschlange fortschreiben und posten
+        env:
+          MASTODON_FIRST_ACCESSTOKEN: ${{ secrets.MASTODON_FIRST_ACCESSTOKEN }}
+          MASTODON_KONTEXT_ACCESSTOKEN: ${{ secrets.MASTODON_KONTEXT_ACCESSTOKEN }}
+        run: python parser/bot.py
+
+      - name: Zustand sichern
+        run: |
+          git add state/bot.json
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898341+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Zustand des Bots"
+          git push
+
+  test:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover --start-directory tests

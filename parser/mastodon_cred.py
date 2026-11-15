@@ -3,14 +3,12 @@
 
 
 import logging
-from dotenv import load_dotenv
 import os
 from mastodon import Mastodon
 import mastodon
 from time import sleep
 import hashlib
 
-load_dotenv()
 
 
 MastodonAPI = Mastodon(access_token = os.environ.get('MASTODON_FIRST_ACCESSTOKEN'),  api_base_url="https://mastodon.social")
@@ -20,9 +18,9 @@ MastodonKontextAPI = Mastodon(access_token = os.environ.get('MASTODON_KONTEXT_AC
 # Erstellt den Kontext-Text basierend auf den verfügbaren Metadaten.
 # Wenn Redner:in nicht vorhanden ist (z.B. nur Präsident:in/Vizepräsident:in im Datensatz),
 # wird der "wurde gesagt von" Teil weggelassen.
-def build_context_message(word, keys, metadata):
-    titel = keys[b'titel'].decode('UTF-8')
-    datum = keys[b'datum'].decode('UTF-8')
+def build_context_message(word, protocol, metadata):
+    titel = protocol['titel']
+    datum = protocol['datum']
     link = metadata['link']
     
     if metadata.get('speaker') and metadata.get('party'):
@@ -46,7 +44,7 @@ def idempotency_key(word, kind):
 
 
 # Mastodon API is a bit wobbly so a fix with while loops 
-def toot_word(word, keys, metadata):
+def toot_word(word, protocol, metadata):
 
     # Max tries to get posting trough
     patience = 0
@@ -81,7 +79,7 @@ def toot_word(word, keys, metadata):
         
         # Erstelle Kontext-Nachricht (mit oder ohne Redner:in)
         try:
-            context_message = build_context_message(word, keys, metadata)
+            context_message = build_context_message(word, protocol, metadata)
         except Exception as e:
             logging.exception(e)
             return toot_status["id"]
@@ -124,9 +122,10 @@ def toot_word(word, keys, metadata):
             else:
                 try:
                     second_context_status = MastodonKontextAPI.status_post(
-                        "Das {} findet sich als PDF unter {}".format(
-                            keys[b'titel'].decode('UTF-8'),
-                            keys[b'pdf_url'].decode('UTF-8')),
+                        "Das {} findet sich als PDF unter {}\n\nWie oft der Bundestag es seit 1949 gesagt hat: {}".format(
+                            protocol['titel'],
+                            protocol['pdf_url'],
+                            protocol['wortseite']),
                         in_reply_to_id=context_status["id"],
                         idempotency_key=idempotency_key(word, 'pdf'))
                 except mastodon.MastodonNotFoundError as m:
@@ -163,11 +162,12 @@ def toot_word(word, keys, metadata):
                 return toot_status["id"]
             else:
                 try:     
-                    context_status = MastodonKontextAPI.status_post("#{} tauchte zum ersten Mal im {} am {} auf. Das Protokoll findet sich unter {}".format(
+                    context_status = MastodonKontextAPI.status_post("#{} tauchte zum ersten Mal im {} am {} auf. Das Protokoll findet sich unter {}\n\nWie oft der Bundestag es seit 1949 gesagt hat: {}".format(
                         word,
-                        keys[b'titel'].decode('UTF-8'),
-                        keys[b'datum'].decode('UTF-8'),
-                        keys[b'pdf_url'].decode('UTF-8')),
+                        protocol['titel'],
+                        protocol['datum'],
+                        protocol['pdf_url'],
+                        protocol['wortseite']),
                         in_reply_to_id = toot_status["id"],
                         idempotency_key=idempotency_key(word, 'context'))
                 except mastodon.MastodonNotFoundError as m:

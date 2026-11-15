@@ -7,29 +7,35 @@ Das Projekt wurde durch den Twitter-Account [@NYT_first_said](https://x.com/NYT_
 
 ## Funktionsweise
 
-Über eine vom Bundestag bereitgestellte [OpenData-API](https://dip.bundestag.de/%C3%BCber-dip/hilfe/api#content) wird täglich nach einem neuen Plenarprotokoll des Bundestags gesucht. Wird es gefunden, wird jedes einzelne Wort mit einer selbsterstellten Datenbank abgeglichen, die aus allen veröffentlichten Plenarprotokollen aufgebaut wurde. Sollte das Wort nicht in der Datenbank gefunden werden, wird dieses zu einer Warteschlange hinzugefügt und zu einem bestimmten Zeitpunkt gepostet und besagter Datenbank selber hinzugefügt. Der Account [@FSBT_Kontext](https://mastodon.social/@FSBT_Kontext) antwortet automatisiert auf jeden Post mit weiterem Kontext zum Wort, der durch die OpenParliamentTV-API geliefert wird.
+Der Bot postet Wörter, die im neuesten Plenarprotokoll zum ersten Mal seit 1949 vorkommen. Welche das sind,
+ermittelt die Seite [Bundestag Wortschatz](https://ungeschneuer.github.io/plenum_first_said_website/)
+([Quellcode](https://github.com/ungeschneuer/plenum_first_said_website)): Sie zählt jedes Wort aller
+Plenarprotokolle und führt gebeugte Formen auf ihre Grundform zurück. Plural, Genitiv und andere Formen eines
+schon gesagten Wortes gelten damit nicht als neu. Weibliche Formen sind eigene Wörter.
 
-Unregelmäßigkeiten entstehen z.B. durch Silbentrennungen, die nicht gut von Wortverbindungen getrennt werden können (z.B. Know- (neue Zeile) how) und Rechtschreibfehlern. 
+Die Seite veröffentlicht die Wörter, die in den Protokollen der letzten 90 Tage zum ersten Mal vorkommen
+(`data/neue-woerter.json`). Der Workflow `.github/workflows/bot.yml` läuft stündlich: `parser/bot.py` nimmt neue
+Wörter in die Warteschlange auf und postet höchstens eines, danach wartet der Bot zufällig 55 bis 120 Minuten.
+Warteschlange und bereits gepostete Wörter stehen in `state/bot.json`, das der Workflow committet. Wörter aus
+Protokollen, die älter als 30 Tage sind, werden nicht mehr gepostet. Beim ersten Lauf werden die vorhandenen
+Kandidaten nur vermerkt, damit nichts doppelt erscheint, was der frühere Bot schon gepostet hat.
 
-## Architektur
+Aus Gründen der Unterhaltung werden einige Wörter aussortiert: Wörter unter fünf Buchstaben, Wörter mit Ziffern
+oder Großbuchstaben im Wortinneren (Abkürzungen, zusammengeklebte Wörter), kleingeschriebene Bindestrich-Wörter, die
+von Zeilenumbrüchen stammen können, und Varianten eines anderen neuen Wortes.
 
-`plenar.py` ist die Hauptfunktion, die den Rest orchestriert. Sie wird stündlich aufgerufen. `database.py` erlaubt eine Verbindung zur lokalen Redis Datenbank. 
+Der Account [@FSBT_Kontext](https://mastodon.social/@FSBT_Kontext) antwortet auf jeden Post mit Kontext: Sitzung,
+Datum, Redner:in, Video bei Open Parliament TV, PDF des Protokolls und der Verlauf des Wortes auf Bundestag
+Wortschatz. Ab der 19. Wahlperiode kommt die Person, die das Wort zuerst gesagt hat, aus den strukturierten
+Protokollen des Bundestages, wenn Open Parliament TV sie nicht kennt. Bei Wörtern aus Reden der AfD setzt der Bot
+eine Inhaltswarnung.
 
-`post_queue.py`, `twitter_creds.py` und `mastodon_creds.py` packt neue Wörter in eine Warteliste und postet diese in unterschiedlichen Zeitintervallen. Twitter wurde mittlerweile auskommentiert, weil der Bot nichts zu diesem Höllenort beitragen muss.
+## Einrichtung
 
-`dpi_api.py` verbindet den Bot mit den Servern des Bundestags und sucht nach neuen Protokollen über weiterlaufende IDs. `optv_api.py` ist eine Einbindung der Open Parliament TV API zur Zweitprüfung, ob das Wort wirklich noch nicht existiert und gibt dem Kontext-Bot noch mehr Kontext. `api_functions.py` hilft bei der Abfrage. 
-
-`xml_processing.py` verarbeitet das Protokoll, sodass eine Analyse möglich ist.
-
-`text_parse.py` ist für die Worttrennung und Normalisierung da, sowie die Verbindung zum Abgleich mit der Datenbank über `database.py`. 
-
-Im Ordner utilities finden sich Skripte, die bei dem Aufbau der Datenbank geholfen haben. 
-
-Über das Paket [python-dotenv](https://github.com/theskumar/python-dotenv) werden API-Schlüssel durch Umgebungsvariablen bereitgestellt. Dazu muss eine `.env` Datei in der Basis des Projektes existieren. In dem Repo liegt die Datei `example.env`, die alle Variabeln aufzählt und den momentan öffentlichen API Key des Bundestags beinhaltet.
-
-## DPI API 
-
-Das Dokumentations- und Informationssystem für Parlamentsmaterialien stellt jährlich einen neuen öffentlichen Key aus. Der aktuelle bis Mai 2025 gültige Key ist unter `example.env` hinterlegt. Bei dauerhafter Nutzung empfiehlt es sich jedoch, [einen eigenen Key zu beantragen](https://dip.bundestag.de/%C3%BCber-dip/hilfe/api#content).
+Der Bot braucht zwei Secrets im Repository: `MASTODON_FIRST_ACCESSTOKEN` (@BT_First_Said) und
+`MASTODON_KONTEXT_ACCESSTOKEN` (@FSBT_Kontext). Ohne sie pflegt er die Warteschlange, postet aber nicht. Wie man
+die Tokens erstellt, beschreibt [Mastodon.py](https://github.com/halcy/Mastodon.py). Für lokale Versuche liegen die
+Namen der Variablen in `example.env`; Tests laufen mit `python -m unittest discover --start-directory tests`.
 
 ## Open Parliament TV API
 Open Parliament TV bereitet selber die Protokolle für ihr eigenes Projekt auf, den Text mit der Videoaufzeichung zu verbinden. Dies nutze ich: 
@@ -42,27 +48,6 @@ Hierbei gibt es einige Limitierungen. Da die Protokolle weiterhin nicht vollkomm
 [Webseite zur API](https://de.openparliament.tv/api/)  
 [Webseite zum Projekt](https://openparliament.tv/)  
 [GitHub](https://github.com/OpenParliamentTV)  
-
-## Mastodon
-Für den Zugang zu Mastodon benutze ich [Mastodon.py](https://github.com/halcy/Mastodon.py). Dort gibt es auch eine Dokumentation, wie man die Keys richtig erstellt. 
-
-Die Mastodon Account findet man je unter <a rel="me" href="https://mastodon.social/@BT_First_Said">@BT_First_Said@mastodon.social</a> und <a rel="me" href="https://mastodon.social/@FSBT_Kontext">@FSBT_Kontext@mastodon.social</a>.
-
-
-## Was bedeutet "neues Wort"?
-
-Aus Gründen der Unterhaltung werden einige Worte aussortiert, die zwar tatsächlich zum ersten Mal so gesagt werden, aber nur bedingt an sich einen Informationswert haben. Folgendes wird z.B. versucht, herauszufiltern:
-- Plural
-- Genitiv
-- gegenderte Formen
-- Wörter unter 4 Buchstaben
-- Gesetzesabkürzungen
-
-Einige Schwierigkeiten machen hier immer noch die Flexion von Wörtern. Grundregeln der Grammatik sind als Filter hardgecodet, jedoch werden dadurch nicht alle Begriffe erfasst. Lemmatization-Pakete wie HanTa, Spacy und Simplemma kommmen mit Neologismen oder eher seltenen Wörtern wie 'Buttersäureanschläge' nicht wirklich zurecht. 
-
-## TODOs
-- [X] Sprecher:in im Kontext mit erwähnen ([#5](https://github.com/ungeschneuer/plenum_first_said/pull/5))
-- [X] Weitere Verfeinerung der Wort-Normalisierung ([#8](https://github.com/ungeschneuer/plenum_first_said/pull/8)). 
 
 ## Lizenz und Danksagung
 

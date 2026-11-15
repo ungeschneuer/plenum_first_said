@@ -20,8 +20,8 @@ def does_exist(document_data):
         return False
 
 # Wenn Wort schon im Katalog exisitert return False
-def double_check_newness(word, keys):
-    datum = keys[b'datum'].decode('UTF-8')
+def double_check_newness(word, protocol):
+    datum = protocol['datum']
     
     # Datum entspricht dem Tag vor dem Protokoll
     date_to_check = datetime.datetime.strptime(datum, '%d.%m.%Y') - datetime.timedelta(days=1)
@@ -125,8 +125,8 @@ def find_party_for_speaker(people_data, speaker_name):
 
 
 # Checkt zunächst ob Wort gefunden werden kann und sucht dann nach den Infos
-def check_for_infos(word, keys):
-    datum = keys[b'datum'].decode('UTF-8')
+def check_for_infos(word, protocol):
+    datum = protocol['datum']
 
     try:
         date = datetime.datetime.strptime(datum, '%d.%m.%Y').strftime('%Y-%m-%d')

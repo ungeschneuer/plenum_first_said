@@ -22,6 +22,8 @@ profil_context.pxd/
 # Project
 parser/archive/*
 .*
+!.github/
+!.gitignore
 .env
 venv/*
 parser/plenarlog.log
