@@ -1,6 +1,86 @@
 {
  "naechster_post_ab": "2026-11-15T16:39:17.091950+00:00",
  "words": {
+  "10-Gesetz": {
+   "beleg": "…das bisherige Bundesverfassungsschutzgesetz und weitere Regelungen wie etwa das Artikel 10-Gesetz außer Kraft.",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Catarina dos Santos-Wintz"
+   },
+   "form": "10-Gesetz",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/10-Gesetz"
+   },
+   "status": "ausgelassen"
+  },
+  "23-jährig": {
+   "beleg": "Diesen Sommer fand ein 23-Jähriger eine Sicherheitslücke und hätte mit einem Klick 250 000 Solaranlagen abschalten können – das ist so, als würden mehrere große Kraftwerke auf…",
+   "erste": {
+    "fraktion": "Bündnis 90/Die Grünen",
+    "name": "Rebecca Lenhard"
+   },
+   "form": "23-Jähriger",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/23-j%C3%A4hrig"
+   },
+   "status": "ausgelassen"
+  },
+  "360-Grad-Blick": {
+   "beleg": "– Wir haben den 360-Grad-Blick, und das bedeutet eben auch, dass die NATO im Süden Europas entsprechend präsent ist und dort im wahrsten Sinne des Wortes Flagge zeigt.",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Jürgen Hardt"
+   },
+   "form": "360-Grad-Blick",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/360-Grad-Blick"
+   },
+   "status": "ausgelassen"
+  },
+  "50er-Jahr": {
+   "beleg": "Ich kann mich daran erinnern, dass in den 50er-Jahren ganz anders gehandelt wurde.",
+   "erste": {
+    "fraktion": "SPD",
+    "name": "Hakan Demir"
+   },
+   "form": "50er-Jahren",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/50er-Jahr"
+   },
+   "status": "ausgelassen"
+  },
+  "80er-Jahr": {
+   "beleg": "Früher, in den 80er-Jahren, konnte man mit Ziegelmauerwerk und Zweifachverglasung solide Häuser entrichten.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Otto Strauß"
+   },
+   "form": "80er-Jahren",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/80er-Jahr"
+   },
+   "status": "ausgelassen"
+  },
   "A-Segment": {
    "erste": {
     "fraktion": "CDU/CSU",
@@ -37,6 +117,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21101.pdf",
     "titel": "Protokoll der 101. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/AFBG-Erh%C3%B6hungsbetrag"
+   },
+   "status": "ausgelassen"
+  },
+  "AI-Safety-and-Security-Institut": {
+   "beleg": "Die Bundesrepublik und die Bundesregierung sind mit einem starken BSI und einem starken AI-Safety-and-Security-Institute, das ja bereits in der Lage ist, auch die modernsten KI-Systeme zu überprüfen, schon auf…",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Marvin Schulz"
+   },
+   "form": "AI-Safety-and-Security-Institute",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/AI-Safety-and-Security-Institut"
    },
    "status": "ausgelassen"
   },
@@ -378,6 +474,38 @@
    },
    "status": "ausgelassen"
   },
+  "Abstimmungsablauf": {
+   "beleg": "Und hier noch einige Hinweise zum Abstimmungsablauf: Die einfache Abstimmung über den Gesetzentwurf in der zweiten Beratung sowie die namentliche Schlussabstimmung erfolgen erst…",
+   "erste": {
+    "name": "Julia Klöckner",
+    "rolle": "Präsidentin"
+   },
+   "form": "Abstimmungsablauf",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Abstimmungsablauf"
+   },
+   "status": "wartet"
+  },
+  "Abstimmungsklarheit": {
+   "beleg": "Es ist auch im Sinne der Abstimmungsklarheit zwingend notwendig, hier die Möglichkeit der differenzierten Abstimmung zu garantieren,",
+   "erste": {
+    "fraktion": "Die Linke",
+    "name": "Ina Latendorf"
+   },
+   "form": "Abstimmungsklarheit",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Abstimmungsklarheit"
+   },
+   "status": "ausgelassen"
+  },
   "Abwanderungstradition": {
    "erste": {
     "fraktion": "AfD",
@@ -419,6 +547,22 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Acteritis"
    },
    "status": "ausgelassen"
+  },
+  "Actionszene": {
+   "beleg": "Da denkt man unwillkürlich an Actionszenen mit Kriegsschiffen im Mittelmeer, die Jagd auf Schmuggler machen, Schiffe stürmen, Terroristen festnehmen.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Alexander Wolf"
+   },
+   "form": "Actionszenen",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Actionszene"
+   },
+   "status": "wartet"
   },
   "Ad-hoc-Finanzhilfe": {
    "erste": {
@@ -747,6 +891,22 @@
    },
    "status": "ausgelassen"
   },
+  "Aktuelle Stunde": {
+   "beleg": "November 2026 keine Befragung der Bundesregierung, keine Fragestunde und keine Aktuellen Stunden durchzuführen, wie das üblich ist.",
+   "erste": {
+    "name": "Julia Klöckner",
+    "rolle": "Präsidentin"
+   },
+   "form": "Aktuelle Stunde",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Aktuelle%20Stunde"
+   },
+   "status": "ausgelassen"
+  },
   "Akutpfleger": {
    "erste": {
     "fraktion": "BÜNDNIS 90/DIE GRÜNEN",
@@ -1032,6 +1192,22 @@
    },
    "status": "ausgelassen"
   },
+  "Amazonasmündung": {
+   "beleg": "…Lula hat dem brasilianischen Staatskonzern Petrobras im vergangenen Jahr erlaubt vor der Amazonasmündung nach Öl zu bohren.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Torben Braga"
+   },
+   "form": "Amazonasmündung",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Amazonasm%C3%BCndung"
+   },
+   "status": "wartet"
+  },
   "Amazonasmündungsbecken": {
    "erste": {
     "fraktion": "AfD",
@@ -1113,6 +1289,22 @@
    },
    "status": "ausgelassen"
   },
+  "Ampel-Staatsbürgerschaftsrecht": {
+   "beleg": "Frau Polat, insoweit kann ich es Ihnen nicht ersparen: Das Ampel-Staatsbürgerschaftsrecht war ein Fehlanreiz.",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Johannes Wiegelmann"
+   },
+   "form": "Ampel-Staatsbürgerschaftsrecht",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Ampel-Staatsb%C3%BCrgerschaftsrecht"
+   },
+   "status": "ausgelassen"
+  },
   "Ampelkürzung": {
    "erste": {
     "fraktion": "AfD",
@@ -1168,6 +1360,22 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Analysestruktur"
    },
    "status": "ausgelassen"
+  },
+  "Anarchotyrannei": {
+   "beleg": "Sie herrschen hier mit dem Mittel der Anarchotyrannei.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Christopher Drößler"
+   },
+   "form": "Anarchotyrannei",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Anarchotyrannei"
+   },
+   "status": "wartet"
   },
   "Anbauverzeichnis": {
    "erste": {
@@ -1688,6 +1896,22 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Anwerbeminister"
    },
    "status": "ausgelassen"
+  },
+  "Anwerbeschutz": {
+   "beleg": "Zugleich wird der Anwerbeschutz der Mitarbeiter von Fraktionen und Abgeordneten aufgeweicht.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Christian Wirth"
+   },
+   "form": "Anwerbeschutz",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Anwerbeschutz"
+   },
+   "status": "wartet"
   },
   "Anzeigechaos": {
    "erste": null,
@@ -3477,6 +3701,22 @@
    },
    "status": "ausgelassen"
   },
+  "Behördentempo": {
+   "beleg": "…arbeiten mit Maschinengeschwindigkeit, und unsere Abwehr ist noch viel zu oft im Behördentempo.",
+   "erste": {
+    "fraktion": "Bündnis 90/Die Grünen",
+    "name": "Rebecca Lenhard"
+   },
+   "form": "Behördentempo",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Beh%C3%B6rdentempo"
+   },
+   "status": "wartet"
+  },
   "Beitragsskala": {
    "erste": {
     "fraktion": "SPD",
@@ -3560,6 +3800,38 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Benzintechnologie"
    },
    "status": "ausgelassen"
+  },
+  "Berechtigungsvergabe": {
+   "beleg": "…der Betreiber der Systeme aber selbst zu verantworten hat; denn die Frage nach der Berechtigungsvergabe liegt in der Hand des Anwenders.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Robin Jünger"
+   },
+   "form": "Berechtigungsvergabe",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Berechtigungsvergabe"
+   },
+   "status": "wartet"
+  },
+  "Bergbaumafia": {
+   "beleg": "…im Amazonas, was „mehr Wohlstand“ heißt, wenn sie von Rinderzuchtclans und der Bergbaumafia niedergemacht werden, damit wir hier schön billige Steaks auf den Teller bekommen, damit…",
+   "erste": {
+    "fraktion": "Die Linke",
+    "name": "Charlotte Antonia Neuhäuser"
+   },
+   "form": "Bergbaumafia",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Bergbaumafia"
+   },
+   "status": "wartet"
   },
   "Bergfink": {
    "erste": {
@@ -4014,6 +4286,38 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21093.pdf",
     "titel": "Protokoll der 93. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Bew%C3%A4hrungshilfeverein"
+   },
+   "status": "ausgelassen"
+  },
+  "Bezahlbarer Wohnraum": {
+   "beleg": "Wir brauchen erstens ein Investitionsprogramm für sozialen, gemeinnützigen, bezahlbaren Wohnraum mit einem Volumen von 25 Milliarden Euro jährlich.",
+   "erste": {
+    "fraktion": "Die Linke",
+    "name": "Caren Lay"
+   },
+   "form": "Bezahlbarer Wohnraum",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Bezahlbarer%20Wohnraum"
+   },
+   "status": "ausgelassen"
+  },
+  "BfV-Teil": {
+   "beleg": "…Sie beiden Änderungsanträgen zustimmen, was ich sehr empfehle, tragen wir auch den BfV-Teil dieser Reform mit.",
+   "erste": {
+    "fraktion": "Bündnis 90/Die Grünen",
+    "name": "Konstantin von Notz"
+   },
+   "form": "BfV-Teil",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/BfV-Teil"
    },
    "status": "ausgelassen"
   },
@@ -4548,6 +4852,22 @@
    },
    "status": "ausgelassen"
   },
+  "Braune-Suppen-Rede": {
+   "beleg": "Zurück von Reichsparteitagsreden und Braune-Suppen-Reden zur Mittagszeit",
+   "erste": {
+    "fraktion": "SPD",
+    "name": "Angelika Glöckner"
+   },
+   "form": "Braune-Suppen-Reden",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Braune-Suppen-Rede"
+   },
+   "status": "ausgelassen"
+  },
   "Braunkohlebau": {
    "erste": {
     "fraktion": "CDU/CSU",
@@ -4791,6 +5111,22 @@
    },
    "status": "ausgelassen"
   },
+  "Bundesamtschef": {
+   "beleg": "Ich rufe in Erinnerung: ein Bundesamtschef Maaßen, der seinen Posten verloren hat, weil er Mutti Merkels Märchen mit Fakten begegnete, und der dann selbst vom gleichen VS…",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Alexander Wolf"
+   },
+   "form": "Bundesamtschef",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Bundesamtschef"
+   },
+   "status": "ausgelassen"
+  },
   "Bundesbauforschungszentrum": {
    "erste": {
     "fraktion": "SPD",
@@ -4844,6 +5180,38 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21098.pdf",
     "titel": "Protokoll der 98. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Bundeskonzeption"
+   },
+   "status": "ausgelassen"
+  },
+  "Bundesnachrichtendient": {
+   "beleg": "Und ich danke besonders den Frauen und Männern im Bundesnachrichtendient: Sie arbeiten oft unter Gefahr und fast immer ohne öffentliche Anerkennung.",
+   "erste": {
+    "name": "Nina Warken",
+    "rolle": "Bundesministerin für besondere Aufgaben"
+   },
+   "form": "Bundesnachrichtendient",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Bundesnachrichtendient"
+   },
+   "status": "wartet"
+  },
+  "Bundesrepublik Deutschland": {
+   "beleg": "Heute ist ein guter Tag für die Sicherheit der Bundesrepublik Deutschland.",
+   "erste": {
+    "fraktion": "Bündnis 90/Die Grünen",
+    "name": "Konstantin von Notz"
+   },
+   "form": "Bundesrepublik Deutschland",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Bundesrepublik%20Deutschland"
    },
    "status": "ausgelassen"
   },
@@ -5309,6 +5677,22 @@
    },
    "status": "ausgelassen"
   },
+  "C1-Niveau": {
+   "beleg": "In Deutschland hat er in drei Jahren Deutsch gelernt: C1-Niveau.",
+   "erste": {
+    "fraktion": "SPD",
+    "name": "Hakan Demir"
+   },
+   "form": "C1-Niveau",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/C1-Niveau"
+   },
+   "status": "ausgelassen"
+  },
   "CAD-Datei": {
    "erste": {
     "fraktion": "AfD",
@@ -5527,6 +5911,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21101.pdf",
     "titel": "Protokoll der 101. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/CISPA-Standort"
+   },
+   "status": "ausgelassen"
+  },
+  "CO2-Emission": {
+   "beleg": "…so verstanden, dass auch Sie für Klimaschutz sind, dass auch Sie wollen, dass unsere CO2-Emissionen runtergehen.",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Jan-Marco Luczak"
+   },
+   "form": "CO2-Emissionen",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/CO2-Emission"
    },
    "status": "ausgelassen"
   },
@@ -6524,6 +6924,22 @@
    },
    "status": "ausgelassen"
   },
+  "Daranarbeiten": {
+   "beleg": "Die lange Zeit des gemeinsamen Daranarbeitens, dass es Realität wird, ist letztlich dem Bemühen geschuldet, insbesondere die wirtschaftliche Partnerschaft auf solide Fundamente zu…",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Peter Beyer"
+   },
+   "form": "Daranarbeitens",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Daranarbeiten"
+   },
+   "status": "wartet"
+  },
   "Darlehensdeckel": {
    "erste": null,
    "protokoll": {
@@ -7122,6 +7538,38 @@
    },
    "status": "ausgelassen"
   },
+  "Deutsche Demokratische Republik": {
+   "beleg": "Wer denkt da nicht auch an die Deutsche Demokratische Republik?",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Stephan Brandner"
+   },
+   "form": "Deutsche Demokratische Republik",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Deutsche%20Demokratische%20Republik"
+   },
+   "status": "ausgelassen"
+  },
+  "Deutsche Einheit": {
+   "beleg": "Sea Guardian ist eine wichtige Kooperationsplattform für, speziell in unserem Fall: deutsche Einheiten und andere Einheiten, die dort unterwegs sind.",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Jürgen Hardt"
+   },
+   "form": "Deutsche Einheit",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Deutsche%20Einheit"
+   },
+   "status": "ausgelassen"
+  },
   "Deutsche-Köpfe-Plus-Programm": {
    "erste": {
     "fraktion": "AfD",
@@ -7133,6 +7581,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21102.pdf",
     "titel": "Protokoll der 102. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Deutsche-K%C3%B6pfe-Plus-Programm"
+   },
+   "status": "ausgelassen"
+  },
+  "Deutscher Bundestag": {
+   "beleg": "Wir stärken unseren Diensten den Rücken, aus der Politik, aus dem Deutschen Bundestag heraus.",
+   "erste": {
+    "name": "Alexander Dobrindt",
+    "rolle": "Bundesminister des Innern"
+   },
+   "form": "Deutscher Bundestag",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Deutscher%20Bundestag"
    },
    "status": "ausgelassen"
   },
@@ -7230,6 +7694,22 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Dienstrechtsversto%C3%9F"
    },
    "status": "ausgelassen"
+  },
+  "Dienstreform": {
+   "beleg": "…im Haus dafür gearbeitet haben, die teilweise seit Jahren, seit Jahrzehnten an dieser Dienstreform mitgearbeitet haben.",
+   "erste": {
+    "name": "Alexander Dobrindt",
+    "rolle": "Bundesminister des Innern"
+   },
+   "form": "Dienstreform",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Dienstreform"
+   },
+   "status": "wartet"
   },
   "Diesel-Abkommen": {
    "erste": null,
@@ -7351,6 +7831,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21102.pdf",
     "titel": "Protokoll der 102. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Dieselversorgung"
+   },
+   "status": "ausgelassen"
+  },
+  "Digitale Infrastruktur": {
+   "beleg": "Wir brauchen verlässliche Systeme und eine gute digitale Infrastruktur, die unabhängig von einigen großen Firmen funktioniert.",
+   "erste": {
+    "fraktion": "Die Linke",
+    "name": "Sonja Lemke"
+   },
+   "form": "Digitale Infrastruktur",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Digitale%20Infrastruktur"
    },
    "status": "ausgelassen"
   },
@@ -7611,6 +8107,22 @@
    },
    "status": "ausgelassen"
   },
+  "Donroe-Monroe-Doktrin": {
+   "beleg": "…USA die Region traditionell als ihren geopolitischen Hinterhof betrachten – Stichwort: „Donroe-Monroe-Doktrin“, westliche Hemisphäre –, hat Europa viel zu lange gezögert, seine eigenen Interessen…",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Peter Beyer"
+   },
+   "form": "Donroe-Monroe-Doktrin",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Donroe-Monroe-Doktrin"
+   },
+   "status": "ausgelassen"
+  },
   "Doomsday-Szenarie": {
    "erste": {
     "fraktion": "AfD",
@@ -7622,6 +8134,23 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21097.pdf",
     "titel": "Protokoll der 97. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Doomsday-Szenarie"
+   },
+   "status": "ausgelassen"
+  },
+  "Doppelte Staatsbürgerschaft": {
+   "beleg": "Ich habe auch die doppelte Staatsbürgerschaft!",
+   "erste": {
+    "fraktion": "Bündnis 90/Die Grünen",
+    "name": "Filiz Polat",
+    "zwischenruf": true
+   },
+   "form": "Doppelte Staatsbürgerschaft",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Doppelte%20Staatsb%C3%BCrgerschaft"
    },
    "status": "ausgelassen"
   },
@@ -8803,6 +9332,22 @@
    },
    "status": "ausgelassen"
   },
+  "Ehrlichste": {
+   "beleg": "…ab – nicht weil es das gefährlichste Mandat der Bundeswehr wäre, sondern weil es das Ehrlichste ist: ein Militäreinsatz, der nichts mehr begründen muss.",
+   "erste": {
+    "fraktion": "Die Linke",
+    "name": "Lea Reisner"
+   },
+   "form": "Ehrlichste",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Ehrlichste"
+   },
+   "status": "wartet"
+  },
   "Eifelturm": {
    "erste": {
     "fraktion": "BÜNDNIS 90/DIE GRÜNEN",
@@ -8844,6 +9389,22 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Eigent%C3%BCmerdatum"
    },
    "status": "ausgelassen"
+  },
+  "Eigentümerenteignung": {
+   "beleg": "Erst Eigentümerenteignung, dann feststellen, dass die Mieten trotzdem steigen: Das ist linke Wirtschaftskompetenz in Reinform.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Otto Strauß"
+   },
+   "form": "Eigentümerenteignung",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Eigent%C3%BCmerenteignung"
+   },
+   "status": "wartet"
   },
   "Eilschiedsrichter": {
    "erste": {
@@ -8970,6 +9531,23 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Einheitsbraune"
    },
    "status": "ausgelassen"
+  },
+  "Einheitsfahne": {
+   "beleg": "Und dann holen sie unsere Einheitsfahne vom Mast!",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Dr. Götz Frömming",
+    "zwischenruf": true
+   },
+   "form": "Einheitsfahne",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Einheitsfahne"
+   },
+   "status": "wartet"
   },
   "Einheitsflagge": {
    "erste": {
@@ -9426,6 +10004,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21097.pdf",
     "titel": "Protokoll der 97. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Elisha"
+   },
+   "status": "ausgelassen"
+  },
+  "EloKa-Mann": {
+   "beleg": "Als EloKa-Mann – EloKa steht für „elektronische Kampfführung“ – sage ich Ihnen: Ein Lagebild entsteht durch Sensoren, die dauerhaft da sind, und nicht durch ein deutsches Schiff,…",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Kurt Kleinschmidt"
+   },
+   "form": "EloKa-Mann",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/EloKa-Mann"
    },
    "status": "ausgelassen"
   },
@@ -10200,6 +10794,22 @@
    },
    "status": "ausgelassen"
   },
+  "Ertragsbremse": {
+   "beleg": "Wenn Bauherren wissen, dass nach fünf Jahren die staatliche Ertragsbremse zuschlägt, dann wird nicht mehr gebaut, weil es sich nicht mehr rechnet, meine Damen und Herren.",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Michael Kießling"
+   },
+   "form": "Ertragsbremse",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Ertragsbremse"
+   },
+   "status": "wartet"
+  },
   "Erwachsenenjahr": {
    "erste": {
     "fraktion": "Die Linke",
@@ -10348,6 +10958,54 @@
    },
    "status": "ausgelassen"
   },
+  "Europäische Union": {
+   "beleg": "Januar 2026 zwischen der Europäischen Union und ihren Mitgliedstaaten einerseits und dem Gemeinsamen Markt des Südens, der Argentinischen Republik, der Föderativen Republik…",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Torben Braga"
+   },
+   "form": "Europäische Union",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Europ%C3%A4ische%20Union"
+   },
+   "status": "ausgelassen"
+  },
+  "Europäischer Gerichtshof": {
+   "beleg": "Allerdings schafft die vom Europäischen Parlament angestoßene Befassung des Europäischen Gerichtshofs mit dem Abkommen leider Unsicherheit.",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Peter Beyer"
+   },
+   "form": "Europäischer Gerichtshof",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Europ%C3%A4ischer%20Gerichtshof"
+   },
+   "status": "ausgelassen"
+  },
+  "Europäisches Parlament": {
+   "beleg": "Allerdings schafft die vom Europäischen Parlament angestoßene Befassung des Europäischen Gerichtshofs mit dem Abkommen leider Unsicherheit.",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Peter Beyer"
+   },
+   "form": "Europäisches Parlament",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Europ%C3%A4isches%20Parlament"
+   },
+   "status": "ausgelassen"
+  },
   "Evaluierungsstelle": {
    "erste": null,
    "protokoll": {
@@ -10443,6 +11101,22 @@
    },
    "status": "ausgelassen"
   },
+  "Exportlobby": {
+   "beleg": "…so lange wurde das Freihandelsabkommen verhandelt – macht die deutsche Industrie- und Exportlobby massiv Druck.",
+   "erste": {
+    "fraktion": "Die Linke",
+    "name": "Charlotte Antonia Neuhäuser"
+   },
+   "form": "Exportlobby",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Exportlobby"
+   },
+   "status": "wartet"
+  },
   "Exterior": {
    "erste": null,
    "protokoll": {
@@ -10509,6 +11183,22 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Extravertrag"
    },
    "status": "ausgelassen"
+  },
+  "Extremraum": {
+   "beleg": "…die Baukosten um sogar 47 Prozent gestiegen – also deutlich stärker, als in den Extremräumen die Miete gestiegen ist – und die Lebenshaltungskosten um 30 Prozent.",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Johannes Rothenberger"
+   },
+   "form": "Extremräumen",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Extremraum"
+   },
+   "status": "wartet"
   },
   "Extremvermögen": {
    "erste": {
@@ -10858,6 +11548,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21095.pdf",
     "titel": "Protokoll der 95. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Fahrzeugger%C3%A4usch"
+   },
+   "status": "ausgelassen"
+  },
+  "Fake-E-Mail": {
+   "beleg": "Ich habe das so verstanden, dass Fake-E-Mails auf Telefone gespielt werden können, auf Medien.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Anna Rathert"
+   },
+   "form": "Fake-E-Mails",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Fake-E-Mail"
    },
    "status": "ausgelassen"
   },
@@ -11777,6 +12483,22 @@
    },
    "status": "ausgelassen"
   },
+  "Frachtpaket": {
+   "beleg": "Drohnen über Kasernen und Flughäfen, Brandsätze in Frachtpaketen, Cyberangriffe auf Behörden und Unternehmen, Kampagnen, die Misstrauen in unsere Demokratie säen sollen – das ist…",
+   "erste": {
+    "name": "Nina Warken",
+    "rolle": "Bundesministerin für besondere Aufgaben"
+   },
+   "form": "Frachtpaketen",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Frachtpaket"
+   },
+   "status": "wartet"
+  },
   "Frachtzeit": {
    "erste": {
     "fraktion": "Die Linke",
@@ -11790,6 +12512,22 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Frachtzeit"
    },
    "status": "ausgelassen"
+  },
+  "Fraktionsvorredner": {
+   "beleg": "Der Kern des Ganzen – darauf bin ich dann ebenso gekommen wie meine beiden Fraktionsvorredner –: Die Tatsache, dass hier der Rechtsstaat von innen ausgehöhlt wird, dass Sie, während…",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Alexander Wolf"
+   },
+   "form": "Fraktionsvorredner",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Fraktionsvorredner"
+   },
+   "status": "wartet"
   },
   "Frankenstein-Monster": {
    "erste": {
@@ -12025,6 +12763,22 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Fukushima-Moment"
    },
    "status": "ausgelassen"
+  },
+  "Funkabfrage": {
+   "beleg": "Auf Tausende digital erfasste Schiffe und Hunderte Funkabfragen kommen im Schnitt nur zwei Dutzend Friendly Visits – also das einvernehmliche Betreten eines Schiffes – und keine…",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Alexander Wolf"
+   },
+   "form": "Funkabfragen",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Funkabfrage"
+   },
+   "status": "wartet"
   },
   "Furkan-Bewegung": {
    "erste": {
@@ -12286,6 +13040,38 @@
    },
    "status": "ausgelassen"
   },
+  "Fürsorgeauflage": {
+   "beleg": "Daran ändern auch die neuen Fürsorgeauflagen nichts.",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Daniela Ludwig"
+   },
+   "form": "Fürsorgeauflagen",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/F%C3%BCrsorgeauflage"
+   },
+   "status": "ausgelassen"
+  },
+  "Fürsorgemaßstab": {
+   "beleg": "Der Änderungsantrag nennt dafür neue Fürsorgemaßstäbe.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Christian Wirth"
+   },
+   "form": "Fürsorgemaßstäbe",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/F%C3%BCrsorgema%C3%9Fstab"
+   },
+   "status": "wartet"
+  },
   "G-CAP": {
    "erste": {
     "name": "Boris Pistorius",
@@ -12434,6 +13220,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21094.pdf",
     "titel": "Protokoll der 94. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/GMA-K%C3%BCrzung"
+   },
+   "status": "ausgelassen"
+  },
+  "GPT-2": {
+   "beleg": "Das erste Mal wurde das übrigens 2019 mit GPT-2 gemacht, quasi einer Betaversion von ChatGPT.",
+   "erste": {
+    "fraktion": "Die Linke",
+    "name": "Sonja Lemke"
+   },
+   "form": "GPT-2",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/GPT-2"
    },
    "status": "ausgelassen"
   },
@@ -12702,6 +13504,22 @@
    },
    "status": "ausgelassen"
   },
+  "Gebietskategorisierung": {
+   "beleg": "Hinzu kommen noch die Vorstellungen zur Durchschnittsmiete und Gebietskategorisierung, ebenfalls verfassungsrechtlich bedenklich.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Rainer Galla"
+   },
+   "form": "Gebietskategorisierung",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Gebietskategorisierung"
+   },
+   "status": "wartet"
+  },
   "Gebotszahlung": {
    "erste": {
     "fraktion": "AfD",
@@ -12906,6 +13724,22 @@
    },
    "status": "ausgelassen"
   },
+  "Geheimpolizeiwelt": {
+   "beleg": "…eigen gemacht, aber Ihre Kollegin hat es gerade gesagt –, wir würden hier in einer Art Geheimpolizeiwelt leben,",
+   "erste": {
+    "fraktion": "SPD",
+    "name": "Sebastian Fiedler"
+   },
+   "form": "Geheimpolizeiwelt",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Geheimpolizeiwelt"
+   },
+   "status": "wartet"
+  },
   "Geheimschutzvorgabe": {
    "erste": {
     "fraktion": "AfD",
@@ -13068,6 +13902,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21101.pdf",
     "titel": "Protokoll der 101. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Gemeindechef"
+   },
+   "status": "ausgelassen"
+  },
+  "Gemeinsamer Markt": {
+   "beleg": "Januar 2026 zwischen der Europäischen Union und ihren Mitgliedstaaten einerseits und dem Gemeinsamen Markt des Südens, der Argentinischen Republik, der Föderativen Republik Brasilien, der…",
+   "erste": {
+    "name": "Omid Nouripour",
+    "rolle": "Vizepräsident"
+   },
+   "form": "Gemeinsamer Markt",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Gemeinsamer%20Markt"
    },
    "status": "ausgelassen"
   },
@@ -13440,6 +14290,22 @@
    },
    "status": "ausgelassen"
   },
+  "Gesellschaftszustand": {
+   "beleg": "Sie kreieren mit Ihrer Migrations- und Einbürgerungspolitik anarchische Gesellschaftszustände, die Sie dann als Rechtfertigung für tyrannische Überwachungsmaßnahmen nutzen.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Christopher Drößler"
+   },
+   "form": "Gesellschaftszustände",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Gesellschaftszustand"
+   },
+   "status": "wartet"
+  },
   "Gesetzgrundlage": {
    "erste": {
     "fraktion": "CDU/CSU",
@@ -13677,6 +14543,22 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Gewalttatbestand"
    },
    "status": "ausgelassen"
+  },
+  "Gewalttatverdächtiger": {
+   "beleg": "…stellen Nichtdeutsche inzwischen in 21 von 77 untersuchten Großstädten die Mehrheit der Gewalttatverdächtigen.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Christopher Drößler"
+   },
+   "form": "Gewalttatverdächtigen",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Gewalttatverd%C3%A4chtiger"
+   },
+   "status": "wartet"
   },
   "Gewerbeflächenbedarf": {
    "erste": {
@@ -14482,6 +15364,22 @@
    },
    "status": "ausgelassen"
   },
+  "Guadian": {
+   "beleg": "Deutschland leistet seit 2016 Beiträge zu Sea Guadian.",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Thomas Silberhorn"
+   },
+   "form": "Guadian",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Guadian"
+   },
+   "status": "wartet"
+  },
   "Gute-Geldwäsche-Gesetz": {
    "erste": null,
    "protokoll": {
@@ -14520,6 +15418,22 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/G%C3%B6kta%C5%9F"
    },
    "status": "ausgelassen"
+  },
+  "Günstlingsinstitut": {
+   "beleg": "…die wenigen verbleibenden Macher in Deutschland noch gängeln wollen und wie viele Ihrer Günstlingsinstitute noch aus dem Steuertopf bezahlt werden sollen.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Robin Jünger"
+   },
+   "form": "Günstlingsinstitute",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/G%C3%BCnstlingsinstitut"
+   },
+   "status": "wartet"
   },
   "Güsten": {
    "erste": null,
@@ -14680,6 +15594,23 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21101.pdf",
     "titel": "Protokoll der 101. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Halzen"
+   },
+   "status": "ausgelassen"
+  },
+  "Hamas-Eralp": {
+   "beleg": "Und das ist dann die Hamas-Eralp, oder was?",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Dr. Jan-Marco Luczak",
+    "zwischenruf": true
+   },
+   "form": "Hamas-Eralp",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Hamas-Eralp"
    },
    "status": "ausgelassen"
   },
@@ -15479,6 +16410,22 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Hochschulsatellit"
    },
    "status": "ausgelassen"
+  },
+  "Hochverratsvorwurf": {
+   "beleg": "…Keuter zwischen Prahlerei mit russischen ND-Kontakten – Kollege Throm hat es gesagt –, Hochverratsvorwürfen in Ihren eigenen Reihen und dann bizarren Dementi dokumentieren erneut, dass Sie beim…",
+   "erste": {
+    "fraktion": "Bündnis 90/Die Grünen",
+    "name": "Konstantin von Notz"
+   },
+   "form": "Hochverratsvorwürfen",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Hochverratsvorwurf"
+   },
+   "status": "wartet"
   },
   "Hoeres": {
    "erste": {
@@ -16478,6 +17425,22 @@
    },
    "status": "ausgelassen"
   },
+  "Injection": {
+   "beleg": "In der IT-Sicherheit nennen wir das eine Prompt Injection.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Robin Jünger"
+   },
+   "form": "Injection",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Injection"
+   },
+   "status": "wartet"
+  },
   "Injektor": {
    "erste": null,
    "protokoll": {
@@ -16500,6 +17463,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21096.pdf",
     "titel": "Protokoll der 96. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Inlandsgeheimdienstplan"
+   },
+   "status": "ausgelassen"
+  },
+  "Innere Sicherheit": {
+   "beleg": "…gleich abstimmen, ist nicht nur ein Meilenstein für unsere Sicherheitsbehörden und die innere Sicherheit unseres Landes, sie ist vor allem auch ein in sich schlüssiges Gesamtkonzept, liebe…",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Catarina dos Santos-Wintz"
+   },
+   "form": "Innere Sicherheit",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Innere%20Sicherheit"
    },
    "status": "ausgelassen"
   },
@@ -16667,6 +17646,22 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Interessensvertretungsrecht"
    },
    "status": "ausgelassen"
+  },
+  "Interimshandelsabkommen": {
+   "beleg": "…Gerichtshof um ein Gutachten zu bitten, ob die Aufspaltung dieses Vertragswerks in ein Interimshandelsabkommen und ein Partnerschaftsabkommen mit den europäischen Verträgen überhaupt vereinbar ist.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Torben Braga"
+   },
+   "form": "Interimshandelsabkommen",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Interimshandelsabkommen"
+   },
+   "status": "wartet"
   },
   "Internationalsozialist": {
    "erste": {
@@ -17644,6 +18639,22 @@
    },
    "status": "ausgelassen"
   },
+  "KI-Massenüberwachung": {
+   "beleg": "Sie bauen eine flächendeckende KI-Massenüberwachung auf.",
+   "erste": {
+    "fraktion": "Die Linke",
+    "name": "Clara Bünger"
+   },
+   "form": "KI-Massenüberwachung",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/KI-Massen%C3%BCberwachung"
+   },
+   "status": "ausgelassen"
+  },
   "KI-Ministerin": {
    "erste": {
     "fraktion": "AfD",
@@ -17669,6 +18680,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21097.pdf",
     "titel": "Protokoll der 97. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/KI-M%C3%BCll-Bot"
+   },
+   "status": "ausgelassen"
+  },
+  "KI-Partnerschaft": {
+   "beleg": "Gleichzeitig sind KI-Partnerschaften, wie jetzt mit Kanada, genau der richtige Schritt.",
+   "erste": {
+    "fraktion": "SPD",
+    "name": "Carolin Wagner"
+   },
+   "form": "KI-Partnerschaften",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/KI-Partnerschaft"
    },
    "status": "ausgelassen"
   },
@@ -17851,6 +18878,22 @@
    },
    "status": "ausgelassen"
   },
+  "KI-Trainingsdaten": {
+   "beleg": "Wir haben in Brüssel sehr für Erleichterungen beim Thema KI-Trainingsdaten gekämpft, gerade im Digital-Omnibus, um deutschen Unternehmen die gleichen Möglichkeiten zu geben wie…",
+   "erste": {
+    "name": "Thomas Jarzombek",
+    "rolle": "Parl. Staatssekretär beim Bundesminister für Digitales und Staatsmodernisierung"
+   },
+   "form": "KI-Trainingsdaten",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/KI-Trainingsdaten"
+   },
+   "status": "ausgelassen"
+  },
   "KI-Vorhaben": {
    "erste": {
     "fraktion": "AfD",
@@ -17943,6 +18986,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21102.pdf",
     "titel": "Protokoll der 102. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/KRITIS-Experte"
+   },
+   "status": "ausgelassen"
+  },
+  "KRITIS-Firma": {
+   "beleg": "…einer staatlichen Hackergruppe abschalten, die in Deutschland Daten zum Beispiel von KRITIS-Firmen abzieht, aber nur, liebe Kolleginnen und Kollegen, wenn eine schwere Gefahr aus dem…",
+   "erste": {
+    "name": "Nina Warken",
+    "rolle": "Bundesministerin für besondere Aufgaben"
+   },
+   "form": "KRITIS-Firmen",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/KRITIS-Firma"
    },
    "status": "ausgelassen"
   },
@@ -18048,6 +19107,22 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Kalifatanh%C3%A4nger"
    },
    "status": "ausgelassen"
+  },
+  "Kamerabrille": {
+   "beleg": "Ich möchte Ihnen aufzeigen, wie konkret hier die Risiken von KI schon heute sind: Kamerabrillen filmen unbemerkt, zum Beispiel im Freibad oder in der S-Bahn, und Meta nutzt diese Bild-…",
+   "erste": {
+    "fraktion": "SPD",
+    "name": "Carolin Wagner"
+   },
+   "form": "Kamerabrillen",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Kamerabrille"
+   },
+   "status": "wartet"
   },
   "Kameradschaftler": {
    "erste": {
@@ -18768,6 +19843,22 @@
    },
    "status": "ausgelassen"
   },
+  "Klapskallus": {
+   "beleg": "…Sprecher meiner SPD-Bundestagsfraktion zu Ihnen, sondern im Gegensatz zu einem Klapskalli von eben auch als stolzer hamburgischer Sozialdemokrat,",
+   "erste": {
+    "fraktion": "SPD",
+    "name": "Falko Droßmann"
+   },
+   "form": "Klapskalli",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Klapskallus"
+   },
+   "status": "ausgelassen"
+  },
   "Klarnamendiktat": {
    "erste": {
     "fraktion": "AfD",
@@ -18793,6 +19884,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21105.pdf",
     "titel": "Protokoll der 105. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Kleiderwahl"
+   },
+   "status": "ausgelassen"
+  },
+  "Kleine Anfrage": {
+   "beleg": "Laut Antwort der Bundesregierung auf unsere Kleine Anfrage stellen Nichtdeutsche inzwischen in 21 von 77 untersuchten Großstädten die Mehrheit der Gewalttatverdächtigen.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Christopher Drößler"
+   },
+   "form": "Kleine Anfrage",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Kleine%20Anfrage"
    },
    "status": "ausgelassen"
   },
@@ -19070,6 +20177,22 @@
    },
    "status": "ausgelassen"
   },
+  "Klimaklausel": {
+   "beleg": "…Bundesregierung im Vorblatt dieses Abkommens als Ziel ausgibt, sprechen wir bei dieser Klimaklausel also von einer faktischen Sollbruchstelle.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Torben Braga"
+   },
+   "form": "Klimaklausel",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Klimaklausel"
+   },
+   "status": "wartet"
+  },
   "Klimakonditionalität": {
    "erste": {
     "fraktion": "AfD",
@@ -19327,6 +20450,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21099.pdf",
     "titel": "Protokoll der 99. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Kloppo"
+   },
+   "status": "ausgelassen"
+  },
+  "Klos (Name)": {
+   "beleg": "Ich möchte dem Abteilungsleiter Herrn Klos und dem Referatsleiter Herrn Marschollek für die herausragende Arbeit danken.",
+   "erste": {
+    "name": "Alexander Dobrindt",
+    "rolle": "Bundesminister des Innern"
+   },
+   "form": "Klos (Name)",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Klos%20%28Name%29"
    },
    "status": "ausgelassen"
   },
@@ -20129,6 +21268,22 @@
    },
    "status": "ausgelassen"
   },
+  "Kritische Infrastruktur": {
+   "beleg": "Spionage, Sabotage, Cyberangriffe auf Unternehmen, Verwaltungen und kritische Infrastruktur sowie staatlich gesteuerte Desinformation sind Alltag.",
+   "erste": {
+    "fraktion": "SPD",
+    "name": "Carmen Wegge"
+   },
+   "form": "Kritische Infrastruktur",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Kritische%20Infrastruktur"
+   },
+   "status": "ausgelassen"
+  },
   "Kryptoinvestition": {
    "erste": null,
    "protokoll": {
@@ -20487,6 +21642,22 @@
    },
    "status": "ausgelassen"
   },
+  "Künstliche Intelligenz": {
+   "beleg": "Für künstliche Intelligenz gelten verbindliche Qualitäts- und Dokumentationspflichten.",
+   "erste": {
+    "name": "Nina Warken",
+    "rolle": "Bundesministerin für besondere Aufgaben"
+   },
+   "form": "Künstliche Intelligenz",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/K%C3%BCnstliche%20Intelligenz"
+   },
+   "status": "ausgelassen"
+  },
   "Kürzungseinzelplan": {
    "erste": {
     "fraktion": "SPD",
@@ -20712,6 +21883,22 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Lamborghini-Fahrer"
    },
    "status": "ausgelassen"
+  },
+  "Landesamtschef": {
+   "beleg": "…Nachfolger Haldenwang, der plötzlich auf CDU-Ticket in den Bundestag will, ein Thüringer Landesamtschef Kramer mit SPD-Parteibuch, dem sogar die erforderliche Eignung für das Amt abgeht, und…",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Alexander Wolf"
+   },
+   "form": "Landesamtschef",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Landesamtschef"
+   },
+   "status": "wartet"
   },
   "Landeslandwirtschaftsminister": {
    "erste": {
@@ -21104,6 +22291,22 @@
    },
    "status": "ausgelassen"
   },
+  "Lenhardt (Name)": {
+   "beleg": "…mehr leisten können – Europa hängt weit zurück bei künstlicher Intelligenz; die Kollegin Lenhardt hat an dieser Stelle ja durchaus recht, wenn sie sagt, jetzt ist gerade noch die Chance,…",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Marvin Schulz"
+   },
+   "form": "Lenhardt (Name)",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Lenhardt%20%28Name%29"
+   },
+   "status": "ausgelassen"
+  },
   "Lenkungsausgabe": {
    "erste": {
     "fraktion": "AfD",
@@ -21360,6 +22563,22 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Linksrassismus"
    },
    "status": "ausgelassen"
+  },
+  "Liquiditätsbeweis": {
+   "beleg": "Rote Fahnen als Liquiditätsbeweis für die Banken aus dem Fenster zu hängen, reicht nicht.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Otto Strauß"
+   },
+   "form": "Liquiditätsbeweis",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Liquidit%C3%A4tsbeweis"
+   },
+   "status": "wartet"
   },
   "Listenfrau": {
    "erste": {
@@ -21758,6 +22977,22 @@
    },
    "status": "ausgelassen"
   },
+  "Ländlicher Raum": {
+   "beleg": "Wir brauchen Maßnahmen, um den ländlichen Raum attraktiver zu machen und die Menschen in den ländlichen Raum zu bekommen.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Stephan Brandner"
+   },
+   "form": "Ländlicher Raum",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/L%C3%A4ndlicher%20Raum"
+   },
+   "status": "ausgelassen"
+  },
   "Löschweg": {
    "erste": {
     "name": "Martina Englhardt-Kopf",
@@ -21822,6 +23057,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21097.pdf",
     "titel": "Protokoll der 97. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/L%C3%BCgenkram"
+   },
+   "status": "ausgelassen"
+  },
+  "MI6-Chefin": {
+   "beleg": "Diese Feststellung traf MI6-Chefin M 2012 im James-Bond-Film „Skyfall“ bei einer Anhörung.",
+   "erste": {
+    "fraktion": "SPD",
+    "name": "Daniel Baldy"
+   },
+   "form": "MI6-Chefin",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/MI6-Chefin"
    },
    "status": "ausgelassen"
   },
@@ -22046,6 +23297,22 @@
    },
    "status": "ausgelassen"
   },
+  "Mandatsunklarheit": {
+   "beleg": "…wieder betonen, ist die Mandatsklarheit; vielleicht muss man hier sogar eher sagen: die Mandatsunklarheit.",
+   "erste": {
+    "fraktion": "Bündnis 90/Die Grünen",
+    "name": "Luise Amtsberg"
+   },
+   "form": "Mandatsunklarheit",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Mandatsunklarheit"
+   },
+   "status": "wartet"
+  },
   "Manipulationsprogramm": {
    "erste": {
     "name": "Michael Schrodi",
@@ -22204,6 +23471,38 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Marple"
    },
    "status": "ausgelassen"
+  },
+  "Marschollek (Name)": {
+   "beleg": "Ich möchte dem Abteilungsleiter Herrn Klos und dem Referatsleiter Herrn Marschollek für die herausragende Arbeit danken.",
+   "erste": {
+    "name": "Alexander Dobrindt",
+    "rolle": "Bundesminister des Innern"
+   },
+   "form": "Marschollek (Name)",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Marschollek%20%28Name%29"
+   },
+   "status": "ausgelassen"
+  },
+  "Maschinengeschwindigkeit": {
+   "beleg": "Das heißt, die Angreifenden arbeiten mit Maschinengeschwindigkeit, und unsere Abwehr ist noch viel zu oft im Behördentempo.",
+   "erste": {
+    "fraktion": "Bündnis 90/Die Grünen",
+    "name": "Rebecca Lenhard"
+   },
+   "form": "Maschinengeschwindigkeit",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Maschinengeschwindigkeit"
+   },
+   "status": "wartet"
   },
   "Maschinenintelligenz": {
    "erste": {
@@ -22599,6 +23898,22 @@
    },
    "status": "ausgelassen"
   },
+  "Mensch-Maschine-Kommunikation": {
+   "beleg": "Wir haben Klarstellungen für Mensch-Maschine-Kommunikation im digitalen Raum geschaffen.",
+   "erste": {
+    "fraktion": "SPD",
+    "name": "Daniel Baldy"
+   },
+   "form": "Mensch-Maschine-Kommunikation",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Mensch-Maschine-Kommunikation"
+   },
+   "status": "ausgelassen"
+  },
   "Menschrechtsverteidiger": {
    "erste": {
     "fraktion": "BÜNDNIS 90/DIE GRÜNEN",
@@ -22638,6 +23953,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21100.pdf",
     "titel": "Protokoll der 100. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Mercedes-Kollege"
+   },
+   "status": "ausgelassen"
+  },
+  "Mercosur-Partnerschaftsabkommen": {
+   "beleg": "Die Verhandlungen des Mercosur-Partnerschaftsabkommens zwischen der EU und den vier Staaten des Mercosur haben mehr als 25 Jahre gedauert.",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Peter Beyer"
+   },
+   "form": "Mercosur-Partnerschaftsabkommens",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Mercosur-Partnerschaftsabkommen"
    },
    "status": "ausgelassen"
   },
@@ -22778,6 +24109,22 @@
    },
    "status": "ausgelassen"
   },
+  "Mietaufkommen": {
+   "beleg": "Weil die Kosten ständig stiegen, deckte das Mietaufkommen am Ende nur noch 25 Prozent der Ausgaben, und 75 Prozent wurden staatlich bezuschusst.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Stephan Brandner"
+   },
+   "form": "Mietaufkommen",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Mietaufkommen"
+   },
+   "status": "wartet"
+  },
   "Mietfrust": {
    "erste": {
     "fraktion": "AfD",
@@ -22791,6 +24138,54 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Mietfrust"
    },
    "status": "ausgelassen"
+  },
+  "Mietkommissar": {
+   "beleg": "Deutschland braucht Investoren, keine staatlichen Mietkommissare.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Otto Strauß"
+   },
+   "form": "Mietkommissare",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Mietkommissar"
+   },
+   "status": "ausgelassen"
+  },
+  "Mietkommission": {
+   "beleg": "Dann können Sie auch gleich eine staatliche Mietkommission einsetzen, die die Mieten festlegt.",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Johannes Rothenberger"
+   },
+   "form": "Mietkommission",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Mietkommission"
+   },
+   "status": "ausgelassen"
+  },
+  "Mietkrise": {
+   "beleg": "Die Mietkrise kann man lösen durch „Bauen, bauen, bauen“.",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Johannes Rothenberger"
+   },
+   "form": "Mietkrise",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Mietkrise"
+   },
+   "status": "wartet"
   },
   "Mietmafia": {
    "erste": {
@@ -22820,6 +24215,22 @@
    },
    "status": "ausgelassen"
   },
+  "Mietpreisaufsicht": {
+   "beleg": "Es soll eine Mietpreisaufsicht eingerichtet werden, die es bisher nicht gibt.",
+   "erste": {
+    "fraktion": "Die Linke",
+    "name": "Caren Lay"
+   },
+   "form": "Mietpreisaufsicht",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Mietpreisaufsicht"
+   },
+   "status": "wartet"
+  },
   "Mietwohnmarkt": {
    "erste": {
     "name": "Sören Bartol",
@@ -22831,6 +24242,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21107.pdf",
     "titel": "Protokoll der 107. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Mietwohnmarkt"
+   },
+   "status": "ausgelassen"
+  },
+  "Mietwucher-Polizei": {
+   "beleg": "Hier werden wir überteuerte Mieten mit der Mietwucher-Polizei senken.",
+   "erste": {
+    "fraktion": "Die Linke",
+    "name": "Luigi Pantisano"
+   },
+   "form": "Mietwucher-Polizei",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Mietwucher-Polizei"
    },
    "status": "ausgelassen"
   },
@@ -23328,6 +24755,22 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Mitarbeiterschl%C3%BCssel"
    },
    "status": "ausgelassen"
+  },
+  "Miteinbürgerung": {
+   "beleg": "…von zehn Einbürgerungen laufen über die ganz normale Fünfjahresfrist und natürlich die Miteinbürgerung der Familien.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Arne Raue"
+   },
+   "form": "Miteinbürgerung",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Miteinb%C3%BCrgerung"
+   },
+   "status": "wartet"
   },
   "Mitkomplize": {
    "erste": null,
@@ -24008,6 +25451,38 @@
    },
    "status": "ausgelassen"
   },
+  "ND-Kontakt": {
+   "beleg": "…und das vollkommene Irrlichtern des Kollegen Keuter zwischen Prahlerei mit russischen ND-Kontakten – Kollege Throm hat es gesagt –, Hochverratsvorwürfen in Ihren eigenen Reihen und dann…",
+   "erste": {
+    "fraktion": "Bündnis 90/Die Grünen",
+    "name": "Konstantin von Notz"
+   },
+   "form": "ND-Kontakten",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/ND-Kontakt"
+   },
+   "status": "ausgelassen"
+  },
+  "ND-Novelle": {
+   "beleg": "Und zu guter Letzt: Ja, diese ND-Novelle ist gut; sie ist richtig.",
+   "erste": {
+    "fraktion": "SPD",
+    "name": "Daniel Baldy"
+   },
+   "form": "ND-Novelle",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/ND-Novelle"
+   },
+   "status": "ausgelassen"
+  },
   "NGG-Befragung": {
    "erste": null,
    "protokoll": {
@@ -24058,6 +25533,38 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21099.pdf",
     "titel": "Protokoll der 99. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/NIPT-Technologie"
+   },
+   "status": "ausgelassen"
+  },
+  "NIS-2-Richtlinie": {
+   "beleg": "Wir haben den AI Act und den Cyber Resilience Act, wir bekommen die NIS-2-Richtlinie und weitere sektorspezifische Sicherheitsvorschriften.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Robin Jünger"
+   },
+   "form": "NIS-2-Richtlinie",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/NIS-2-Richtlinie"
+   },
+   "status": "ausgelassen"
+  },
+  "NIS-2-Stelle": {
+   "beleg": "Das ist der Nettozuwachs aus BSI, BMI, BMDS und BfDI inklusive 189 neuer NIS-2-Stellen beim ITZ Bund.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Robin Jünger"
+   },
+   "form": "NIS-2-Stellen",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/NIS-2-Stelle"
    },
    "status": "ausgelassen"
   },
@@ -24139,6 +25646,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21105.pdf",
     "titel": "Protokoll der 105. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/NSU-Hauptt%C3%A4ter"
+   },
+   "status": "ausgelassen"
+  },
+  "NSU-Komplexe": {
+   "beleg": "Wir haben unsere Schlüsse aus den NSU-Komplexen gezogen.",
+   "erste": {
+    "fraktion": "Die Linke",
+    "name": "Clara Bünger"
+   },
+   "form": "NSU-Komplexen",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/NSU-Komplexe"
    },
    "status": "ausgelassen"
   },
@@ -24368,6 +25891,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21098.pdf",
     "titel": "Protokoll der 98. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Nahal"
+   },
+   "status": "ausgelassen"
+  },
+  "Naher Osten": {
+   "beleg": "Am Mittelmeer liegen allerdings auch Krisenregionen – in Nordafrika und im Nahen Osten.",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Thomas Silberhorn"
+   },
+   "form": "Naher Osten",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Naher%20Osten"
    },
    "status": "ausgelassen"
   },
@@ -24627,6 +26166,22 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Netz%C3%BCbertragungskosten"
    },
    "status": "ausgelassen"
+  },
+  "Neubauregelung": {
+   "beleg": "…die fünfte „Ausnahmen bei Modernisierung und Vormiete abschaffen“ und die sechste „Die Neubauregelung endlich dynamisieren“.",
+   "erste": {
+    "fraktion": "Bündnis 90/Die Grünen",
+    "name": "Hanna Steinmüller"
+   },
+   "form": "Neubauregelung",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Neubauregelung"
+   },
+   "status": "wartet"
   },
   "Neubaustart": {
    "erste": {
@@ -24946,6 +26501,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21107.pdf",
     "titel": "Protokoll der 107. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Nordrhein-Westfalen-Flagge"
+   },
+   "status": "ausgelassen"
+  },
+  "Not-Aus-Schalter": {
+   "beleg": "Aber ein sogenannter Not-Aus-Schalter allein löst doch das Problem nicht.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Robin Jünger"
+   },
+   "form": "Not-Aus-Schalter",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Not-Aus-Schalter"
    },
    "status": "ausgelassen"
   },
@@ -25698,6 +27269,22 @@
    },
    "status": "ausgelassen"
   },
+  "Organisierte Kriminalität": {
+   "beleg": "…bei den Linksextremisten, bei Hamas und anderen Terrororganisationen, aber auch bei der Organisierten Kriminalität; denn wir werden in Zukunft genauer hinschauen, wie sich die Organisierte Kriminalität…",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Alexander Throm"
+   },
+   "form": "Organisierte Kriminalität",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Organisierte%20Kriminalit%C3%A4t"
+   },
+   "status": "ausgelassen"
+  },
   "Organlager": {
    "erste": {
     "fraktion": "AfD",
@@ -25737,6 +27324,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21105.pdf",
     "titel": "Protokoll der 105. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Oxygenstahlwerk"
+   },
+   "status": "ausgelassen"
+  },
+  "P-8A": {
+   "beleg": "Von dort fliegen auch die P-8A.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Kurt Kleinschmidt"
+   },
+   "form": "P-8A",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/P-8A"
    },
    "status": "ausgelassen"
   },
@@ -26439,6 +28042,23 @@
    },
    "status": "ausgelassen"
   },
+  "Parmesano (Name)": {
+   "beleg": "Herr Parmesano, das war Käse!",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Stephan Brandner",
+    "zwischenruf": true
+   },
+   "form": "Parmesano (Name)",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Parmesano%20%28Name%29"
+   },
+   "status": "ausgelassen"
+  },
   "Parteiendialog": {
    "erste": {
     "fraktion": "CDU/CSU",
@@ -26760,6 +28380,22 @@
    },
    "status": "ausgelassen"
   },
+  "Petrobras": {
+   "beleg": "Die Regierung Lula hat dem brasilianischen Staatskonzern Petrobras im vergangenen Jahr erlaubt vor der Amazonasmündung nach Öl zu bohren.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Torben Braga"
+   },
+   "form": "Petrobras",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Petrobras"
+   },
+   "status": "wartet"
+  },
   "Pflanzenverfügbarkeit": {
    "erste": {
     "name": "Silvia Breher",
@@ -26896,6 +28532,22 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Pflegestrukturreformkommission"
    },
    "status": "ausgelassen"
+  },
+  "Phantomwohnung": {
+   "beleg": "und in einer Phantomwohnung, meine Damen und Herren, lässt es sich auch nicht wohnen.",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Michael Kießling"
+   },
+   "form": "Phantomwohnung",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Phantomwohnung"
+   },
+   "status": "wartet"
   },
   "Pharmalobbypolitiker": {
    "erste": {
@@ -28415,6 +30067,22 @@
    },
    "status": "ausgelassen"
   },
+  "Ray-Ban": {
+   "beleg": "Es geht um Smart Glasses von Meta und Ray-Ban.",
+   "erste": {
+    "fraktion": "SPD",
+    "name": "Carolin Wagner"
+   },
+   "form": "Ray-Ban",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Ray-Ban"
+   },
+   "status": "ausgelassen"
+  },
   "Re-Remigration": {
    "erste": null,
    "protokoll": {
@@ -28949,6 +30617,22 @@
    },
    "status": "ausgelassen"
   },
+  "Reichsparteitagsrede": {
+   "beleg": "Zurück von Reichsparteitagsreden und Braune-Suppen-Reden zur Mittagszeit",
+   "erste": {
+    "fraktion": "SPD",
+    "name": "Angelika Glöckner"
+   },
+   "form": "Reichsparteitagsreden",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Reichsparteitagsrede"
+   },
+   "status": "wartet"
+  },
   "Reichstagscafeteria": {
    "erste": {
     "fraktion": "BÜNDNIS 90/DIE GRÜNEN",
@@ -29251,6 +30935,22 @@
    },
    "status": "ausgelassen"
   },
+  "Resilienzpaket": {
+   "beleg": "Was wir jetzt brauchen, ist ein umfassendes Resilienzpaket, das unsere Unternehmen, die Behörden, aber auch die gesamte Bevölkerung auf die Herausforderungen des KI-Zeitalters…",
+   "erste": {
+    "fraktion": "Bündnis 90/Die Grünen",
+    "name": "Rebecca Lenhard"
+   },
+   "form": "Resilienzpaket",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Resilienzpaket"
+   },
+   "status": "wartet"
+  },
   "Resilienzportfolio": {
    "erste": {
     "fraktion": "Die Linke",
@@ -29519,6 +31219,22 @@
    },
    "status": "ausgelassen"
   },
+  "Riesenmachtasymmetrie": {
+   "beleg": "Es gibt auf diesem Markt eine Riesenmachtasymmetrie.",
+   "erste": {
+    "fraktion": "SPD",
+    "name": "Hakan Demir"
+   },
+   "form": "Riesenmachtasymmetrie",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Riesenmachtasymmetrie"
+   },
+   "status": "wartet"
+  },
   "Riesenprivileg": {
    "erste": {
     "fraktion": "BÜNDNIS 90/DIE GRÜNEN",
@@ -29574,6 +31290,22 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Riesenwandel"
    },
    "status": "ausgelassen"
+  },
+  "Rinderzuchtclan": {
+   "beleg": "…mal die indigenen Gemeinschaften im Amazonas, was „mehr Wohlstand“ heißt, wenn sie von Rinderzuchtclans und der Bergbaumafia niedergemacht werden, damit wir hier schön billige Steaks auf den…",
+   "erste": {
+    "fraktion": "Die Linke",
+    "name": "Charlotte Antonia Neuhäuser"
+   },
+   "form": "Rinderzuchtclans",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Rinderzuchtclan"
+   },
+   "status": "wartet"
   },
   "Risikomanager": {
    "erste": {
@@ -29793,6 +31525,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21104.pdf",
     "titel": "Protokoll der 104. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Rot-Rot-Gr%C3%BCn-Bewegung"
+   },
+   "status": "ausgelassen"
+  },
+  "Rote Linie": {
+   "beleg": "Es ist eine ganz klare rote Linie, die die Tech-Bros an der Stelle überschreiten: Sie spielen russisches Roulette mit unserer Sicherheit und verdienen gleichzeitig damit…",
+   "erste": {
+    "fraktion": "Bündnis 90/Die Grünen",
+    "name": "Rebecca Lenhard"
+   },
+   "form": "Rote Linie",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Rote%20Linie"
    },
    "status": "ausgelassen"
   },
@@ -30195,6 +31943,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21096.pdf",
     "titel": "Protokoll der 96. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/SMS-Chat"
+   },
+   "status": "ausgelassen"
+  },
+  "SPD-Dienstherrin": {
+   "beleg": "…mit SPD-Parteibuch, dem sogar die erforderliche Eignung für das Amt abgeht, und eine SPD-Dienstherrin Faeser, die die VS-interne Arbeitsgruppe „Islamismus“ auflöst und stattdessen damit…",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Alexander Wolf"
+   },
+   "form": "SPD-Dienstherrin",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/SPD-Dienstherrin"
    },
    "status": "ausgelassen"
   },
@@ -31395,6 +33159,22 @@
    },
    "status": "ausgelassen"
   },
+  "Schülerredaktion": {
+   "beleg": "Er unterstützt ehrenamtlich junge Talente in Schülerredaktionen.",
+   "erste": {
+    "fraktion": "SPD",
+    "name": "Hakan Demir"
+   },
+   "form": "Schülerredaktionen",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Sch%C3%BClerredaktion"
+   },
+   "status": "wartet"
+  },
   "Screeningpflicht": {
    "erste": null,
    "protokoll": {
@@ -31403,6 +33183,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21101.pdf",
     "titel": "Protokoll der 101. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Screeningpflicht"
+   },
+   "status": "ausgelassen"
+  },
+  "Sea-Guardian-Schiff": {
+   "beleg": "Statt anzuhalten, richteten die Türken ihren Feuerleitradar auf das Sea-Guardian-Schiff.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Alexander Wolf"
+   },
+   "form": "Sea-Guardian-Schiff",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Sea-Guardian-Schiff"
    },
    "status": "ausgelassen"
   },
@@ -31749,6 +33545,22 @@
    },
    "status": "ausgelassen"
   },
+  "Sichere Herkunftsstaaten": {
+   "beleg": "…vielfältige Maßnahmen beigetragen: Grenzkontrollen an der deutschen Außengrenze, mehr sichere Herkunftsstaaten, konsequente Zurückweisungen an der deutschen Außengrenze.",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Stephan Mayer"
+   },
+   "form": "Sichere Herkunftsstaaten",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Sichere%20Herkunftsstaaten"
+   },
+   "status": "ausgelassen"
+  },
   "Sicherheitsaufklärung": {
    "erste": {
     "fraktion": "CDU/CSU",
@@ -31871,6 +33683,22 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Siedlungsprodukt"
    },
    "status": "ausgelassen"
+  },
+  "Siegi": {
+   "beleg": "Ich will Sebastian Fiedler und Sonja Eichwede, Alexander Throm, Günter Krings und Siegi Walch danken.",
+   "erste": {
+    "name": "Alexander Dobrindt",
+    "rolle": "Bundesminister des Innern"
+   },
+   "form": "Siegi",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Siegi"
+   },
+   "status": "wartet"
   },
   "Siegtor": {
    "erste": {
@@ -32314,6 +34142,38 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21099.pdf",
     "titel": "Protokoll der 99. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Sozialabbau-Bundeskanzler"
+   },
+   "status": "ausgelassen"
+  },
+  "Soziale Marktwirtschaft": {
+   "beleg": "Sozialismus ist für mich die Verwaltung des Mangels, und soziale Marktwirtschaft ist für mich die Beseitigung des Mangels.",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Christian Moser"
+   },
+   "form": "Soziale Marktwirtschaft",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Soziale%20Marktwirtschaft"
+   },
+   "status": "ausgelassen"
+  },
+  "Sozialer Wohnungsbau": {
+   "beleg": "…naht – die letzten sechs Türchen für eine wirklich soziale Wohnungspolitik: mehr sozialer Wohnungsbau, neue Investitionszuschüsse für die Stärkung der Wohngemeinnützigkeit – das steht auch…",
+   "erste": {
+    "fraktion": "Bündnis 90/Die Grünen",
+    "name": "Hanna Steinmüller"
+   },
+   "form": "Sozialer Wohnungsbau",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Sozialer%20Wohnungsbau"
    },
    "status": "ausgelassen"
   },
@@ -32932,6 +34792,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21099.pdf",
     "titel": "Protokoll der 99. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Stammapotheke"
+   },
+   "status": "ausgelassen"
+  },
+  "Standarderzählung": {
+   "beleg": "Dadurch hat es extreme Aufmerksamkeit bekommen, und seitdem ist das eine Standarderzählung der KI-Branche.",
+   "erste": {
+    "fraktion": "Die Linke",
+    "name": "Sonja Lemke"
+   },
+   "form": "Standarderzählung",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Standarderz%C3%A4hlung"
    },
    "status": "ausgelassen"
   },
@@ -33583,6 +35459,22 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Studierendenwohnheimplatz"
    },
    "status": "ausgelassen"
+  },
+  "Stufenlogik": {
+   "beleg": "Wir schaffen eine Stufenlogik, die im Gesetz normenklar verankert ist.",
+   "erste": {
+    "name": "Nina Warken",
+    "rolle": "Bundesministerin für besondere Aufgaben"
+   },
+   "form": "Stufenlogik",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Stufenlogik"
+   },
+   "status": "wartet"
   },
   "Störgeschehen": {
    "erste": null,
@@ -35105,6 +36997,22 @@
    },
    "status": "ausgelassen"
   },
+  "Trapani": {
+   "beleg": "Die AWACS der NATO haben vorgeschobene Basen in Trapani, Aktion und Konya.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Kurt Kleinschmidt"
+   },
+   "form": "Trapani",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Trapani"
+   },
+   "status": "wartet"
+  },
   "Trassenprüfung": {
    "erste": null,
    "protokoll": {
@@ -35887,6 +37795,22 @@
    },
    "status": "ausgelassen"
   },
+  "Umvolkungsfantasie": {
+   "beleg": "Und dann unterfüttern Sie Ihre kruden Umvolkungsfantasien – wir konnten es gerade hören – mit Statistiken, die Ihre Behauptungen aber überhaupt nicht belegen.",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Cornell-Anette Babendererde"
+   },
+   "form": "Umvolkungsfantasien",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Umvolkungsfantasie"
+   },
+   "status": "wartet"
+  },
   "Umwelt-EZ": {
    "erste": {
     "fraktion": "CDU/CSU",
@@ -36340,6 +38264,22 @@
    },
    "status": "ausgelassen"
   },
+  "Urdeutsche": {
+   "beleg": "…Sie schwadronieren in Ihrem Antrag von „autochthonen Deutschen“ – in Ihren Augen die Urdeutschen, die Biodeutschen ohne Migrationshintergrund –, die seit mehreren Generationen ihre…",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Cornell-Anette Babendererde"
+   },
+   "form": "Urdeutschen",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Urdeutsche"
+   },
+   "status": "wartet"
+  },
   "Urlaubsstrand": {
    "erste": {
     "fraktion": "AfD",
@@ -36362,6 +38302,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21104.pdf",
     "titel": "Protokoll der 104. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Ursprungsbeitrag"
+   },
+   "status": "ausgelassen"
+  },
+  "V-Mann-Tätigkeit": {
+   "beleg": "und dass über diese V-Mann-Tätigkeiten Hunderttausende Euro in die rechte Szene geflossen sind.",
+   "erste": {
+    "fraktion": "Die Linke",
+    "name": "Janine Wissler"
+   },
+   "form": "V-Mann-Tätigkeiten",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/V-Mann-T%C3%A4tigkeit"
    },
    "status": "ausgelassen"
   },
@@ -36404,6 +38360,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21102.pdf",
     "titel": "Protokoll der 102. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/VITREA"
+   },
+   "status": "ausgelassen"
+  },
+  "VS-intern": {
+   "beleg": "…die erforderliche Eignung für das Amt abgeht, und eine SPD-Dienstherrin Faeser, die die VS-interne Arbeitsgruppe „Islamismus“ auflöst und stattdessen damit liebäugelt, die größte…",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Alexander Wolf"
+   },
+   "form": "VS-interne",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/VS-intern"
    },
    "status": "ausgelassen"
   },
@@ -36638,6 +38610,38 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21095.pdf",
     "titel": "Protokoll der 95. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Verd%C3%BCnnungsefffekte"
+   },
+   "status": "ausgelassen"
+  },
+  "Veredler": {
+   "beleg": "Ich bin mit vielen Lebensmittelhändlern, mit vielen Veredlern von landwirtschaftlichen Produkten im Gespräch.",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Hans Koller"
+   },
+   "form": "Veredlern",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Veredler"
+   },
+   "status": "wartet"
+  },
+  "Vereinte Nationen": {
+   "beleg": "Ihr Antrag fordert, dass KI-Systeme unter die Regulation der Vereinten Nationen gestellt werden.",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Marvin Schulz"
+   },
+   "form": "Vereinte Nationen",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Vereinte%20Nationen"
    },
    "status": "ausgelassen"
   },
@@ -36933,6 +38937,22 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Verm%C3%B6genswachstum"
    },
    "status": "ausgelassen"
+  },
+  "Versagenskomponente": {
+   "beleg": "Zum einen ist es so, dass die vielen Fehler und Versagenskomponenten der deutschen Sicherheitsbehörden beim NSU, auf die Sie berechtigterweise hinweisen, in den letzten Jahren…",
+   "erste": {
+    "fraktion": "SPD",
+    "name": "Sebastian Fiedler"
+   },
+   "form": "Versagenskomponenten",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Versagenskomponente"
+   },
+   "status": "wartet"
   },
   "Verschaltung": {
    "erste": {
@@ -37275,6 +39295,22 @@
    },
    "status": "ausgelassen"
   },
+  "Videoüberwachungseinrichtung": {
+   "beleg": "…zukünftig das heimliche Eindringen in Wohnungen, den Zugriff auf öffentliche und private Videoüberwachungseinrichtungen auch in Echtzeit sowie das Anwerben Minderjähriger als V-Leute.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Jochen Haug"
+   },
+   "form": "Videoüberwachungseinrichtungen",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Video%C3%BCberwachungseinrichtung"
+   },
+   "status": "wartet"
+  },
   "Vielfaltsanforderung": {
    "erste": {
     "fraktion": "AfD",
@@ -37423,6 +39459,22 @@
    },
    "status": "ausgelassen"
   },
+  "Vollschaden": {
+   "beleg": "Deswegen sind Sie beide gleichermaßen ein Vollschaden für die Demokratie in Deutschland, meine Damen und Herren.",
+   "erste": {
+    "fraktion": "CDU/CSU",
+    "name": "Marc Henrichmann"
+   },
+   "form": "Vollschaden",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Vollschaden"
+   },
+   "status": "wartet"
+  },
   "Vollzugsrechte": {
    "erste": {
     "fraktion": "SPD",
@@ -37479,6 +39531,22 @@
    },
    "status": "ausgelassen"
   },
+  "Vorausstationierung": {
+   "beleg": "…Sie mir eine Bemerkung: Wie wichtig klare Aufträge sind, haben wir zuletzt bei der Vorausstationierung der Marineeinheiten „Fulda“ und „Mosel“ für einen möglichen Einsatz an der Straße von…",
+   "erste": {
+    "fraktion": "Bündnis 90/Die Grünen",
+    "name": "Luise Amtsberg"
+   },
+   "form": "Vorausstationierung",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Vorausstationierung"
+   },
+   "status": "wartet"
+  },
   "Vorbeifahrgeräusch": {
    "erste": null,
    "protokoll": {
@@ -37517,6 +39585,22 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Vorfeldstruktur"
    },
    "status": "ausgelassen"
+  },
+  "Vorfeldwissen": {
+   "beleg": "Je mehr Vorfeldwissen und Eingriffsbefugnisse organisatorisch zusammengelegt werden, desto mehr geht von diesem Schutz verloren.",
+   "erste": {
+    "fraktion": "SPD",
+    "name": "Sanae Abdi"
+   },
+   "form": "Vorfeldwissen",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Vorfeldwissen"
+   },
+   "status": "wartet"
   },
   "Vorgriffsfall": {
    "erste": null,
@@ -37746,6 +39830,22 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Wachstumsfinanzierungsrunde"
    },
    "status": "ausgelassen"
+  },
+  "Wadud": {
+   "beleg": "Es gibt weitere Geschichten, zum Beispiel von Wadud aus Afghanistan, den ich in Berlin kennenlernen durfte.",
+   "erste": {
+    "fraktion": "SPD",
+    "name": "Hakan Demir"
+   },
+   "form": "Wadud",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Wadud"
+   },
+   "status": "wartet"
   },
   "Waffenfetischist": {
    "erste": {
@@ -38266,6 +40366,22 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Werbebotschafter"
    },
    "status": "ausgelassen"
+  },
+  "Werbeerzählung": {
+   "beleg": "Und da gehen Sie den Werbeerzählungen auf den Leim; denn KI-Firmen profitieren davon, ihre Systeme als gefährlich dastehen zu lassen.",
+   "erste": {
+    "fraktion": "Die Linke",
+    "name": "Sonja Lemke"
+   },
+   "form": "Werbeerzählungen",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Werbeerz%C3%A4hlung"
+   },
+   "status": "wartet"
   },
   "Werkpolier": {
    "erste": {
@@ -39055,6 +41171,22 @@
    },
    "status": "ausgelassen"
   },
+  "Yoshua (Name)": {
+   "beleg": "…von Kanada einen Sitz hat, von dem weltweit am meisten zitierten Forscher Professor Yoshua Bengio.",
+   "erste": {
+    "name": "Thomas Jarzombek",
+    "rolle": "Parl. Staatssekretär beim Bundesminister für Digitales und Staatsmodernisierung"
+   },
+   "form": "Yoshua (Name)",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Yoshua%20%28Name%29"
+   },
+   "status": "ausgelassen"
+  },
   "Yüksekdağ": {
    "erste": {
     "fraktion": "Die Linke",
@@ -39745,6 +41877,22 @@
    },
    "status": "ausgelassen"
   },
+  "Zweifachverglasung": {
+   "beleg": "Früher, in den 80er-Jahren, konnte man mit Ziegelmauerwerk und Zweifachverglasung solide Häuser entrichten.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Otto Strauß"
+   },
+   "form": "Zweifachverglasung",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Zweifachverglasung"
+   },
+   "status": "wartet"
+  },
   "Zweiklassengesundheitssystem": {
    "erste": {
     "fraktion": "Die Linke",
@@ -39770,6 +41918,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21097.pdf",
     "titel": "Protokoll der 97. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Zweiklassenthematik"
+   },
+   "status": "ausgelassen"
+  },
+  "Zweiter Weltkrieg": {
+   "beleg": "Wie auch immer, nach dem Zweiten Weltkrieg wurde es nicht besser.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Stephan Brandner"
+   },
+   "form": "Zweiter Weltkrieg",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/Zweiter%20Weltkrieg"
    },
    "status": "ausgelassen"
   },
@@ -41320,6 +43484,22 @@
    },
    "status": "ausgelassen"
   },
+  "hinterherbaut": {
+   "beleg": "Und was hilft es, wenn immer mehr bezahlbarer Wohnraum verloren geht und man immer weiter hinterherbaut?",
+   "erste": {
+    "fraktion": "Die Linke",
+    "name": "Janine Wissler"
+   },
+   "form": "hinterherbaut",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/hinterherbaut"
+   },
+   "status": "wartet"
+  },
   "hinwegschweben": {
    "erste": {
     "fraktion": "AfD",
@@ -42206,6 +44386,22 @@
    },
    "status": "ausgelassen"
   },
+  "nachamtlich": {
+   "beleg": "Lassen Sie uns die Regeln für nachamtliche Tätigkeiten von höchsten Geheimnisträgern endlich verschärfen, auch um nach dem Fall Hanning das Vertrauen bei unseren Partnerdiensten…",
+   "erste": {
+    "fraktion": "Bündnis 90/Die Grünen",
+    "name": "Konstantin von Notz"
+   },
+   "form": "nachamtliche",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/nachamtlich"
+   },
+   "status": "wartet"
+  },
   "nicht-anthropogen": {
    "erste": {
     "fraktion": "SPD",
@@ -42233,6 +44429,22 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/nicht-beitragszahlend"
    },
    "status": "ausgelassen"
+  },
+  "nichtanspannen": {
+   "beleg": "…gab, und je nachdem eine Mietpreisbindung festlegte, und dass nur da, wo es einen nichtangespannten Wohnungsmarkt gab, die Mietpreisbindung aufgehoben wurde und damit die…",
+   "erste": {
+    "fraktion": "Die Linke",
+    "name": "Katalin Gennburg"
+   },
+   "form": "nichtangespannten",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/nichtanspannen"
+   },
+   "status": "wartet"
   },
   "nichtdiagnostiziert": {
    "erste": {
@@ -42620,6 +44832,22 @@
    },
    "status": "ausgelassen"
   },
+  "rotsozialistisch": {
+   "beleg": "Der übliche rotsozialistische Firlefanz am Freitagmittag: Mietpreisbremse, Mietendeckel, Mietenstopp und Co.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Stephan Brandner"
+   },
+   "form": "rotsozialistische",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/rotsozialistisch"
+   },
+   "status": "wartet"
+  },
   "rumdiskutieren": {
    "erste": {
     "name": "Andrea Lindholz",
@@ -42913,6 +45141,22 @@
    },
    "status": "ausgelassen"
   },
+  "shady": {
+   "beleg": "Wir lehnen so eine shady Vorgehensweise ab.",
+   "erste": {
+    "fraktion": "Die Linke",
+    "name": "Charlotte Antonia Neuhäuser"
+   },
+   "form": "shady",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/shady"
+   },
+   "status": "wartet"
+  },
   "siegesbesoffen": {
    "erste": {
     "fraktion": "BÜNDNIS 90/DIE GRÜNEN",
@@ -43148,6 +45392,22 @@
    },
    "status": "ausgelassen"
   },
+  "supermächtigen": {
+   "beleg": "Künstliche Intelligenz ist supermächtig und kann sehr, sehr viel Gutes bewirken.",
+   "erste": {
+    "fraktion": "Bündnis 90/Die Grünen",
+    "name": "Rebecca Lenhard"
+   },
+   "form": "supermächtig",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/superm%C3%A4chtigen"
+   },
+   "status": "wartet"
+  },
   "superwertvoll": {
    "erste": {
     "fraktion": "BÜNDNIS 90/DIE GRÜNEN",
@@ -43354,6 +45614,22 @@
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/unbeordert"
    },
    "status": "ausgelassen"
+  },
+  "unregulierteste": {
+   "beleg": "KI ist die unregulierteste Hochrisikotechnologie dieser Welt.",
+   "erste": {
+    "fraktion": "Bündnis 90/Die Grünen",
+    "name": "Rebecca Lenhard"
+   },
+   "form": "unregulierteste",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/unregulierteste"
+   },
+   "status": "wartet"
   },
   "unterausgeprägt": {
    "erste": {
@@ -44104,6 +46380,22 @@
    },
    "status": "ausgelassen"
   },
+  "Ägäis-Aktivität": {
+   "beleg": "Die Ägäis-Aktivität, in der unsere Schiffe bisher nebenbei für Sea Guardian fuhren, ist – meine Marinekameraden wird es freuen – seit dem Sommer ausgesetzt.",
+   "erste": {
+    "fraktion": "AfD",
+    "name": "Kurt Kleinschmidt"
+   },
+   "form": "Ägäis-Aktivität",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/%C3%84g%C3%A4is-Aktivit%C3%A4t"
+   },
+   "status": "ausgelassen"
+  },
   "Ämtersperre": {
    "erste": {
     "fraktion": "AfD",
@@ -44143,6 +46435,22 @@
     "pdf_url": "https://dserver.bundestag.de/btp/21/21099.pdf",
     "titel": "Protokoll der 99. Sitzung des 21. Deutschen Bundestages",
     "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/%C3%96d%C3%B6n"
+   },
+   "status": "ausgelassen"
+  },
+  "Öffentliche Hand": {
+   "beleg": "Wenn die Wohnungen, die Vonovia und Heimstaden gehören, endlich in öffentlicher Hand sind, können wir die Absenkung überhöhter Mieten endlich durchsetzen.",
+   "erste": {
+    "fraktion": "Die Linke",
+    "name": "Caren Lay"
+   },
+   "form": "Öffentliche Hand",
+   "protokoll": {
+    "datum": "13.11.2026",
+    "iso_datum": "2026-11-13",
+    "pdf_url": "https://dserver.bundestag.de/btp/21/21109.pdf",
+    "titel": "Protokoll der 109. Sitzung des 21. Deutschen Bundestages",
+    "wortseite": "https://ungeschneuer.github.io/plenum_first_said_website/wort/%C3%96ffentliche%20Hand"
    },
    "status": "ausgelassen"
   },
