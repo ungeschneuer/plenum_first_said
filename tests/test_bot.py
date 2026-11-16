@@ -42,11 +42,36 @@ class BotTest(unittest.TestCase):
         self.assertEqual(details['datum'], '12.11.2026')
         self.assertTrue(details['wortseite'].endswith('/wort/W%C3%A4rmepumpe'))
 
-    def test_speaker_from_the_site_when_optv_has_none(self):
+    def test_speaker_from_the_site_and_video_from_optv(self):
         entry = {'protokoll': bot.protocol_details(new_word('Wärmepumpe')),
-                 'erste': {'name': 'Anna Muster', 'fraktion': 'SPD'}}
-        metadata = bot.speaker_metadata(entry, {'link': 'https://optv', 'speaker': None, 'party': None})
-        self.assertEqual((metadata['speaker'], metadata['party'], metadata['link']), ('Anna Muster', 'SPD', 'https://optv'))
+                 'erste': {'name': 'Anna Muster', 'fraktion': 'SPD', 'zwischenruf': True}}
+        metadata = bot.speaker_metadata(entry, {'link': 'https://optv', 'speaker': 'Main Speaker', 'party': 'CDU/CSU'})
+        self.assertEqual((metadata['speaker'], metadata['party'], metadata['link'], metadata['occasion']),
+                         ('Anna Muster', 'SPD', 'https://optv', 'zwischenruf'))
+
+    def test_without_optv_there_is_no_video_link(self):
+        entry = {'protokoll': bot.protocol_details(new_word('Wärmepumpe')),
+                 'erste': {'name': 'Olaf Scholz', 'rolle': 'Bundeskanzler', 'zitat': True}}
+        metadata = bot.speaker_metadata(entry, False)
+        self.assertIsNone(metadata['link'])
+        self.assertEqual((metadata['role'], metadata['occasion']), ('Bundeskanzler', 'zitat'))
+
+    def test_names_and_terms_of_several_words_are_not_posted(self):
+        self.assertFalse(bot.is_postable('Kohl (Name)'))
+        self.assertFalse(bot.is_postable('Künstliche Intelligenz'))
+
+    def test_the_form_said_in_the_sentence_is_posted(self):
+        word = {'lemma': 'völkerrechtsbindend', 'formen': ['völkerrechtsbindende', 'völkerrechtsbindender'],
+                'beleg': 'Das war ein völkerrechtsbindender Vertrag.'}
+        self.assertEqual(bot.said_form(word), 'völkerrechtsbindender')
+        self.assertEqual(bot.said_form({'lemma': 'Wort', 'formen': []}), 'Wort')
+
+    def test_queued_words_keep_form_and_evidence(self):
+        state = {'words': {}}
+        word = {**new_word('Wärmepumpe'), 'formen': ['Wärmepumpen'], 'beleg': 'Die Wärmepumpen laufen.'}
+        bot.queue_new_words(state, [word], post=True)
+        self.assertEqual(state['words']['Wärmepumpe']['form'], 'Wärmepumpen')
+        self.assertEqual(state['words']['Wärmepumpe']['beleg'], 'Die Wärmepumpen laufen.')
 
 
 if __name__ == '__main__':

@@ -1,192 +1,99 @@
-# -*- coding: utf-8 -*-
-#!/usr/bin/python
+"""Post a word and its replies on Mastodon.
 
+The word account posts the form said in the protocol, and the context reply uses it as hashtag; the context account replies in a thread: who said it and
+where (with the video of Open Parliament TV if there is one), the sentence of the protocol, and the links to the
+PDF and the word page. The Mastodon API fails now and then, so each post is tried again a few times.
+"""
 
+import hashlib
 import logging
 import os
-from mastodon import Mastodon
-import mastodon
+import re
 from time import sleep
-import hashlib
+
+from mastodon import Mastodon
+
+MastodonAPI = Mastodon(access_token=os.environ.get('MASTODON_FIRST_ACCESSTOKEN'), api_base_url='https://mastodon.social')
+MastodonKontextAPI = Mastodon(access_token=os.environ.get('MASTODON_KONTEXT_ACCESSTOKEN'),
+                              api_base_url='https://mastodon.social')
+
+MAXIMUM_ATTEMPTS = 11
+SECONDS_BETWEEN_ATTEMPTS = 60
+SECONDS_BEFORE_REPLIES = 5
+SPEAKER_SENTENCES = {
+    'rede': 'Es wurde im Rahmen der Rede von {} gesagt.',
+    'zwischenruf': 'Es fiel in einem Zwischenruf von {}.',
+    'zitat': 'Es fiel in einem Zitat, das {} vorlas.',
+}
 
 
+def hashtag(lemma):
+    """Mastodon ends a hashtag at a hyphen or other mark, so only letters, digits and underscores remain."""
+    return '#' + re.sub(r'\W', '', lemma)
 
-MastodonAPI = Mastodon(access_token = os.environ.get('MASTODON_FIRST_ACCESSTOKEN'),  api_base_url="https://mastodon.social")
-MastodonKontextAPI = Mastodon(access_token = os.environ.get('MASTODON_KONTEXT_ACCESSTOKEN'),  api_base_url="https://mastodon.social")
+
+def person(metadata):
+    affiliation = ', '.join(part for part in (metadata.get('party'), metadata.get('role')) if part)
+    return f"{metadata['speaker']} ({affiliation})" if affiliation else metadata['speaker']
 
 
-# Erstellt den Kontext-Text basierend auf den verfügbaren Metadaten.
-# Wenn Redner:in nicht vorhanden ist (z.B. nur Präsident:in/Vizepräsident:in im Datensatz),
-# wird der "wurde gesagt von" Teil weggelassen.
 def build_context_message(word, protocol, metadata):
-    titel = protocol['titel']
-    datum = protocol['datum']
-    link = metadata['link']
-    
-    if metadata.get('speaker') and metadata.get('party'):
-        # Vollständige Nachricht mit Redner:in und Partei
-        return "#{} tauchte zum ersten Mal im {} am {} auf. Es wurde im Rahmen der Rede von {} ({}) gesagt.\n\nVideo: {}".format(
-            word, titel, datum, metadata['speaker'], metadata['party'], link)
-    elif metadata.get('speaker'):
-        # Redner:in vorhanden, aber keine Partei
-        return "#{} tauchte zum ersten Mal im {} am {} auf. Es wurde im Rahmen der Rede von {} gesagt.\n\nVideo: {}".format(
-            word, titel, datum, metadata['speaker'], link)
-    else:
-        # Redner:in nicht gefunden - vereinfachte Nachricht ohne "wurde gesagt von"
-        return "#{} tauchte zum ersten Mal im {} am {} auf.\n\nVideo: {}".format(
-            word, titel, datum, link)
+    """Where the word fell first; the speaker sentence is left out if no speaker is known."""
+    message = f"{hashtag(word)} tauchte zum ersten Mal im {protocol['titel']} am {protocol['datum']} auf."
+    if metadata and metadata.get('speaker'):
+        sentence = SPEAKER_SENTENCES.get(metadata.get('occasion'), SPEAKER_SENTENCES['rede'])
+        message += ' ' + sentence.format(person(metadata))
+    if metadata and metadata.get('link'):
+        message += f"\n\nVideo: {metadata['link']}"
+    return message
 
 
-# Idempotency-Key pro Wort und Post-Art: Wenn ein Request beim Server ankommt,
-# die Antwort aber verloren geht (z.B. Timeout), erzeugt der Retry keinen zweiten Post.
+def build_evidence_message(evidence):
+    return f'Im Protokoll steht:\n\n{evidence}'
+
+
+def build_links_message(protocol):
+    return (f"Das {protocol['titel']} findet sich als PDF unter {protocol['pdf_url']}\n\n"
+            f"Wie oft der Bundestag es seit 1949 gesagt hat: {protocol['wortseite']}")
+
+
 def idempotency_key(word, kind):
+    """One key per word and post: if a post reached the server but the answer got lost, the retry posts nothing."""
     return hashlib.sha256((kind + ':' + word).encode('utf-8')).hexdigest()
 
 
-# Mastodon API is a bit wobbly so a fix with while loops 
-def toot_word(word, protocol, metadata):
-
-    # Max tries to get posting trough
-    patience = 0
-    
-    #Posts Word
-    is_afd = metadata and metadata.get('party') == 'AfD'
-    while True:
-        if patience > 10:
-            logging.info('Maximale Versuche wurde überschritten.')
-            return False
-        else:
-            try:
-                if is_afd:
-                    toot_status = MastodonAPI.status_post(word, spoiler_text='Wort von der AfD', sensitive=True,
-                                                         idempotency_key=idempotency_key(word, 'word'))
-                else:
-                    toot_status = MastodonAPI.status_post(word, idempotency_key=idempotency_key(word, 'word'))
-            except Exception as e:
-                logging.exception(e)
-                sleep(60)
-                patience += 1
-                continue
-            break
-
-    sleep(5)
-
-    # Posts Context
-    # Metada is information from OPTV
-    if metadata:
-        # Max tries reset
-        patience = 0
-        
-        # Erstelle Kontext-Nachricht (mit oder ohne Redner:in)
+def post_with_retries(account, text, **options):
+    for _attempt in range(MAXIMUM_ATTEMPTS):
         try:
-            context_message = build_context_message(word, protocol, metadata)
-        except Exception as e:
-            logging.exception(e)
-            return toot_status["id"]
-
-        while True:
-            if patience > 10:
-                logging.info('Maximale Versuche wurde überschritten.')
-                return toot_status["id"]
-            else:
-                try:
-                    context_status = MastodonKontextAPI.status_post(
-                        context_message,
-                        in_reply_to_id=toot_status["id"],
-                        idempotency_key=idempotency_key(word, 'context'))
-                except mastodon.MastodonNotFoundError as m:
-                    logging.exception(m)
-                    sleep(60)
-                    patience += 1 
-                    continue
-                except Exception as e:
-                    logging.exception(e)
-                    sleep(60)
-                    patience += 1
-                    continue
-                except:
-                    logging.exception("Unbekannter Fehler")
-                    sleep(60)
-                    patience += 1
-                    continue
-                break
-
-        # Max tries reset
-        patience = 0
-
-        while True:
-
-            if patience > 10:
-                logging.info('Maximale Versuche wurde überschritten.')
-                return toot_status["id"]
-            else:
-                try:
-                    second_context_status = MastodonKontextAPI.status_post(
-                        "Das {} findet sich als PDF unter {}\n\nWie oft der Bundestag es seit 1949 gesagt hat: {}".format(
-                            protocol['titel'],
-                            protocol['pdf_url'],
-                            protocol['wortseite']),
-                        in_reply_to_id=context_status["id"],
-                        idempotency_key=idempotency_key(word, 'pdf'))
-                except mastodon.MastodonNotFoundError as m:
-                    logging.exception(m)
-                    sleep(60)
-                    patience += 1
-                    continue
-                except AttributeError as e:
-                    logging.exception(e)
-                    sleep(60)
-                    patience += 1
-                    continue
-                except Exception as e:
-                    logging.exception(e)
-                    sleep(60)
-                    patience += 1
-                    continue
-                except:
-                    logging.exception("Unbekannter Fehler")
-                    sleep(60)
-                    patience += 1
-                    continue
-                break
+            return account.status_post(text, **options)
+        except Exception as error:
+            logging.exception(error)
+            sleep(SECONDS_BETWEEN_ATTEMPTS)
+    logging.info('Maximale Versuche wurde überschritten.')
+    return None
 
 
+def toot_word(word, protocol, metadata, form=None, evidence=None):
+    """Post the word and its replies; returns the id of the word post, or False if it could not be posted."""
+    is_afd = bool(metadata) and metadata.get('party') == 'AfD'
+    warning = {'spoiler_text': 'Wort von der AfD', 'sensitive': True} if is_afd else {}
+    word_status = post_with_retries(MastodonAPI, form or word, idempotency_key=idempotency_key(word, 'word'), **warning)
+    if word_status is None:
+        return False
 
-    else:
-        # Max tries reset
-        patience = 0
-        while True:
+    sleep(SECONDS_BEFORE_REPLIES)
+    replies = [('context', build_context_message(form or word, protocol, metadata))]
+    if evidence:
+        replies.append(('evidence', build_evidence_message(evidence)))
+    replies.append(('pdf', build_links_message(protocol)))
 
-            if patience > 10:
-                logging.info('Maximale Versuche wurde überschritten.')
-                return toot_status["id"]
-            else:
-                try:     
-                    context_status = MastodonKontextAPI.status_post("#{} tauchte zum ersten Mal im {} am {} auf. Das Protokoll findet sich unter {}\n\nWie oft der Bundestag es seit 1949 gesagt hat: {}".format(
-                        word,
-                        protocol['titel'],
-                        protocol['datum'],
-                        protocol['pdf_url'],
-                        protocol['wortseite']),
-                        in_reply_to_id = toot_status["id"],
-                        idempotency_key=idempotency_key(word, 'context'))
-                except mastodon.MastodonNotFoundError as m:
-                    logging.exception("Unbekannter Fehler")
-                    sleep(60)
-                    patience += 1 
-                    continue
-                except Exception as e:
-                    logging.exception(e)
-                    sleep(60)
-                    patience += 1
-                    continue
-                except:
-                    logging.exception("Unbekannter Fehler")
-                    sleep(60)
-                    patience += 1
-                    continue
-                break
-
+    reply_to = word_status['id']
+    for kind, text in replies:
+        status = post_with_retries(MastodonKontextAPI, text, in_reply_to_id=reply_to,
+                                   idempotency_key=idempotency_key(word, kind))
+        if status is None:
+            break
+        reply_to = status['id']
 
     logging.info('Toot wurde erfolgreich gesendet.')
-    return toot_status["id"]
+    return word_status['id']

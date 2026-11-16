@@ -5,7 +5,9 @@ protocols (neue-woerter.json). New candidates join the queue in state/bot.json; 
 and the next post waits a random 55 to 120 minutes, as before. The state file is committed by the workflow.
 
 Before posting, Open Parliament TV is asked whether the word was said before the protocol date; it also supplies
-the video link and speaker for the context reply. Without OPTV data, the speaker comes from the site.
+the video link for the context reply. The speaker comes from the site, which also knows whether the word fell in an
+interjection or a quotation read out; OPTV only knows the main speaker of the speech. The main post and the hashtag
+show the form said in the protocol; a further reply quotes the sentence of the protocol.
 
 The first run only records the current candidates without posting, so that words posted by the earlier bot on
 the server are not posted again.
@@ -51,8 +53,9 @@ def fetch_new_words() -> list[dict]:
 
 
 def is_postable(lemma: str) -> bool:
-    """The filters of the earlier bot: no short words, numbers, glued words or line-break compounds."""
-    return (len(lemma) >= MINIMUM_WORD_LENGTH and not any(character.isdigit() for character in lemma)
+    """The filters of the earlier bot: no short words, numbers, glued words or line-break compounds. Names
+    ("Kohl (Name)") and terms of several words ("Künstliche Intelligenz") are no new words either."""
+    return (len(lemma) >= MINIMUM_WORD_LENGTH and ' ' not in lemma and not any(character.isdigit() for character in lemma)
             and not any(character.isupper() for character in lemma[1:])
             and not LOWERCASE_COMPOUND.search(lemma))
 
@@ -64,6 +67,16 @@ def without_similar_words(lemmas: list[str]) -> list[str]:
         if not difflib.get_close_matches(lemma, kept, n=SIMILAR_WORDS_PER_GROUP):
             kept.append(lemma)
     return kept
+
+
+def said_form(word: dict) -> str:
+    """The form of the lemma in the sentence of the first occurrence, so that the post shows what was said."""
+    forms = word.get('formen') or []
+    evidence = word.get('beleg') or ''
+    for form in forms:
+        if re.search(rf'(?<!\w){re.escape(form)}(?!\w)', evidence):
+            return form
+    return forms[0] if forms else word['lemma']
 
 
 def protocol_details(word: dict) -> dict:
@@ -85,7 +98,8 @@ def queue_new_words(state: dict, new_words: list[dict], post: bool) -> None:
     postable = set(without_similar_words([word['lemma'] for word in candidates if is_postable(word['lemma'])]))
     for word in candidates:
         status = 'wartet' if post and word['lemma'] in postable else 'ausgelassen'
-        known[word['lemma']] = {'status': status, 'protokoll': protocol_details(word), 'erste': word.get('erste')}
+        known[word['lemma']] = {'status': status, 'protokoll': protocol_details(word), 'erste': word.get('erste'),
+                                'form': said_form(word), 'beleg': word.get('beleg')}
     logging.info('%d neue Kandidaten, davon %d in der Warteschlange', len(candidates),
                  sum(1 for word in candidates if known[word['lemma']]['status'] == 'wartet'))
 
@@ -95,16 +109,21 @@ def is_too_old(entry: dict) -> bool:
     return (now().date() - session_date).days > MAX_WORD_AGE_DAYS
 
 
+def occasion(first_speaker: dict) -> str:
+    if first_speaker.get('zitat'):
+        return 'zitat'
+    return 'zwischenruf' if first_speaker.get('zwischenruf') else 'rede'
+
+
 def speaker_metadata(entry: dict, optv_metadata: dict | bool) -> dict | bool:
-    if optv_metadata and optv_metadata.get('speaker'):
-        return optv_metadata
+    """Speaker, faction, role and occasion from the site; OPTV adds the video link, and the speaker only where
+    the site has none."""
     first_speaker = entry.get('erste')
     if not first_speaker:
         return optv_metadata
-    metadata = dict(optv_metadata) if optv_metadata else {'link': entry['protokoll']['wortseite']}
-    metadata['speaker'] = first_speaker['name']
-    metadata['party'] = first_speaker.get('fraktion')
-    return metadata
+    return {'link': optv_metadata.get('link') if optv_metadata else None, 'speaker': first_speaker['name'],
+            'party': first_speaker.get('fraktion'), 'role': first_speaker.get('rolle'),
+            'occasion': occasion(first_speaker)}
 
 
 def post_one_word(state: dict) -> None:
@@ -128,7 +147,9 @@ def post_one_word(state: dict) -> None:
         logging.info('„%s“ wurde bei OPTV vor dem Protokolldatum gefunden.', lemma)
         return
 
-    mastodon_id = toot_word(lemma, protocol, speaker_metadata(entry, check_for_infos(lemma, protocol)))
+    form = entry.get('form') or lemma
+    metadata = speaker_metadata(entry, check_for_infos(form, protocol))
+    mastodon_id = toot_word(lemma, protocol, metadata, form=form, evidence=entry.get('beleg'))
     if not mastodon_id:
         logging.info('„%s“ konnte nicht gepostet werden und bleibt in der Warteschlange.', lemma)
         return

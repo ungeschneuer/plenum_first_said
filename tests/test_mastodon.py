@@ -34,34 +34,61 @@ class MastodonTest(unittest.TestCase):
             patch.start()
             self.addCleanup(patch.stop)
 
-    def test_word_with_context_and_pdf_reply(self):
-        metadata = {'link': 'https://optv/media/1', 'speaker': 'Anna Muster', 'party': 'SPD'}
-        mastodon_id = mastodon_cred.toot_word('Wärmepumpenpflicht', PROTOCOL, metadata)
+    def test_word_with_context_evidence_and_links_in_one_thread(self):
+        metadata = {'link': 'https://optv/media/1', 'speaker': 'Anna Muster', 'party': 'SPD', 'occasion': 'rede'}
+        mastodon_id = mastodon_cred.toot_word('Wärmepumpenpflicht', PROTOCOL, metadata, form='Wärmepumpenpflichten',
+                                              evidence='Die Wärmepumpenpflichten kommen.')
 
         self.assertEqual(mastodon_id, 101)
-        self.assertEqual(self.word_account.posts[0][0], 'Wärmepumpenpflicht')
-        context, pdf = self.context_account.posts
-        self.assertIn('Anna Muster (SPD)', context[0])
-        self.assertIn('https://optv/media/1', context[0])
+        self.assertEqual(self.word_account.posts[0][0], 'Wärmepumpenpflichten')
+        context, evidence, links = self.context_account.posts
+        self.assertIn('#Wärmepumpenpflichten tauchte', context[0])
+        self.assertIn('Rede von Anna Muster (SPD) gesagt', context[0])
+        self.assertIn('Video: https://optv/media/1', context[0])
         self.assertEqual(context[1]['in_reply_to_id'], 101)
-        self.assertIn(PROTOCOL['pdf_url'], pdf[0])
-        self.assertIn(PROTOCOL['wortseite'], pdf[0])
-        self.assertEqual(pdf[1]['in_reply_to_id'], 201)
+        self.assertIn('Die Wärmepumpenpflichten kommen.', evidence[0])
+        self.assertEqual(evidence[1]['in_reply_to_id'], 201)
+        self.assertIn(PROTOCOL['pdf_url'], links[0])
+        self.assertIn(PROTOCOL['wortseite'], links[0])
+        self.assertEqual(links[1]['in_reply_to_id'], 202)
+
+    def test_interjection_quotation_and_role_are_named(self):
+        interjection = {'speaker': 'B', 'party': 'FDP', 'occasion': 'zwischenruf'}
+        quotation = {'speaker': 'Hakan Demir', 'party': 'SPD', 'occasion': 'zitat'}
+        government = {'speaker': 'Gerhard Schröder', 'role': 'Bundeskanzler', 'occasion': 'rede'}
+        self.assertIn('in einem Zwischenruf von B (FDP).', mastodon_cred.build_context_message('W', PROTOCOL, interjection))
+        self.assertIn('in einem Zitat, das Hakan Demir (SPD) vorlas.',
+                      mastodon_cred.build_context_message('W', PROTOCOL, quotation))
+        self.assertIn('Gerhard Schröder (Bundeskanzler)', mastodon_cred.build_context_message('W', PROTOCOL, government))
+
+    def test_no_video_line_without_a_video(self):
+        message = mastodon_cred.build_context_message('W', PROTOCOL, {'link': None, 'speaker': 'B', 'party': 'SPD'})
+        self.assertNotIn('Video', message)
+
+    def test_hashtag_keeps_only_word_characters(self):
+        self.assertEqual(mastodon_cred.hashtag('Ägäis-Aktivität'), '#ÄgäisAktivität')
 
     def test_content_warning_for_words_of_the_afd(self):
         mastodon_cred.toot_word('Remigrationsplan', PROTOCOL, {'link': 'x', 'speaker': 'B', 'party': 'AfD'})
         self.assertEqual(self.word_account.posts[0][1]['spoiler_text'], 'Wort von der AfD')
 
-    def test_without_metadata_a_single_reply_links_protocol_and_word_page(self):
+    def test_without_metadata_context_and_links_are_posted(self):
         mastodon_cred.toot_word('Wärmepumpenpflicht', PROTOCOL, False)
-        (reply,) = self.context_account.posts
-        self.assertIn(PROTOCOL['pdf_url'], reply[0])
-        self.assertIn(PROTOCOL['wortseite'], reply[0])
+        context, links = self.context_account.posts
+        self.assertNotIn('gesagt', context[0])
+        self.assertIn(PROTOCOL['pdf_url'], links[0])
+        self.assertIn(PROTOCOL['wortseite'], links[0])
 
     def test_posts_are_idempotent(self):
         mastodon_cred.toot_word('Wärmepumpenpflicht', PROTOCOL, False)
         self.assertTrue(self.word_account.posts[0][1]['idempotency_key'])
 
+    def test_word_post_that_keeps_failing_returns_false(self):
+        class FailingAccount:
+            def status_post(self, text, **options):
+                raise ConnectionError('down')
+        with mock.patch.object(mastodon_cred, 'MastodonAPI', FailingAccount()):
+            self.assertFalse(mastodon_cred.toot_word('Wärmepumpenpflicht', PROTOCOL, False))
 
 if __name__ == '__main__':
     unittest.main()
